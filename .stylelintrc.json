@@ -1,15 +1,18 @@
 {
-  "extends": [
-    "stylelint-config-twbs-bootstrap"
+  "plugins": [
+    "stylelint-scss"
   ],
   "reportInvalidScopeDisables": true,
   "reportNeedlessDisables": true,
+  "rules": {},
   "overrides": [
     {
-      "files": "**/*.scss",
+      "files": [
+        "**/*.scss"
+      ],
+      "customSyntax": "postcss-scss",
       "rules": {
-        "scss/selector-no-union-class-name": true,
-        "@stylistic/no-missing-end-of-source-newline": null
+        "scss/selector-no-union-class-name": true
       }
     }
   ]

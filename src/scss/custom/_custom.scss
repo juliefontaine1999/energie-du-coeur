@@ -1,0 +1,72 @@
+:root {
+    --font-body: "Hanken Grotesk", system-ui, sans-serif;
+}
+
+body {
+    font-family: $body-font-family;
+}
+
+.section-title {
+    font-family: "Roslindale", serif;
+    font-size: 2rem;
+    display: block;
+    color: $primary-color;
+}
+
+.section {
+    padding: 3rem 5rem;
+}
+
+$topbar-bg: $white !default;
+$welcome-bg: $white !default;
+$prestations-bg: $white !default;
+$about-bg: $light-green !default;
+$appointment-bg: $white !default;
+$gift-card-bg: $light-green !default;
+$last-section-bg: $white !default;
+$footer-bg: $primary-color !default;
+
+#topBar {
+    background-color: $topbar-bg;
+}
+
+#welcome {
+    background-color: $welcome-bg;
+}
+
+#prestations {
+    background-color: $prestations-bg;
+}
+
+#aboutMe {
+    background-color: $about-bg;
+}
+
+#makeAppointment {
+    background-color: $appointment-bg;
+}
+
+#giftCard {
+    background-color: $gift-card-bg;
+}
+
+#lastSection {
+    background-color: $last-section-bg;
+}
+
+#footer {
+    padding: 1rem 5rem;
+    background-color:
+
+        $footer-bg;
+    color: $white;
+}
+
+.sara-link {
+    color: $white;
+    text-decoration: underline;
+
+    &:hover {
+        color: lighten($white, 10%);
+    }
+}

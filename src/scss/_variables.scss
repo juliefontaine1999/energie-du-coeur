@@ -1,0 +1,33 @@
+@use "sass:map";
+
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px) !default;
+
+$spacing: (
+    0: 0,
+    1: .25rem,
+    2: .5rem,
+    3: 1rem,
+    4: 1.5rem,
+    5: 2rem) !default;
+
+// Colors
+$white: #F7F5F2 !default;
+$beige: #EFE8DE !default;
+$light-green: #D6D4C8 !default;
+
+$primary-color: #516450 !default;
+$text-color: $primary-color !default;
+$inverted-text-color: $white !default;
+
+// Fonts
+$root-font-size: 13px !default;
+$body-font-family: "Hanken Grotesk",
+    sans-serif !default;
+
+// Gaps
+$gap-comp: map.get($spacing, "2") !default;
+$gap-block: map.get($spacing, "3") !default;

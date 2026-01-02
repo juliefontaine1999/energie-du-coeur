@@ -1,0 +1,12 @@
+$grid-columns: 12 !default;
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat($grid-columns, 1fr);
+}
+
+@for $i from 1 through $grid-columns {
+    @include make-responsive(col-#{$i}) {
+        grid-column: span $i;
+    }
+}

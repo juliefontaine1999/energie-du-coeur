@@ -1,0 +1,28 @@
+@each $name, $value in $spacing {
+    .gap-#{$name} {
+        gap: #{$value};
+    }
+
+    @include create-for-directions("p", "padding", $name, $value);
+    @include create-for-directions("m", "margin", $name, $value);
+}
+
+.gap-comp {
+    gap: $gap-comp;
+}
+
+.gap-block {
+    gap: $gap-block;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.underlined {
+    text-decoration: underline;
+}
