@@ -62,8 +62,8 @@ p {
     padding: $section-padding-vertical $section-padding-horizontal;
     background: linear-gradient(to bottom,
             $white 0%,
-            $white 20%,
-            $beige 20%,
+            $white 30%,
+            $beige 30%,
             $beige 100%);
 
     #profilePicture {
@@ -72,6 +72,7 @@ p {
         height: 100%;
         border-radius: 500px 500px 0px 0px;
         object-fit: cover;
+        border: 1px solid $secondary-color;
     }
 
     #welcomeText {
