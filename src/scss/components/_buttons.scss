@@ -1,0 +1,26 @@
+@use "sass:map";
+
+$btn-border-radius: 1px !default;
+$small-btn-padding-vertical: map.get($spacing, "3") !default;
+$small-btn-padding-horizontal: map.get($spacing, "3") !default;
+$small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !default;
+
+.btn {
+    border: none;
+    border-radius: $btn-border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.btn-primary {
+        background-color: $primary-color;
+        color: $white;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+
+    &.btn-small {
+        padding: $small-btn-padding;
+    }
+}

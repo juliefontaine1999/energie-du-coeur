@@ -25,6 +25,10 @@ $directions: (
         }
     }
 
+    .#{$class-name}-#{$spacing-name} {
+        #{$property}: $spacing-value;
+    }
+
     .#{$class-name}x-#{$spacing-name} {
         #{$property}-left: $spacing-value;
         #{$property}-right: $spacing-value;

@@ -1,3 +1,17 @@
+@use "sass:map";
+
+$section-padding-vertical: map.get($spacing, "7") !default;
+$section-padding-horizontal: 200px !default;
+
+$topbar-bg: $white !default;
+$welcome-bg: $white !default;
+$prestations-bg: $white !default;
+$about-bg: $light-green !default;
+$appointment-bg: $white !default;
+$gift-card-bg: $light-green !default;
+$last-section-bg: $white !default;
+$footer-bg: $primary-color !default;
+
 :root {
     --font-body: "Hanken Grotesk", system-ui, sans-serif;
 }
@@ -14,24 +28,62 @@ body {
 }
 
 .section {
-    padding: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-block;
+    padding: $section-padding-vertical $section-padding-horizontal;
 }
 
-$topbar-bg: $white !default;
-$welcome-bg: $white !default;
-$prestations-bg: $white !default;
-$about-bg: $light-green !default;
-$appointment-bg: $white !default;
-$gift-card-bg: $light-green !default;
-$last-section-bg: $white !default;
-$footer-bg: $primary-color !default;
+p {
+    color: $primary-color;
+    text-align: justify;
+}
 
 #topBar {
     background-color: $topbar-bg;
+    padding: map.get($spacing, "4") $section-padding-horizontal;
+
+    .menu-link {
+        color: $primary-color;
+        text-transform: uppercase;
+        padding: $small-btn-padding-vertical 2rem;
+
+        &.selected {
+            border-bottom: 2px solid $primary-color;
+        }
+
+        &:hover {
+            color: darken($primary-color, 10%);
+        }
+    }
 }
 
 #welcome {
-    background-color: $welcome-bg;
+    padding: $section-padding-vertical $section-padding-horizontal;
+    background: linear-gradient(to bottom,
+            $white 0%,
+            $white 20%,
+            $beige 20%,
+            $beige 100%);
+
+    #profilePicture {
+        max-width: 480px;
+        max-height: 550px;
+        height: 100%;
+        border-radius: 500px 500px 0px 0px;
+        object-fit: cover;
+    }
+
+    #welcomeText {
+        font-family: "Roslindale", serif;
+        border: 1px solid $secondary-color;
+        background-color: $white;
+    }
+
+    #locationText {
+        font-size: 1.5rem;
+        color: $primary-color;
+    }
 }
 
 #prestations {
@@ -55,7 +107,7 @@ $footer-bg: $primary-color !default;
 }
 
 #footer {
-    padding: 1rem 5rem;
+    padding: 1rem $section-padding-horizontal;
     background-color:
 
         $footer-bg;
@@ -69,4 +121,10 @@ $footer-bg: $primary-color !default;
     &:hover {
         color: lighten($white, 10%);
     }
+}
+
+.inverted-logo {
+    object-fit: cover;
+    width: 250px;
+    height: 100%;
 }

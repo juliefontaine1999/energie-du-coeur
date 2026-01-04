@@ -12,12 +12,49 @@
 
 <body>
     <div id="wrapper">
-        <div id="topBar">
-            <img src="src/images/logo_no_text.svg" alt="logo no title">
-            <img src="src/images/title.svg" alt="title">
+        <div id="topBar" class="pt-4 flex justify-space-between align-center">
+            <div id="logoTextRight" class="flex align-center gap-comp">
+                <img src="src/images/logo_no_text.svg" alt="logo no title">
+                <img src="src/images/title.svg" alt="title">
+            </div>
+
+            <div id="menu" class="flex align-center">
+                <a href="#welcome" class="menu-link selected">Accueil</a>
+                <a href="#prestations" class="menu-link">Prestations</a>
+                <a href="#aboutMe" class="menu-link">A propos</a>
+                <a href="#giftCard" class="menu-link">Bons cadeaux</a>
+                <a href="#makeAppointment" class="btn btn-primary btn-small uppercase">Rendez-vous</a>
+            </div>
         </div>
 
-        <div id="welcome">
+        <div id="welcome" class="flex justify-center align-center gap-block">
+            <img id="profilePicture" src="src/images/profile_picture.jpg" alt="photo julie fontaine">
+
+            <div id="welcomeText" class="flex flex-column align-center gap-block p-7">
+                <div class="section-title">
+                    Bienvenue
+                </div>
+                <div>
+                    <p>
+                        Un espace dédié au mieux-être, aux soins énergétiques, aux soins à distance, à la
+                        numérologie et
+                        aux
+                        tirages de cartes.</br>
+                        Je vous accompagne avec douceur et bienveillance pour retrouver équilibre, clarté et
+                        sérénité.
+                        </br>
+
+                        Je vous propose des accompagnements personnalisés pour vous aider à avancer plus
+                        sereinement,
+                        avec
+                        authenticité et respect.
+                    </p>
+                </div>
+                <div class="flex justify-center align-center gap-3 pt-3">
+                    <img src="src/images/localisation icon.svg" alt="localisation icon">
+                    <div id="locationText">1680 Romont</div>
+                </div>
+            </div>
         </div>
 
         <div id="prestations" class="section">
@@ -25,7 +62,32 @@
         </div>
 
         <div id="aboutMe" class="section">
-            <span class="section-title">Je suis Julie Fontaine</span>
+            <span class="section-title">Qui suis-je ?</span>
+            <div class="section-content flex gap-block">
+                <div class="flex flex-column gap-comp">
+                    <p>
+                        <span class="bold uppercase">Je suis Julie Fontaine</span>
+                    </p>
+                    <p>
+                        <span class="bold uppercase">Certifiée pour le reiki et la
+                            numérologie</span>
+                    </p>
+                    <p>
+                        Empathique et à l’écoute, j’ai découvert les soins énergétiques après un grand bouleversement
+                        personnel. Cette expérience a été le point de départ d’un véritable cheminement intérieur.</br>
+                        J’ai alors suivi différentes formations et ateliers afin de comprendre, d’apprendre et de
+                        développer mes compétences dans le domaine des soins énergétiques. Ce chemin est devenu une
+                        véritable passion, qui m’a menée à créer Énergie du Cœur.</br>
+                        Animée par une curiosité constante et le désir d’offrir un accompagnement de qualité, je
+                        continue à me former régulièrement afin de vous proposer des soins toujours plus adaptés à vos
+                        besoins.</br>
+                        Je me réjouis de vous accueillir et je vous remercie de tout cœur pour la confiance que vous
+                        m’accordez !
+                    </p>
+
+                </div> <!-- text -->
+                <img src="src/images/logo_no_text_white.svg" class="inverted-logo" alt="logo no title">
+            </div>
         </div>
 
         <div id="makeAppointment" class="section">
@@ -36,11 +98,11 @@
             <span class="section-title">Commander un bon cadeau</span>
         </div>
 
-        <div id="lastSection" class="section">
+        <div id="lastSection" class="py-7 flex justify-center align-center">
             <img src="src/images/logo_title_bottom.svg" alt="logo with title">
         </div>
 
-        <div id="footer" class="flex">
+        <div id="footer" class="flex justify-space-between align-center">
             <div>© 2026 - Tous droits réservés</div>
             <div>Site web par Vincent Brodard - Photos par <a href="#" target="_blank" class="sara-link">Sarah
                     Brandini</a></div>

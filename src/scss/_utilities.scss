@@ -23,6 +23,27 @@
     flex-direction: column;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .underlined {
     text-decoration: underline;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
