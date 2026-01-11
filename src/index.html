@@ -7,6 +7,7 @@
     <meta name="description"
         content="Soins énergétiques, numérologie et tirages de cartes à Romont. Julie Fontaine vous accompagne avec douceur pour retrouver équilibre, clarté et sérénité.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="<%= require('./assets/images/favicon.ico') %>">
     <title>Energie du Coeur</title>
 </head>
 
@@ -14,8 +15,8 @@
     <div id="wrapper">
         <div id="topBar" class="pt-4 flex justify-space-between align-center">
             <div id="logoTextRight" class="flex align-center gap-comp">
-                <img src="src/images/logo_no_text.svg" alt="logo no title">
-                <img src="src/images/title.svg" alt="title">
+                <img src="<%= require('./assets/images/logo_no_text.svg') %>" alt="logo no title">
+                <img src="<%= require('./assets/images/title.svg') %>" alt="title">
             </div>
 
             <div id="menu" class="flex align-center">
@@ -28,7 +29,8 @@
         </div>
 
         <div id="welcome" class="flex justify-center align-center gap-block">
-            <img id="profilePicture" src="src/images/profile_picture.jpg" alt="photo julie fontaine">
+            <img id="profilePicture" src="<%= require('./assets/images/profile_picture.jpg') %>"
+                alt="photo julie fontaine">
 
             <div id="welcomeText" class="flex flex-column align-center gap-block p-7">
                 <div class="section-title">
@@ -51,7 +53,7 @@
                     </p>
                 </div>
                 <div class="flex justify-center align-center gap-3 pt-3">
-                    <img src="src/images/localisation icon.svg" alt="localisation icon">
+                    <img src="<%= require('./assets/images/localisation icon.svg') %>" alt="localisation icon">
                     <div id="locationText">1680 Romont</div>
                 </div>
             </div>
@@ -95,7 +97,8 @@
                     </p>
 
                 </div> <!-- text -->
-                <img src="src/images/logo_no_text_white.svg" class="inverted-logo" alt="logo no title">
+                <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo"
+                    alt="logo no title">
             </div>
         </div>
 
@@ -108,7 +111,7 @@
         </div>
 
         <div id="lastSection" class="py-7 flex justify-center align-center">
-            <img src="src/images/logo_title_bottom.svg" alt="logo with title">
+            <img src="<%= require('./assets/images/logo_title_bottom.svg') %>" alt="logo with title">
         </div>
 
         <div id="footer" class="flex justify-space-between align-center">
@@ -116,8 +119,10 @@
             <div>Site web par Vincent Brodard - Photos par <a href="#" target="_blank" class="sara-link">Sarah
                     Brandini</a></div>
             <div class="flex gap-comp">
-                <a href="#" target="_blank"><img src="src/images/Facebook.svg" alt="facebook icon"></a>
-                <a href="#" target="_blank"><img src="src/images/instagram.svg" alt="instagram icon"></a>
+                <a href="#" target="_blank"><img src="<%= require('./assets/images/Facebook.svg') %>"
+                        alt="facebook icon"></a>
+                <a href="#" target="_blank"><img src="<%= require('./assets/images/instagram.svg') %>"
+                        alt="instagram icon"></a>
             </div>
         </div>
     </div>
