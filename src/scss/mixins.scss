@@ -1,9 +1,11 @@
+@use "variables.scss";
+
 @mixin make-responsive($class-name) {
     .#{$class-name} {
         @content;
     }
 
-    @each $name, $min in $breakpoints {
+    @each $name, $min in variables.$breakpoints {
         @media (min-width: $min) {
             .#{$name}\:#{$class-name} {
                 @content;

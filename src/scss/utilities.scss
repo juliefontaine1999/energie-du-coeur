@@ -1,18 +1,21 @@
-@each $name, $value in $spacing {
+@use "variables.scss";
+@use "mixins.scss";
+
+@each $name, $value in variables.$spacing {
     .gap-#{$name} {
         gap: #{$value};
     }
 
-    @include create-for-directions("p", "padding", $name, $value);
-    @include create-for-directions("m", "margin", $name, $value);
+    @include mixins.create-for-directions("p", "padding", $name, $value);
+    @include mixins.create-for-directions("m", "margin", $name, $value);
 }
 
 .gap-comp {
-    gap: $gap-comp;
+    gap: variables.$gap-comp;
 }
 
 .gap-block {
-    gap: $gap-block;
+    gap: variables.$gap-block;
 }
 
 .flex {

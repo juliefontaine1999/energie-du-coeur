@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "sass:color";
+@use "../variables.scss";
+
+$btn-border-radius: 1px !default;
+
+$btn-padding-vertical: map.get(variables.$spacing, "3") !default;
+$btn-padding-horizontal: map.get(variables.$spacing, "3") !default;
+$btn-padding: $btn-padding-vertical $btn-padding-horizontal !default;
+$btn-font-size: 1.5rem !default;
+
+$small-btn-padding-vertical: map.get(variables.$spacing, "3") !default;
+$small-btn-padding-horizontal: map.get(variables.$spacing, "3") !default;
+$small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !default;
+$small-btn-font-size: 1rem !default;
+
+.btn {
+    padding: $btn-padding;
+    border: none;
+    border-radius: $btn-border-radius;
+    font-family: "RoslindaleDisplayNarrow", serif;
+    font-size: $btn-font-size;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.btn-primary {
+        background-color: variables.$primary-color;
+        color: variables.$white;
+
+        &:hover {
+            background-color: color.adjust(variables.$primary-color, $lightness: -10%);
+        }
+    }
+
+    &.btn-secondary {
+        border: 1px solid variables.$primary-color;
+        color: variables.$primary-color;
+
+        &:hover {
+            background-color: color.adjust(variables.$primary-color, $lightness: -10%);
+        }
+    }
+
+    &.btn-small {
+        padding: $small-btn-padding;
+        font-size: $small-btn-font-size;
+    }
+}

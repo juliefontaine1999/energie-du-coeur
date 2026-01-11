@@ -1,0 +1,147 @@
+@use "sass:map";
+@use "sass:color";
+@use "../variables.scss";
+@use "../components/buttons.scss";
+
+$section-padding-vertical: map.get(variables.$spacing, "7") !default;
+$section-padding-horizontal: 200px !default;
+
+$topbar-bg: variables.$white !default;
+$welcome-bg: variables.$white !default;
+$prestations-bg: variables.$white !default;
+$about-bg: variables.$light-green !default;
+$appointment-bg: variables.$white !default;
+$gift-card-bg: variables.$light-green !default;
+$last-section-bg: variables.$white !default;
+$footer-bg: variables.$primary-color !default;
+
+:root {
+    --font-body: "Hanken Grotesk", system-ui, sans-serif;
+}
+
+body {
+    font-family: variables.$body-font-family;
+}
+
+.section-title {
+    font-family: "RoslindaleDisplayNarrow", serif;
+    font-size: 2rem;
+    display: block;
+    color: variables.$primary-color;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: variables.$gap-block;
+    padding: $section-padding-vertical $section-padding-horizontal;
+}
+
+p {
+    color: variables.$primary-color;
+    text-align: justify;
+}
+
+.divider {
+    background-color: variables.$secondary-color;
+
+    &.horizontal-divider {
+        width: 100%;
+        height: 1px;
+    }
+}
+
+#topBar {
+    background-color: $topbar-bg;
+    padding: map.get(variables.$spacing, "4") $section-padding-horizontal;
+
+    #menu .btn {
+        font: inherit;
+    }
+
+    .menu-link {
+        color: variables.$primary-color;
+        text-transform: uppercase;
+        padding: buttons.$small-btn-padding-vertical 2rem;
+
+        &.selected {
+            border-bottom: 2px solid variables.$primary-color;
+        }
+
+        &:hover {
+            color: color.adjust(variables.$primary-color, $lightness: -10%);
+        }
+    }
+}
+
+#welcome {
+    padding: $section-padding-vertical $section-padding-horizontal;
+    background: linear-gradient(to bottom,
+            variables.$white 0%,
+            variables.$white 30%,
+            variables.$beige 30%,
+            variables.$beige 100%);
+
+    #profilePicture {
+        max-width: 480px;
+        max-height: 550px;
+        height: 100%;
+        border-radius: 500px 500px 0px 0px;
+        object-fit: cover;
+        border: 1px solid variables.$secondary-color;
+    }
+
+    #welcomeText {
+        font-family: "RoslindaleDisplayNarrow", serif;
+        border: 1px solid variables.$secondary-color;
+        background-color: variables.$white;
+    }
+
+    #locationText {
+        font-size: 1.5rem;
+        color: variables.$primary-color;
+    }
+}
+
+#prestations {
+    background-color: $prestations-bg;
+}
+
+#aboutMe {
+    background-color: $about-bg;
+}
+
+#makeAppointment {
+    background-color: $appointment-bg;
+}
+
+#giftCard {
+    background-color: $gift-card-bg;
+}
+
+#lastSection {
+    background-color: $last-section-bg;
+}
+
+#footer {
+    padding: 1rem $section-padding-horizontal;
+    background-color:
+
+        $footer-bg;
+    color: variables.$white;
+}
+
+.sara-link {
+    color: variables.$white;
+    text-decoration: underline;
+
+    &:hover {
+        color: color.adjust(variables.$white, $lightness: 10%);
+    }
+}
+
+.inverted-logo {
+    object-fit: cover;
+    width: 250px;
+    height: 100%;
+}

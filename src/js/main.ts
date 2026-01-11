@@ -1,2 +1,2 @@
-import '../scss/_all.scss'
+import '../scss/all.scss'
 console.log('TypeScript fonctionne')

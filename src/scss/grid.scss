@@ -1,3 +1,5 @@
+@use "mixins.scss";
+
 $grid-columns: 12 !default;
 
 .grid {
@@ -6,7 +8,7 @@ $grid-columns: 12 !default;
 }
 
 @for $i from 1 through $grid-columns {
-    @include make-responsive(col-#{$i}) {
+    @include mixins.make-responsive(col-#{$i}) {
         grid-column: span $i;
     }
 }
