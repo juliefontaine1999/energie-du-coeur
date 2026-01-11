@@ -1,13 +1,23 @@
 @use "sass:map";
 
 $btn-border-radius: 1px !default;
+
+$btn-padding-vertical: map.get($spacing, "3") !default;
+$btn-padding-horizontal: map.get($spacing, "3") !default;
+$btn-padding: $btn-padding-vertical $btn-padding-horizontal !default;
+$btn-font-size: 1.5rem !default;
+
 $small-btn-padding-vertical: map.get($spacing, "3") !default;
 $small-btn-padding-horizontal: map.get($spacing, "3") !default;
 $small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !default;
+$small-btn-font-size: 1rem !default;
 
 .btn {
+    padding: $btn-padding;
     border: none;
     border-radius: $btn-border-radius;
+    font-family: "Roslindale", serif;
+    font-size: $btn-font-size;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
@@ -20,7 +30,17 @@ $small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !d
         }
     }
 
+    &.btn-secondary {
+        border: 1px solid $primary-color;
+        color: $primary-color;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+
     &.btn-small {
         padding: $small-btn-padding;
+        font-size: $small-btn-font-size;
     }
 }
