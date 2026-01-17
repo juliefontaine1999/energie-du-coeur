@@ -40,6 +40,7 @@ body {
 p {
     color: variables.$primary-color;
     text-align: justify;
+    line-height: 1.8rem;
 }
 
 .divider {
@@ -106,6 +107,28 @@ p {
 #prestations {
     background-color: $prestations-bg;
 
+    .carousel {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 1rem;
+        --cards-visible: 3;
+    }
+
+    .carousel-cards-wrapper {
+        overflow: hidden;
+    }
+
+    .carousel-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: min-content;
+        gap: 1.5rem;
+        transition: transform 0.35s ease;
+        will-change: transform;
+    }
+
+
     .prestation-arrow-icon {
         width: 1.35rem;
         height: 2.5rem;
@@ -113,6 +136,38 @@ p {
         stroke-width: 4;
         stroke-linejoin: round;
         stroke-linecap: round;
+    }
+
+    .prestation-card {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 5;
+        background-color: variables.$beige;
+    }
+
+    .prestation-card-title {
+        font-family: "RoslindaleDisplayNarrow", serif;
+        font-size: 1.8rem;
+        display: block;
+        color: variables.$primary-color;
+        text-align: center;
+    }
+
+    .prestation-card-divider {
+        height: 1px;
+        background-color: variables.$secondary-color;
+    }
+
+    .prestation-card-footer {
+        border: 1px solid variables.$secondary-color;
+        border-radius: 1px;
+        background-color: variables.$white;
+        color: variables.$primary-color;
+        font-size: 1.5rem;
+
+        .actual-price {
+            font-size: 2.1rem;
+        }
     }
 }
 
