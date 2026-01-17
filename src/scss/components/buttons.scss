@@ -2,24 +2,13 @@
 @use "sass:color";
 @use "../variables.scss";
 
-$btn-border-radius: 1px !default;
-
-$btn-padding-vertical: map.get(variables.$spacing, "3") !default;
-$btn-padding-horizontal: map.get(variables.$spacing, "3") !default;
-$btn-padding: $btn-padding-vertical $btn-padding-horizontal !default;
-$btn-font-size: 1.5rem !default;
-
-$small-btn-padding-vertical: map.get(variables.$spacing, "3") !default;
-$small-btn-padding-horizontal: map.get(variables.$spacing, "3") !default;
-$small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !default;
-$small-btn-font-size: 1rem !default;
 
 .btn {
-    padding: $btn-padding;
+    padding: variables.$btn-padding;
     border: none;
-    border-radius: $btn-border-radius;
+    border-radius: variables.$btn-border-radius;
     font-family: "RoslindaleDisplayNarrow", serif;
-    font-size: $btn-font-size;
+    font-size: variables.$btn-font-size;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
@@ -30,6 +19,10 @@ $small-btn-font-size: 1rem !default;
         &:hover {
             background-color: color.adjust(variables.$primary-color, $lightness: -10%);
         }
+
+        &:focus {
+            background-color: color.adjust(variables.$primary-color, $lightness: -15%);
+        }
     }
 
     &.btn-secondary {
@@ -37,12 +30,16 @@ $small-btn-font-size: 1rem !default;
         color: variables.$primary-color;
 
         &:hover {
-            background-color: color.adjust(variables.$primary-color, $lightness: -10%);
+            background-color: color.adjust(variables.$white, $lightness: -5%);
+        }
+
+        &:focus {
+            background-color: color.adjust(variables.$white, $lightness: -8%);
         }
     }
 
     &.btn-small {
-        padding: $small-btn-padding;
-        font-size: $small-btn-font-size;
+        padding: variables.$small-btn-padding;
+        font-size: variables.$small-btn-font-size;
     }
 }

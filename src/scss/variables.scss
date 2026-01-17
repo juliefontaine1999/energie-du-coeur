@@ -34,3 +34,16 @@ $body-font-family: "Hanken Grotesk",
 // Gaps
 $gap-comp: map.get($spacing, "5") !default;
 $gap-block: map.get($spacing, "6") !default;
+
+// Buttons
+$btn-border-radius: 1px !default;
+
+$btn-padding-vertical: map.get($spacing, "3") !default;
+$btn-padding-horizontal: map.get($spacing, "3") !default;
+$btn-padding: $btn-padding-vertical $btn-padding-horizontal !default;
+$btn-font-size: 1.5rem !default;
+
+$small-btn-padding-vertical: map.get($spacing, "3") !default;
+$small-btn-padding-horizontal: map.get($spacing, "3") !default;
+$small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !default;
+$small-btn-font-size: 1rem !default;

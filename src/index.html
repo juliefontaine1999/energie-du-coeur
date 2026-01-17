@@ -62,10 +62,19 @@
         <div id="prestations" class="section">
             <span class="section-title">Prestations</span>
             <div class="section-content flex flex-column gap-block align-center">
-                <div id="prestationsCarousel">
-                    <div id="carouselLeftArrow"></div>
-                    <div id="carouselRightArrow"></div>
+                <div id="prestationsCarousel" class="carousel">
+                    <button class="carousel-button prev-button" aria-label="Précédent">
+                        <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M33 2L2 33L33 64" />
+                        </svg>
+                    </button>
 
+                    <button class="carousel-button next-button" aria-label="Suivant">
+                        <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M2 2L33 33L2 64" />
+                        </svg>
                 </div>
                 <div class="divider horizontal-divider"></div>
                 <div class="flex gap-comp">
