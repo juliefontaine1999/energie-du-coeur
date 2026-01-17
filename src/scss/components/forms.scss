@@ -4,9 +4,10 @@
 input[type="text"],
 input[type="email"],
 textarea {
+    width: 100%;
     padding: variables.$input-padding;
     font-family: "Hanken Grotesk", system-ui, sans-serif;
-    font-size: 1.2rem;
+    font-size: variables.$input-font-size;
     color: variables.$input-color;
     background-color: variables.$input-bg;
     border: variables.$input-border;
@@ -38,4 +39,38 @@ input[type="checkbox"]:checked {
 input[type="submit"] {
     width: fit-content;
     justify-self: end;
+}
+
+.input-float-label {
+    position: relative;
+
+    >label {
+        position: absolute;
+        top: 50%;
+        margin-top: -0.65rem;
+        font-size: variables.$input-font-size;
+        left: variables.$input-padding-x;
+        color: variables.$input-placeholder-color;
+        transition: 0.4s ease all;
+        pointer-events: none;
+    }
+
+    textarea {
+        ~label {
+            top: 1.8rem;
+        }
+    }
+
+    input:valid,
+    input:focus,
+    textarea:valid,
+    textarea:focus {
+        &~label {
+            top: -0.7rem;
+            left: variables.$input-padding-x - 0.3rem;
+            font-size: 0.9rem;
+        }
+    }
+
+
 }
