@@ -17,11 +17,11 @@
         color: variables.$white;
 
         &:hover {
-            background-color: color.adjust(variables.$primary-color, $lightness: -10%);
+            background-color: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust);
         }
 
         &:focus {
-            background-color: color.adjust(variables.$primary-color, $lightness: -15%);
+            background-color: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust);
         }
     }
 
@@ -30,16 +30,43 @@
         color: variables.$primary-color;
 
         &:hover {
-            background-color: color.adjust(variables.$white, $lightness: -5%);
+            background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-hover-bg-lightness-adjust);
         }
 
         &:focus {
-            background-color: color.adjust(variables.$white, $lightness: -8%);
+            background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-focus-bg-lightness-adjust);
         }
     }
 
     &.btn-small {
         padding: variables.$small-btn-padding;
         font-size: variables.$small-btn-font-size;
+    }
+}
+
+.btn-icon-only {
+    padding: variables.$icon-only-btn-padding;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    svg {
+        fill: none;
+        stroke: variables.$primary-color;
+    }
+
+    &:hover {
+        background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-hover-bg-lightness-adjust);
+
+        svg {
+            stroke: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust);
+        }
+    }
+
+    &:focus {
+        background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-focus-bg-lightness-adjust);
+
+        svg {
+            stroke: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust);
+        }
     }
 }

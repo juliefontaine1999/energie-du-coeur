@@ -106,31 +106,9 @@ p {
 #prestations {
     background-color: $prestations-bg;
 
-    .carousel-button {
-        padding: map.get(variables.$spacing, "2");
-        cursor: pointer;
-
-        &:hover {
-            background-color: color.adjust(variables.$white, $lightness: -5%);
-
-            .prestation-arrow-icon {
-                stroke: color.adjust(variables.$primary-color, $lightness: -10%);
-            }
-        }
-
-        &:focus {
-            background-color: color.adjust(variables.$white, $lightness: -8%);
-
-            .prestation-arrow-icon {
-                stroke: color.adjust(variables.$primary-color, $lightness: -15%);
-            }
-        }
-    }
-
     .prestation-arrow-icon {
         width: 1.35rem;
         height: 2.5rem;
-        fill: none;
         stroke: variables.$primary-color;
         stroke-width: 4;
         stroke-linejoin: round;

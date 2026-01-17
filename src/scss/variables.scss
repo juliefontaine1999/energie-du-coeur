@@ -42,8 +42,18 @@ $btn-padding-vertical: map.get($spacing, "3") !default;
 $btn-padding-horizontal: map.get($spacing, "3") !default;
 $btn-padding: $btn-padding-vertical $btn-padding-horizontal !default;
 $btn-font-size: 1.5rem !default;
+$btn-primary-hover-bg-lightness-adjust: -10% !default;
+$btn-primary-focus-bg-lightness-adjust: -15% !default;
+$btn-secondary-hover-bg-lightness-adjust: -5% !default;
+$btn-secondary-focus-bg-lightness-adjust: -8% !default;
 
 $small-btn-padding-vertical: map.get($spacing, "3") !default;
 $small-btn-padding-horizontal: map.get($spacing, "3") !default;
 $small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !default;
 $small-btn-font-size: 1rem !default;
+
+
+// Icon only buttons
+$icon-only-btn-padding-vertical: map.get($spacing, "2") !default;
+$icon-only-btn-padding-horizontal: map.get($spacing, "2") !default;
+$icon-only-btn-padding: $icon-only-btn-padding-vertical $icon-only-btn-padding-horizontal !default;
