@@ -177,6 +177,25 @@ p {
 
 #makeAppointment {
     background-color: $appointment-bg;
+
+    .book-with-email-title {
+        font-family: "RoslindaleDisplayNarrow", serif;
+        font-size: 1.8rem;
+        color: variables.$primary-color;
+    }
+
+    .vertical-divider {
+        flex: 1;
+        width: 1px;
+        background-color: variables.$secondary-color;
+    }
+
+    .divider-text {
+        font-family: "RoslindaleDisplayNarrow", serif;
+        font-size: 1.8rem;
+        color: variables.$primary-color;
+        text-align: center;
+    }
 }
 
 #giftCard {

@@ -1,0 +1,41 @@
+@use "../variables.scss";
+
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: variables.$input-padding;
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    font-size: 1.2rem;
+    color: variables.$input-color;
+    background-color: variables.$input-bg;
+    border: variables.$input-border;
+    border-radius: variables.$input-border-radius;
+
+    &::placeholder {
+        color: variables.$input-placeholder-color;
+    }
+}
+
+.checkbox-label {
+    font-size: 1.2rem;
+    color: variables.$primary-color;
+}
+
+input[type="checkbox"] {
+    width: variables.$input-chbx-size;
+    height: variables.$input-chbx-size;
+    background-color: variables.$input-bg;
+    border: variables.$input-chbx-border;
+    border-radius: variables.$input-chbx-border-radius;
+}
+
+input[type="checkbox"]:checked {
+    background-color: variables.$primary-color;
+    border: none;
+}
+
+input[type="submit"] {
+    width: fit-content;
+    justify-self: end;
+}

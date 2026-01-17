@@ -22,6 +22,10 @@
     display: flex;
 }
 
+.flex-1 {
+    flex: 1;
+}
+
 .flex-column {
     flex-direction: column;
 }
@@ -30,6 +34,9 @@
     justify-content: center;
 }
 
+.justify-content-end {
+    justify-content: end;
+}
 
 .justify-space-between {
     justify-content: space-between;
@@ -43,8 +50,16 @@
     font-weight: bold;
 }
 
+.text-align-center {
+    text-align: center;
+}
+
 .underlined {
     text-decoration: underline;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 .line-through {
