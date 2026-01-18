@@ -200,6 +200,21 @@ p {
 
 #giftCard {
     background-color: $gift-card-bg;
+
+    .gift-card-text {
+        color: variables.$primary-color;
+    }
+
+    ul {
+        list-style-type: disc;
+        color: variables.$primary-color;
+        padding-left: 1.5rem;
+        padding-top: 1rem;
+
+        li:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
 }
 
 #lastSection {

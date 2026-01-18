@@ -199,7 +199,7 @@
                         m’accordez !
                     </p>
 
-                </div> <!-- text -->
+                </div>
                 <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo"
                     alt="logo no title">
             </div>
@@ -213,7 +213,7 @@
                         Réserver par e-mail
                     </div>
 
-                    <form class="form-fields grid gap-comp">
+                    <form id="appointmentForm" class="form-fields grid gap-comp">
                         <div class="input-float-label col-6">
                             <input type="text" id="firstname" name="firstname" class="input-text" required>
                             <label for="firstname" class="float-label">Prénom</label>
@@ -226,20 +226,22 @@
                         <div class="col-6 grid gap-3">
                             <div class="col-6 flex align-center gap-2">
                                 <input type="checkbox" id="energeticCareChbx" name="energeticCareChbx"
-                                    class="checkbox-input">
+                                    class="checkbox-input" value="energeticCare">
                                 <label for="energeticCareChbx" class="checkbox-label">Soins énergétiques</label>
                             </div>
                             <div class="col-6 flex align-center gap-2">
                                 <input type="checkbox" id="cardDrawingChbx" name="cardDrawingChbx"
-                                    class="checkbox-input">
+                                    class="checkbox-input" value="cardDrawing">
                                 <label for="cardDrawingChbx" class="checkbox-label">Tirage de cartes</label>
                             </div>
                             <div class="col-6 flex align-center gap-2">
-                                <input type="checkbox" id="numerologyChbx" name="numerologyChbx" class="checkbox-input">
+                                <input type="checkbox" id="numerologyChbx" name="numerologyChbx" class="checkbox-input"
+                                    value="numerology">
                                 <label for="numerologyChbx" class="checkbox-label">Numérologie</label>
                             </div>
                             <div class="col-6 flex align-center gap-2">
-                                <input type="checkbox" id="remoteCareChbx" name="remoteCareChbx" class="checkbox-input">
+                                <input type="checkbox" id="remoteCareChbx" name="remoteCareChbx" class="checkbox-input"
+                                    value="remoteCare">
                                 <label for="remoteCareChbx" class="checkbox-label">Soins à distance</label>
                             </div>
                         </div>
@@ -253,6 +255,9 @@
                             <textarea id="message" name="message" rows="10" class="input-textarea" required></textarea>
                             <label for="message" class="float-label">Votre message</label>
                         </div>
+
+                        <input type="text" name="energy" tabindex="-1" autocomplete="off" aria-hidden="true"
+                            style="position:absolute; left:-9999px" />
 
                         <input type="submit" value="Envoyer" class="btn btn-primary col-12">
                     </form>
@@ -271,6 +276,58 @@
 
         <div id="giftCard" class="section">
             <span class="section-title">Commander un bon cadeau</span>
+            <div class="section-content flex gap-block">
+                <div class="flex flex-column gap-comp flex-1 gift-card-text">
+                    <p>
+                        <span class="bold uppercase">Envie de faire plaisir à un proche ?</span>
+                    </p>
+                    <p>
+                        Pour commander un bon cadeau, merci de remplir le formulaire ci-contre avec vos propres
+                        coordonnées (nom, prénom et adresse e-mail de la personne qui offre le bon).
+                    </p>
+
+                    <div>
+                        Dans le champ Message, vous pouvez préciser :
+                        <ul>
+                            <li>l’adresse de livraison du bon</li>
+                            <li>toute information utile pour la personnalisation du bon</li>
+                        </ul>
+                    </div>
+                    Une fois votre demande reçue, vous serez recontacté·e rapidement pour finaliser la création du
+                    bon cadeau.
+
+                </div>
+                <div class="flex-1 flex flex-column gap-comp">
+                    <form class="form-fields grid gap-comp">
+                        <div class="input-float-label col-6">
+                            <input type="text" id="firstname" name="firstname" class="input-text" required>
+                            <label for="firstname" class="float-label">Prénom</label>
+                        </div>
+                        <div class="input-float-label col-6">
+                            <input type="text" id="lastname" name="lastname" class="input-text" required>
+                            <label for="lastname" class="float-label">Nom</label>
+                        </div>
+
+                        <div class="input-float-label col-12">
+                            <input type="text" id="amount" name="amount" class="input-text" required>
+                            <label for="amount" class="float-label">Montant du bon cadeau</label>
+                        </div>
+
+                        <div class="input-float-label col-12">
+                            <input type="text" id="mail" name="mail" class="input-text" required>
+                            <label for="mail" class="float-label">Adresse e-mail</label>
+                        </div>
+
+                        <div class="input-float-label col-12">
+                            <textarea id="message" name="message" rows="10" class="input-textarea" required></textarea>
+                            <label for="message" class="float-label">Votre message</label>
+                        </div>
+
+                        <input type="submit" value="Envoyer" class="btn btn-primary col-12">
+                    </form>
+
+                </div>
+            </div>
         </div>
 
         <div id="lastSection" class="py-7 flex justify-center align-center">
