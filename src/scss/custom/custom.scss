@@ -6,6 +6,9 @@
 $section-padding-vertical: map.get(variables.$spacing, "7") !default;
 $section-padding-horizontal: 200px !default;
 
+$small-section-padding-vertical: map.get(variables.$spacing, "7") !default;
+$small-section-padding-horizontal: 100px !default;
+
 $topbar-bg: variables.$white !default;
 $welcome-bg: variables.$white !default;
 $prestations-bg: variables.$white !default;
@@ -38,7 +41,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: variables.$gap-block;
-    padding: $section-padding-vertical $section-padding-horizontal;
+    padding: $small-section-padding-vertical $small-section-padding-horizontal;
+}
+
+@media (min-width: 1500px) {
+    .section {
+        padding: $section-padding-vertical $section-padding-horizontal;
+    }
 }
 
 p {
@@ -112,31 +121,42 @@ p {
     background-color: $prestations-bg;
 
     .carousel {
+        position: relative;
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: 1fr;
         align-items: center;
         gap: 1rem;
         --cards-visible: 1;
-        max-width: 650px;
+        max-width: 500px;
     }
 
-    @media (min-width: 1400px) {
+    .prev-button {
+        left: -10%;
+        position: absolute;
+    }
+
+    .next-button {
+        position: absolute;
+        right: -10%;
+    }
+
+    @media (min-width: 1100px) {
         .carousel {
             --cards-visible: 2;
-            max-width: 1000px;
+            max-width: 900px;
         }
     }
 
-    @media (min-width: 1960px) {
+    @media (min-width: 1500px) {
         .carousel {
-            max-width: 1600px;
+            max-width: 1500px;
             --cards-visible: 3;
         }
     }
 
-    @media (min-width: 2520px) {
+    @media (min-width: 2000px) {
         .carousel {
-            max-width: 2132px;
+            max-width: 2000px;
             --cards-visible: 4;
         }
 
