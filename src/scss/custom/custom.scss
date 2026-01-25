@@ -152,17 +152,20 @@ p {
             max-width: 1500px;
             --cards-visible: 3;
         }
+
+        .prev-button {
+            left: -5%;
+        }
+
+        .next-button {
+            right: -5%;
+        }
     }
 
     @media (min-width: 2000px) {
         .carousel {
             max-width: 2000px;
             --cards-visible: 4;
-        }
-
-        .prev-button,
-        .next-button {
-            visibility: hidden;
         }
     }
 
@@ -179,7 +182,6 @@ p {
         transition: transform 0.35s ease;
         will-change: transform;
     }
-
 
     .prestation-arrow-icon {
         width: 1.35rem;

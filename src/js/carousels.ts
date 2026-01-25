@@ -28,13 +28,11 @@ export class Carousel {
 
     private bindEvents() {
         this.nextBtn.addEventListener('click', () => {
-            console.log('click next');
             this.index = Math.min(this.index + 1, this.maxIndex)
             this.update()
         })
 
         this.prevBtn.addEventListener('click', () => {
-            console.log('click previous');
             this.index = Math.max(this.index - 1, 0)
             this.update()
         })
@@ -43,7 +41,34 @@ export class Carousel {
     }
 
     private update() {
-        const offset = this.index * (100 / this.cardsVisible)
-        this.track.style.transform = `translateX(-${offset}%)`
+        const card = this.track.children[0] as HTMLElement
+        if (!card) return
+
+        const cardWidth = card.offsetWidth
+        const styles = getComputedStyle(this.track)
+        const gap = parseFloat(styles.columnGap || styles.gap || '0')
+
+        const offset = this.index * (cardWidth + gap)
+
+        this.track.style.transform = `translateX(-${offset}px)`
+        this.updateArrows();
+    }
+
+    private updateArrows(): void {
+        const isScrollable = this.cardsVisible < 4;
+
+        if (!isScrollable) {
+            this.prevBtn.classList.add('hidden');
+            this.nextBtn.classList.add('hidden');
+        } else {
+            this.prevBtn.classList.remove('hidden');
+            this.nextBtn.classList.remove('hidden');
+
+            if (this.index === 0) {
+                this.prevBtn.classList.add('hidden');
+            } else if (this.index === this.maxIndex) {
+                this.nextBtn.classList.add('hidden');
+            }
+        }
     }
 }
