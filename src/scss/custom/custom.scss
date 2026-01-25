@@ -19,6 +19,10 @@ $footer-bg: variables.$primary-color !default;
     --font-body: "Hanken Grotesk", system-ui, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: variables.$body-font-family;
 }
@@ -112,17 +116,41 @@ p {
         grid-template-columns: auto 1fr auto;
         align-items: center;
         gap: 1rem;
-        --cards-visible: 4;
+        --cards-visible: 1;
+    }
+
+    @media (min-width: 640px) {
+        .carousel {
+            --cards-visible: 2;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .carousel {
+            --cards-visible: 3;
+        }
+    }
+
+    @media (min-width: 2520px) {
+        .carousel {
+            --cards-visible: 4;
+        }
+
+        .prev-button,
+        .next-button {
+            visibility: hidden;
+        }
     }
 
     .carousel-cards-wrapper {
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     .carousel-track {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: min-content;
+        grid-auto-columns: calc((100% - (1.5rem * (var(--cards-visible) - 1))) / var(--cards-visible));
+        grid-template-rows: 1fr;
         gap: 1.5rem;
         transition: transform 0.35s ease;
         will-change: transform;
@@ -141,8 +169,13 @@ p {
     .prestation-card {
         display: grid;
         grid-template-rows: subgrid;
-        grid-row: span 5;
+        grid-template-rows: min-content min-content 1fr min-content min-content;
         background-color: variables.$beige;
+    }
+
+    .prestation-card-img {
+        width: 100%;
+        object-fit: cover;
     }
 
     .prestation-card-title {
