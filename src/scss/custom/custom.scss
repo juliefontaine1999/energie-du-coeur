@@ -117,22 +117,26 @@ p {
         align-items: center;
         gap: 1rem;
         --cards-visible: 1;
+        max-width: 650px;
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 1400px) {
         .carousel {
             --cards-visible: 2;
+            max-width: 1000px;
         }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1960px) {
         .carousel {
+            max-width: 1600px;
             --cards-visible: 3;
         }
     }
 
     @media (min-width: 2520px) {
         .carousel {
+            max-width: 2132px;
             --cards-visible: 4;
         }
 
