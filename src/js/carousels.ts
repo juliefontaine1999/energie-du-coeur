@@ -4,6 +4,14 @@ export class Carousel {
     private nextBtn: HTMLButtonElement
     private index = 0
 
+    // Tactile
+    private startX = 0
+    private startY = 0
+    private isSwiping = false
+    private readonly swipeThreshold = 50
+    private readonly horizontalSwipeThreshold = 20
+
+
     constructor(private root: HTMLElement) {
         this.track = root.querySelector('.carousel-track')!
         this.prevBtn = root.querySelector('.prev-button')!
@@ -28,16 +36,17 @@ export class Carousel {
 
     private bindEvents() {
         this.nextBtn.addEventListener('click', () => {
-            this.index = Math.min(this.index + 1, this.maxIndex)
-            this.update()
+            this.next()
         })
 
         this.prevBtn.addEventListener('click', () => {
-            this.index = Math.max(this.index - 1, 0)
-            this.update()
+            this.previous()
         })
 
         window.addEventListener('resize', () => this.update())
+
+        this.track.addEventListener('touchstart', this.onTouchStart, { passive: true })
+        this.track.addEventListener('touchend', this.onTouchEnd)
     }
 
     private update() {
@@ -52,6 +61,16 @@ export class Carousel {
 
         this.track.style.transform = `translateX(-${offset}px)`
         this.updateArrows();
+    }
+
+    private next(): void {
+        this.index = Math.min(this.index + 1, this.maxIndex)
+        this.update()
+    }
+
+    private previous(): void {
+        this.index = Math.max(this.index - 1, 0)
+        this.update()
     }
 
     private updateArrows(): void {
@@ -77,4 +96,38 @@ export class Carousel {
         this.track.style.transform = 'translateX(0px)'
         this.updateArrows()
     }
+
+    private onTouchStart = (e: TouchEvent): void => {
+        const touch = e.touches[0]
+        this.startX = touch.clientX
+        this.startY = touch.clientY
+        this.isSwiping = true
+    }
+
+    private onTouchEnd = (e: TouchEvent): void => {
+        if (!this.isSwiping) {
+            return
+        }
+        this.isSwiping = false
+
+        const touch = e.changedTouches[0]
+        const deltaX = touch.clientX - this.startX
+        const deltaY = touch.clientY - this.startY
+
+        // We ignore if the vertical scroll is bigger than the horizontal one
+        if (Math.abs(deltaY) + this.horizontalSwipeThreshold > Math.abs(deltaX)) {
+            return
+        }
+
+        if (Math.abs(deltaX) < this.swipeThreshold) {
+            return
+        }
+
+        if (deltaX < 0) {
+            this.next()
+        } else {
+            this.previous()
+        }
+    }
+
 }
