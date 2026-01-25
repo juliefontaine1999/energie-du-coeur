@@ -71,4 +71,10 @@ export class Carousel {
             }
         }
     }
+
+    public onResize(): void {
+        this.index = 0
+        this.track.style.transform = 'translateX(0px)'
+        this.updateArrows()
+    }
 }
