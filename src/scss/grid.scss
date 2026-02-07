@@ -8,6 +8,10 @@ $grid-columns: 12 !default;
 }
 
 @for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        grid-column: span $i;
+    }
+
     @include mixins.make-responsive(col-#{$i}) {
         grid-column: span $i;
     }

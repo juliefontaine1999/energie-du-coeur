@@ -3,6 +3,7 @@
 @use "../variables.scss";
 @use "../components/buttons.scss";
 
+$section-max-width: 2160px !default;
 $section-padding-vertical: map.get(variables.$spacing, "7") !default;
 $section-padding-horizontal: 200px !default;
 
@@ -38,16 +39,11 @@ body {
 }
 
 .section {
+    flex: 1;
+    max-width: $section-max-width;
     display: flex;
     flex-direction: column;
     gap: variables.$gap-block;
-    padding: $small-section-padding-vertical $small-section-padding-horizontal;
-}
-
-@media (min-width: 1500px) {
-    .section {
-        padding: $section-padding-vertical $section-padding-horizontal;
-    }
 }
 
 p {
@@ -65,213 +61,234 @@ p {
     }
 }
 
-#topBar {
+#topBarWrapper {
     background-color: $topbar-bg;
-    padding: map.get(variables.$spacing, "4") $section-padding-horizontal;
+    padding: 0 $section-padding-horizontal;
 
-    #menu .btn {
-        font: inherit;
-    }
+    #topBar {
+        max-width: $section-max-width;
 
-    .menu-link {
-        color: variables.$primary-color;
-        text-transform: uppercase;
-        padding: variables.$small-btn-padding-vertical 2rem;
-
-        &.selected {
-            border-bottom: 2px solid variables.$primary-color;
+        #menu .btn {
+            font: inherit;
         }
 
-        &:hover {
-            color: color.adjust(variables.$primary-color, $lightness: -10%);
+        .menu-link {
+            color: variables.$primary-color;
+            text-transform: uppercase;
+            padding: variables.$small-btn-padding-vertical 2rem;
+
+            &.selected {
+                border-bottom: 2px solid variables.$primary-color;
+            }
+
+            &:hover {
+                color: color.adjust(variables.$primary-color, $lightness: -10%);
+            }
         }
     }
 }
 
-#welcome {
-    padding: $section-padding-vertical $section-padding-horizontal;
+#welcomeWrapper {
     background: linear-gradient(to bottom,
             variables.$white 0%,
             variables.$white 30%,
             variables.$beige 30%,
             variables.$beige 100%);
+    padding: $section-padding-vertical $section-padding-horizontal;
 
-    #profilePicture {
-        max-width: 480px;
-        max-height: 550px;
-        height: 100%;
-        border-radius: 500px 500px 0px 0px;
-        object-fit: cover;
-        border: 1px solid variables.$secondary-color;
-    }
+    #welcome {
+        max-width: $section-max-width;
 
-    #welcomeText {
-        font-family: "RoslindaleDisplayNarrow", serif;
-        border: 1px solid variables.$secondary-color;
-        background-color: variables.$white;
-    }
+        #profilePicture {
+            max-width: 480px;
+            max-height: 550px;
+            height: 100%;
+            border-radius: 500px 500px 0px 0px;
+            object-fit: cover;
+            border: 1px solid variables.$secondary-color;
+        }
 
-    #locationText {
-        font-size: 1.5rem;
-        color: variables.$primary-color;
+        #welcomeText {
+            font-family: "RoslindaleDisplayNarrow", serif;
+            border: 1px solid variables.$secondary-color;
+            background-color: variables.$white;
+        }
+
+        #locationText {
+            font-size: 1.5rem;
+            color: variables.$primary-color;
+        }
     }
 }
 
-#prestations {
+#prestationsWrapper {
+    padding: $section-padding-vertical $section-padding-horizontal;
     background-color: $prestations-bg;
 
-    .carousel {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr;
-        align-items: center;
-        gap: 1rem;
-        --cards-visible: 1;
-        max-width: 500px;
-    }
+    #prestations {
 
-    .prev-button {
-        left: -10%;
-        position: absolute;
-    }
-
-    .next-button {
-        position: absolute;
-        right: -10%;
-    }
-
-    @media (min-width: 1100px) {
         .carousel {
-            --cards-visible: 2;
-            max-width: 900px;
-        }
-    }
-
-    @media (min-width: 1500px) {
-        .carousel {
-            max-width: 1500px;
-            --cards-visible: 3;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 1rem;
+            --cards-visible: 1;
+            max-width: 500px;
         }
 
         .prev-button {
-            left: -5%;
+            left: -10%;
+            position: absolute;
         }
 
         .next-button {
-            right: -5%;
+            position: absolute;
+            right: -10%;
         }
-    }
 
-    @media (min-width: 2000px) {
-        .carousel {
-            max-width: 2000px;
-            --cards-visible: 4;
+        @media (min-width: 1100px) {
+            .carousel {
+                --cards-visible: 2;
+                max-width: 900px;
+            }
         }
-    }
 
-    .carousel-cards-wrapper {
-        overflow-x: hidden;
-    }
+        @media (min-width: 1500px) {
+            .carousel {
+                max-width: 1500px;
+                --cards-visible: 3;
+            }
 
-    .carousel-track {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: calc((100% - (1.5rem * (var(--cards-visible) - 1))) / var(--cards-visible));
-        grid-template-rows: 1fr;
-        gap: 1.5rem;
-        transition: transform 0.35s ease;
-        will-change: transform;
-    }
+            .prev-button {
+                left: -5%;
+            }
 
-    .prestation-arrow-icon {
-        width: 1.35rem;
-        height: 2.5rem;
-        stroke: variables.$primary-color;
-        stroke-width: 4;
-        stroke-linejoin: round;
-        stroke-linecap: round;
-    }
+            .next-button {
+                right: -5%;
+            }
+        }
 
-    .prestation-card {
-        display: grid;
-        grid-template-rows: subgrid;
-        grid-template-rows: min-content min-content 1fr min-content min-content;
-        background-color: variables.$beige;
-    }
+        @media (min-width: 2000px) {
+            .carousel {
+                max-width: 2000px;
+                --cards-visible: 4;
+            }
+        }
 
-    .prestation-card-img {
-        width: 100%;
-        object-fit: cover;
-    }
+        .carousel-cards-wrapper {
+            overflow-x: hidden;
+        }
 
-    .prestation-card-title {
-        font-family: "RoslindaleDisplayNarrow", serif;
-        font-size: 1.8rem;
-        display: block;
-        color: variables.$primary-color;
-        text-align: center;
-    }
+        .carousel-track {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: calc((100% - (1.5rem * (var(--cards-visible) - 1))) / var(--cards-visible));
+            grid-template-rows: 1fr;
+            gap: 1.5rem;
+            transition: transform 0.35s ease;
+            will-change: transform;
+        }
 
-    .prestation-card-divider {
-        height: 1px;
-        background-color: variables.$secondary-color;
-    }
+        .prestation-arrow-icon {
+            width: 1.35rem;
+            height: 2.5rem;
+            stroke: variables.$primary-color;
+            stroke-width: 4;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
 
-    .prestation-card-footer {
-        border: 1px solid variables.$secondary-color;
-        border-radius: 1px;
-        background-color: variables.$white;
-        color: variables.$primary-color;
-        font-size: 1.5rem;
+        .prestation-card {
+            display: grid;
+            grid-template-rows: subgrid;
+            grid-template-rows: min-content min-content 1fr min-content min-content;
+            background-color: variables.$beige;
+        }
 
-        .actual-price {
-            font-size: 2.1rem;
+        .prestation-card-img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .prestation-card-title {
+            font-family: "RoslindaleDisplayNarrow", serif;
+            font-size: 1.8rem;
+            display: block;
+            color: variables.$primary-color;
+            text-align: center;
+        }
+
+        .prestation-card-divider {
+            height: 1px;
+            background-color: variables.$secondary-color;
+        }
+
+        .prestation-card-footer {
+            border: 1px solid variables.$secondary-color;
+            border-radius: 1px;
+            background-color: variables.$white;
+            color: variables.$primary-color;
+            font-size: 1.5rem;
+
+            .actual-price {
+                font-size: 2.1rem;
+            }
         }
     }
 }
 
-#aboutMe {
+#aboutMeWrapper {
+    padding: $section-padding-vertical $section-padding-horizontal;
     background-color: $about-bg;
 }
 
-#makeAppointment {
+#makeAppointmentWrapper {
+    padding: $section-padding-vertical $section-padding-horizontal;
     background-color: $appointment-bg;
 
-    .book-with-email-title {
-        font-family: "RoslindaleDisplayNarrow", serif;
-        font-size: 1.8rem;
-        color: variables.$primary-color;
-    }
+    #makeAppointment {
 
-    .vertical-divider {
-        flex: 1;
-        width: 1px;
-        background-color: variables.$secondary-color;
-    }
+        .book-with-email-title {
+            font-family: "RoslindaleDisplayNarrow", serif;
+            font-size: 1.8rem;
+            color: variables.$primary-color;
+        }
 
-    .divider-text {
-        font-family: "RoslindaleDisplayNarrow", serif;
-        font-size: 1.8rem;
-        color: variables.$primary-color;
-        text-align: center;
+        .vertical-divider {
+            flex: 1;
+            width: 1px;
+            background-color: variables.$secondary-color;
+        }
+
+        .divider-text {
+            font-family: "RoslindaleDisplayNarrow", serif;
+            font-size: 1.8rem;
+            color: variables.$primary-color;
+            text-align: center;
+        }
     }
 }
 
-#giftCard {
+#giftCardWrapper {
+    padding: $section-padding-vertical $section-padding-horizontal;
     background-color: $gift-card-bg;
 
-    .gift-card-text {
-        color: variables.$primary-color;
-    }
+    #giftCard {
 
-    ul {
-        list-style-type: disc;
-        color: variables.$primary-color;
-        padding-left: 1.5rem;
-        padding-top: 1rem;
+        .gift-card-text {
+            color: variables.$primary-color;
+        }
 
-        li:not(:last-child) {
-            margin-bottom: .5rem;
+        ul {
+            list-style-type: disc;
+            color: variables.$primary-color;
+            padding-left: 1.5rem;
+            padding-top: 1rem;
+
+            li:not(:last-child) {
+                margin-bottom: .5rem;
+            }
         }
     }
 }
@@ -280,12 +297,14 @@ p {
     background-color: $last-section-bg;
 }
 
-#footer {
+#footerWrapper {
+    background-color: $footer-bg;
     padding: 1rem $section-padding-horizontal;
-    background-color:
 
-        $footer-bg;
-    color: variables.$white;
+    #footer {
+        max-width: $section-max-width;
+        color: variables.$white;
+    }
 }
 
 .sara-link {

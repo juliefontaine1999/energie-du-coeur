@@ -26,7 +26,19 @@
     flex: 1;
 }
 
+.flex-row {
+    flex-direction: row;
+}
+
 .flex-column {
+    flex-direction: column;
+}
+
+@include mixins.make-responsive(flex-row) {
+    flex-direction: row;
+}
+
+@include mixins.make-responsive(flex-column) {
     flex-direction: column;
 }
 
