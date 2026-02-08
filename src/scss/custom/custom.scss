@@ -7,7 +7,7 @@ $section-max-width: 2160px !default;
 $section-padding-vertical: map.get(variables.$spacing, "7") !default;
 $section-padding-horizontal: 200px !default;
 
-$small-section-padding-vertical: map.get(variables.$spacing, "7") !default;
+$small-section-padding-vertical: map.get(variables.$spacing, "6") !default;
 $small-section-padding-horizontal: 100px !default;
 
 $topbar-bg: variables.$white !default;
@@ -21,6 +21,15 @@ $footer-bg: variables.$primary-color !default;
 
 :root {
     --font-body: "Hanken Grotesk", system-ui, sans-serif;
+    --section-padding-vertical: #{$small-section-padding-vertical};
+    --section-padding-horizontal: #{$small-section-padding-horizontal};
+}
+
+@media (min-width: 1600px) {
+    :root {
+        --section-padding-vertical: #{$section-padding-vertical};
+        --section-padding-horizontal: #{$section-padding-horizontal};
+    }
 }
 
 html {
@@ -63,30 +72,93 @@ p {
 
 #topBarWrapper {
     background-color: $topbar-bg;
-    padding: 0 $section-padding-horizontal;
+    padding: 0 var(--section-padding-horizontal);
 
     #topBar {
         max-width: $section-max-width;
+        position: relative;
+        align-items: center;
+    }
+}
 
-        #menu .btn {
-            font: inherit;
+.menu-toggle {
+    display: none;
+    height: fit-content;
+}
+
+.menu-icon {
+    height: 2.5rem;
+    stroke: variables.$primary-color;
+    stroke-width: 4;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: variables.$primary-color;
+}
+
+#menu {
+    .btn {
+        font: inherit;
+    }
+
+    .menu-link {
+        color: variables.$primary-color;
+        text-transform: uppercase;
+        padding: variables.$small-btn-padding-vertical 2rem;
+
+        &.selected {
+            border-bottom: 2px solid variables.$primary-color;
         }
 
-        .menu-link {
-            color: variables.$primary-color;
-            text-transform: uppercase;
-            padding: variables.$small-btn-padding-vertical 2rem;
+        &:hover {
+            color: color.adjust(variables.$primary-color, $lightness: -10%);
+        }
+    }
+}
 
-            &.selected {
-                border-bottom: 2px solid variables.$primary-color;
-            }
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        transition: background-color 0.2s ease;
 
-            &:hover {
-                color: color.adjust(variables.$primary-color, $lightness: -10%);
+        &:hover {
+            background-color: variables.$beige;
+        }
+
+        &.is-open {
+            background-color: variables.$beige;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+    }
+
+    #menu {
+        position: absolute;
+        top: calc(76%);
+        right: 0;
+        flex-direction: column;
+        background-color: variables.$beige;
+        padding: 1rem 0.5rem;
+        gap: 1rem;
+        border-radius: 2px;
+
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+
+        >a {
+            transition: background-color 0.2s ease;
+        }
+
+        &.is-open {
+            visibility: visible;
+            transform: translateY(0);
+
+            >a:hover {
+                background-color: color.adjust(variables.$beige, $lightness: -10%);
             }
         }
     }
 }
+
 
 #welcomeWrapper {
     background: linear-gradient(to bottom,
@@ -94,7 +166,7 @@ p {
             variables.$white 30%,
             variables.$beige 30%,
             variables.$beige 100%);
-    padding: $section-padding-vertical $section-padding-horizontal;
+    padding: var(--section-padding-vertical) var(--section-padding-horizontal);
 
     #welcome {
         max-width: $section-max-width;
@@ -122,7 +194,7 @@ p {
 }
 
 #prestationsWrapper {
-    padding: $section-padding-vertical $section-padding-horizontal;
+    padding: var(--section-padding-vertical) var(--section-padding-horizontal);
     background-color: $prestations-bg;
 
     #prestations {
@@ -239,12 +311,12 @@ p {
 }
 
 #aboutMeWrapper {
-    padding: $section-padding-vertical $section-padding-horizontal;
+    padding: var(--section-padding-vertical) var(--section-padding-horizontal);
     background-color: $about-bg;
 }
 
 #makeAppointmentWrapper {
-    padding: $section-padding-vertical $section-padding-horizontal;
+    padding: var(--section-padding-vertical) var(--section-padding-horizontal);
     background-color: $appointment-bg;
 
     #makeAppointment {
@@ -271,7 +343,7 @@ p {
 }
 
 #giftCardWrapper {
-    padding: $section-padding-vertical $section-padding-horizontal;
+    padding: var(--section-padding-vertical) var(--section-padding-horizontal);
     background-color: $gift-card-bg;
 
     #giftCard {
@@ -299,7 +371,7 @@ p {
 
 #footerWrapper {
     background-color: $footer-bg;
-    padding: 1rem $section-padding-horizontal;
+    padding: 1rem var(--section-padding-horizontal);
 
     #footer {
         max-width: $section-max-width;

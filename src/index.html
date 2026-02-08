@@ -19,13 +19,23 @@
                 <img src="<%= require('./assets/images/title.svg') %>" alt="title">
             </div>
 
-            <div id="menu" class="flex align-center">
+            <!-- Hamburger menu -->
+            <button id="menuToggle" class="menu-toggle p-1" aria-label="Open menu" aria-expanded="false"
+                aria-controls="menu">
+                <svg class="menu-icon" viewBox="0 0 270 270" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M235.506 184.997H33.7598V210.276H235.506V184.997Z" />
+                    <path d="M236.391 122.047H34.6448V147.326H236.391V122.047Z" />
+                    <path d="M236.391 59.0978H34.6448V84.3764H236.391V59.0978Z" />
+                </svg>
+            </button>
+
+            <nav id="menu" class="flex align-center">
                 <a href="#welcome" class="menu-link selected">Accueil</a>
                 <a href="#prestations" class="menu-link">Prestations</a>
                 <a href="#aboutMe" class="menu-link">A propos</a>
                 <a href="#giftCard" class="menu-link">Bons cadeaux</a>
                 <a href="#makeAppointment" class="btn btn-primary btn-small uppercase ml-2">Rendez-vous</a>
-            </div>
+            </nav>
         </div>
     </div>
 
@@ -91,7 +101,7 @@
                                         Guidée par l’intuition, chaque séance est unique et s’adapte à vos besoins,
                                         en
                                         s’inspirant
-                                        notamment des méthodes de Luc Bodin, du Reiki et du magnétisme.Bienfaits :
+                                        notamment des méthodes de Luc Bodin, du Reiki et du magnétisme. Bienfaits :
                                         réduction
                                         du
                                         stress, regain d’énergie, meilleure gestion des émotions, soutien lors de
@@ -118,16 +128,12 @@
                                 <div class="prestation-card-title px-5">Numérologie</div>
                                 <div class="prestation-card-text px-5">
                                     <p>
-                                        À partir de votre date de naissance, la numérologie met en lumière vos
-                                        talents,
-                                        vos forces et les grands cycles de votre vie. Véritable langage symbolique
-                                        des
-                                        nombres, elle vous aide à mieux vous connaître, à comprendre ce que vous
-                                        traversez et à faire des choix plus alignés.
-                                        Lors de la séance, vous découvrez une lecture personnalisée de vos
-                                        principaux
-                                        nombres, préparée en amont ainsi que des explications claires et accessibles
-                                        pour appliquer ces clés concrètement au quotidien.
+                                        À partir de votre date de naissance, la numérologie révèle vos talents, forces
+                                        et grands cycles de vie. Langage symbolique des nombres, elle vous aide à vous
+                                        connaître, comprendre ce que vous traversez et faire des choix alignés. Lors de
+                                        la séance, vous découvrez une lecture personnalisée de vos nombres clés,
+                                        préparée en amont, avec des explications claires pour les appliquer au
+                                        quotidien.
                                     </p>
                                 </div>
                                 <div class="prestation-card-divider mx-5"></div>
