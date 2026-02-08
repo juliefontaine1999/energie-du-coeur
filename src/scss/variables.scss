@@ -33,6 +33,7 @@ $body-font-family: "Hanken Grotesk",
     sans-serif !default;
 
 // Gaps
+$xs-gap-comp: map.get($spacing, "3") !default;
 $gap-comp: map.get($spacing, "5") !default;
 $gap-block: map.get($spacing, "6") !default;
 

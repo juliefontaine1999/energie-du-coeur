@@ -3,12 +3,21 @@
 @use "../variables.scss";
 @use "../components/buttons.scss";
 
+
+
+$xs-line-height: 1.6rem !default;
+$line-height: 1.8rem;
+
 $section-max-width: 2160px !default;
 $section-padding-vertical: map.get(variables.$spacing, "7") !default;
 $section-padding-horizontal: 200px !default;
 
 $small-section-padding-vertical: map.get(variables.$spacing, "6") !default;
 $small-section-padding-horizontal: 100px !default;
+
+$xs-section-padding-vertical: map.get(variables.$spacing, "5") !default;
+$xs-section-padding-horizontal: 20px !default;
+
 
 $topbar-bg: variables.$white !default;
 $welcome-bg: variables.$white !default;
@@ -21,14 +30,16 @@ $footer-bg: variables.$primary-color !default;
 
 :root {
     --font-body: "Hanken Grotesk", system-ui, sans-serif;
-    --section-padding-vertical: #{$small-section-padding-vertical};
-    --section-padding-horizontal: #{$small-section-padding-horizontal};
+    --paragraph-line-height: #{$xs-line-height};
+    --section-padding-vertical: #{$xs-section-padding-vertical};
+    --section-padding-horizontal: #{$xs-section-padding-horizontal};
 }
 
 @media (min-width: 1600px) {
     :root {
         --section-padding-vertical: #{$section-padding-vertical};
         --section-padding-horizontal: #{$section-padding-horizontal};
+        --paragraph-line-height: #{$line-height};
     }
 }
 
@@ -58,7 +69,7 @@ body {
 p {
     color: variables.$primary-color;
     text-align: justify;
-    line-height: 1.8rem;
+    line-height: var(--paragraph-line-height);
 }
 
 .divider {
@@ -115,7 +126,7 @@ p {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: map.get(variables.$breakpoints, "lg")) {
     .menu-toggle {
         display: block;
         transition: background-color 0.2s ease;
@@ -172,7 +183,7 @@ p {
         max-width: $section-max-width;
 
         #profilePicture {
-            max-width: 480px;
+            max-width: clamp(300px, 480px, 100%);
             max-height: 550px;
             height: 100%;
             border-radius: 500px 500px 0px 0px;
@@ -333,6 +344,12 @@ p {
             background-color: variables.$secondary-color;
         }
 
+        .horizontal-divider {
+            flex: 1;
+            height: 1px;
+            background-color: variables.$secondary-color;
+        }
+
         .divider-text {
             font-family: "RoslindaleDisplayNarrow", serif;
             font-size: 1.8rem;
@@ -367,6 +384,10 @@ p {
 
 #lastSection {
     background-color: $last-section-bg;
+
+    .logo-text-vertical {
+        max-width: 300px;
+    }
 }
 
 #footerWrapper {
@@ -375,6 +396,7 @@ p {
 
     #footer {
         max-width: $section-max-width;
+        gap: 1.5rem;
         color: variables.$white;
     }
 }
@@ -389,7 +411,5 @@ p {
 }
 
 .inverted-logo {
-    object-fit: cover;
-    width: 250px;
-    height: 100%;
+    max-width: 300px;
 }

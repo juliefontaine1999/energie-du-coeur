@@ -14,7 +14,7 @@
 <body>
     <div id="topBarWrapper" class="flex justify-center">
         <div id="topBar" class="pt-4 flex-1 flex justify-space-between">
-            <div id="logoTextRight" class="flex align-center gap-comp">
+            <div id="logoTextRight" class="flex flex-column md:flex-row align-center gap-comp">
                 <img src="<%= require('./assets/images/logo_no_text.svg') %>" alt="logo no title">
                 <img src="<%= require('./assets/images/title.svg') %>" alt="title">
             </div>
@@ -40,7 +40,7 @@
     </div>
 
     <div id="welcomeWrapper" class="flex justify-center">
-        <div id="welcome" class="flex flex-1 justify-center align-center gap-block">
+        <div id="welcome" class="flex flex-column lg:flex-row flex-1 justify-center align-center gap-block">
             <img id="profilePicture" src="<%= require('./assets/images/profile_picture.jpg') %>"
                 alt="photo julie fontaine">
 
@@ -209,7 +209,7 @@
                     </button>
                 </div>
                 <div class="divider horizontal-divider"></div>
-                <div class="flex gap-comp">
+                <div class="flex flex-column md:flex-row gap-comp">
                     <a href="#makeAppointment" class="btn btn-primary">Prendre rendez-vous</a>
                     <a href="#giftCard" class="btn btn-secondary">Bon cadeau</a>
                 </div>
@@ -220,8 +220,8 @@
     <div id="aboutMeWrapper" class="flex justify-center">
         <div id="aboutMe" class="section">
             <span class="section-title">Qui suis-je ?</span>
-            <div class="section-content flex gap-block">
-                <div class="flex flex-column gap-comp">
+            <div class="section-content flex flex-column md:flex-row gap-block align-center">
+                <div class="flex flex-2 flex-column gap-comp">
                     <p>
                         <span class="bold uppercase">Julie Fontaine, certifiée pour le reiki et la
                             numérologie</span>
@@ -244,9 +244,8 @@
                         vous
                         m’accordez !
                     </p>
-
                 </div>
-                <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo"
+                <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo flex-1"
                     alt="logo no title">
             </div>
         </div>
@@ -255,39 +254,39 @@
     <div id="makeAppointmentWrapper" class="flex justify-center">
         <div id="makeAppointment" class="section">
             <span class="section-title">Prendre rendez-vous</span>
-            <div class="section-content flex gap-block">
+            <div class="section-content flex flex-column lg:flex-row gap-block">
                 <div class="book-with-email flex-1 flex flex-column gap-comp">
                     <div class="book-with-email-title">
                         Réserver par e-mail
                     </div>
 
                     <form id="appointmentForm" class="form-fields grid gap-comp">
-                        <div class="input-float-label col-6">
+                        <div class="input-float-label col-12 lg:col-6">
                             <input type="text" id="firstname" name="firstname" class="input-text" required>
                             <label for="firstname" class="float-label">Prénom</label>
                         </div>
-                        <div class="input-float-label col-6">
+                        <div class="input-float-label col-12 lg:col-6">
                             <input type="text" id="lastname" name="lastname" class="input-text" required>
                             <label for="lastname" class="float-label">Nom</label>
                         </div>
 
-                        <div class="col-6 grid gap-3">
-                            <div class="col-6 flex align-center gap-2">
+                        <div class="col-12 grid gap-3">
+                            <div class="col-12 lg:col-6 flex align-center gap-2">
                                 <input type="checkbox" id="energeticCareChbx" name="energeticCareChbx"
                                     class="checkbox-input" value="energeticCare">
                                 <label for="energeticCareChbx" class="checkbox-label">Soins énergétiques</label>
                             </div>
-                            <div class="col-6 flex align-center gap-2">
+                            <div class="col-12 lg:col-6 flex align-center gap-2">
                                 <input type="checkbox" id="cardDrawingChbx" name="cardDrawingChbx"
                                     class="checkbox-input" value="cardDrawing">
                                 <label for="cardDrawingChbx" class="checkbox-label">Tirage de cartes</label>
                             </div>
-                            <div class="col-6 flex align-center gap-2">
+                            <div class="col-12 lg:col-6 flex align-center gap-2">
                                 <input type="checkbox" id="numerologyChbx" name="numerologyChbx" class="checkbox-input"
                                     value="numerology">
                                 <label for="numerologyChbx" class="checkbox-label">Numérologie</label>
                             </div>
-                            <div class="col-6 flex align-center gap-2">
+                            <div class="col-12 lg:col-6 flex align-center gap-2">
                                 <input type="checkbox" id="remoteCareChbx" name="remoteCareChbx" class="checkbox-input"
                                     value="remoteCare">
                                 <label for="remoteCareChbx" class="checkbox-label">Soins à distance</label>
@@ -311,11 +310,15 @@
                     </form>
 
                 </div>
-                <div class="flex flex-column gap-comp align-center">
-                    <div class="vertical-divider"></div>
+                <div class="flex flex-row lg:flex-column gap-comp align-center">
+                    <div class="vertical-divider display-none lg:display-block"></div>
+                    <div class="horizontal-divider lg:display-none"></div>
                     <div class="divider-text uppercase">Ou</div>
-                    <div class="vertical-divider"></div>
+                    <div class="vertical-divider display-none lg:display-block"></div>
+                    <div class="horizontal-divider lg:display-none"></div>
                 </div>
+
+
                 <div class="book-with-online-form flex-1 flex align-center justify-center">
                     <a href="https://www.youtube.com/" class="btn btn-primary" target="_blank">Réserver en ligne</a>
                 </div>
@@ -326,7 +329,7 @@
     <div id="giftCardWrapper" class="flex justify-center">
         <div id="giftCard" class="section">
             <span class="section-title">Commander un bon cadeau</span>
-            <div class="section-content flex gap-block">
+            <div class="section-content flex flex-column md:flex-row gap-block">
                 <div class="flex flex-column gap-comp flex-1 gift-card-text">
                     <p>
                         <span class="bold uppercase">Envie de faire plaisir à un proche ?</span>
@@ -349,11 +352,11 @@
                 </div>
                 <div class="flex-1 flex flex-column gap-comp">
                     <form class="form-fields grid gap-comp">
-                        <div class="input-float-label col-6">
+                        <div class="input-float-label col-12 md:col-6">
                             <input type="text" id="firstname" name="firstname" class="input-text" required>
                             <label for="firstname" class="float-label">Prénom</label>
                         </div>
-                        <div class="input-float-label col-6">
+                        <div class="input-float-label col-12 md:col-6">
                             <input type="text" id="lastname" name="lastname" class="input-text" required>
                             <label for="lastname" class="float-label">Nom</label>
                         </div>
@@ -382,11 +385,12 @@
     </div>
 
     <div id="lastSection" class="py-7 flex justify-center">
-        <img src="<%= require('./assets/images/logo_title_bottom.svg') %>" alt="logo with title">
+        <img src="<%= require('./assets/images/logo_title_bottom.svg') %>" class="logo-text-vertical"
+            alt="logo with title">
     </div>
 
     <div id="footerWrapper" class="flex justify-center align-center">
-        <div id="footer" class="flex flex-1 justify-space-between align-center">
+        <div id="footer" class="flex flex-column lg:flex-row flex-1 justify-space-between align-center">
             <div class="flex-1">© 2026 - Tous droits réservés</div>
             <div class="flex-1 text-align-center">Site web par Vincent Brodard - Photos par <a href="#" target="_blank"
                     class="sara-link">Sarah

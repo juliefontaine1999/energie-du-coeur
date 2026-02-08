@@ -1,6 +1,22 @@
 @use "variables.scss";
 @use "mixins.scss";
 
+.display-none {
+    display: none !important;
+}
+
+.display-block {
+    display: block !important;
+}
+
+@include mixins.make-responsive(display-none) {
+    display: none !important;
+}
+
+@include mixins.make-responsive(display-block) {
+    display: block !important;
+}
+
 @each $name, $value in variables.$spacing {
     .gap-#{$name} {
         gap: #{$value};
@@ -10,8 +26,18 @@
     @include mixins.create-for-directions("m", "margin", $name, $value);
 }
 
+:root {
+    --gap-comp: #{variables.$xs-gap-comp};
+}
+
+@media (min-width: 1600px) {
+    :root {
+        --gap-comp: #{variables.$gap-comp};
+    }
+}
+
 .gap-comp {
-    gap: variables.$gap-comp;
+    gap: var(--gap-comp);
 }
 
 .gap-block {
@@ -22,8 +48,10 @@
     display: flex;
 }
 
-.flex-1 {
-    flex: 1;
+@for $i from 1 through 3 {
+    .flex-#{$i} {
+        flex: #{$i};
+    }
 }
 
 .flex-row {

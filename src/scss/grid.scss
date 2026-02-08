@@ -1,4 +1,5 @@
 @use "mixins.scss";
+@use "variables.scss";
 
 $grid-columns: 12 !default;
 
@@ -11,8 +12,14 @@ $grid-columns: 12 !default;
     .col-#{$i} {
         grid-column: span $i;
     }
+}
 
-    @include mixins.make-responsive(col-#{$i}) {
-        grid-column: span $i;
+@each $name, $min in variables.$breakpoints {
+    @for $i from 1 through $grid-columns {
+        @media (width >=$min) {
+            .#{$name}\:col-#{$i} {
+                grid-column: span $i;
+            }
+        }
     }
 }
