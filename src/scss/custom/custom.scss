@@ -27,6 +27,7 @@ $appointment-bg: variables.$white !default;
 $gift-card-bg: variables.$light-green !default;
 $last-section-bg: variables.$white !default;
 $footer-bg: variables.$primary-color !default;
+$modal-bg: variables.$white !default;
 
 :root {
     --font-body: "Hanken Grotesk", system-ui, sans-serif;
@@ -412,4 +413,53 @@ p {
 
 .inverted-logo {
     max-width: 300px;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+
+    .modal {
+        transform: translateY(0);
+    }
+}
+
+.modal {
+    padding: 2rem;
+    background: $modal-bg;
+    border-radius: 3px;
+    max-width: 420px;
+    width: calc(100% - 2rem);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(10px);
+    transition: transform 0.25s ease;
+
+    .modal-title {
+        font-size: 1.5rem;
+        display: block;
+        color: variables.$primary-color;
+    }
+
+    &.success h2 {
+        color: variables.$primary-color;
+    }
+
+    &.error h2 {
+        color: variables.$error-title-color;
+    }
 }

@@ -1,3 +1,5 @@
+import { ConfirmationModal } from './modal';
+
 type AppointmentFormPayload = {
     firstname: string
     lastname: string
@@ -48,16 +50,18 @@ export function setupAppointmentForm(): void {
 
     if (!form) return
 
+    const modal = new ConfirmationModal()
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault()
 
         try {
             await submitAppointmentRequestForm(form)
             form.reset()
-            alert('Votre message a bien été envoyé ✨')
+            modal.open('success')
         } catch (error) {
             console.error(error)
-            alert('Une erreur est survenue, veuillez réessayer.')
+            modal.open('error')
         }
     })
 }
