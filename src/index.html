@@ -14,9 +14,9 @@
 <body>
     <div id="topBarWrapper" class="flex justify-center">
         <div id="topBar" class="pt-4 flex-1 flex justify-space-between">
-            <div id="logoTextRight" class="flex flex-column md:flex-row align-center gap-comp">
-                <img src="<%= require('./assets/images/logo_no_text.svg') %>" alt="logo no title">
-                <img src="<%= require('./assets/images/title.svg') %>" alt="title">
+            <div id="logoTextRight" class="flex flex-row align-center gap-comp">
+                <img src="<%= require('./assets/images/logo_no_text.svg') %>" alt="logo no title" class="logo-image">
+                <img src="<%= require('./assets/images/title.svg') %>" alt="title" class="logo-text">
             </div>
 
             <!-- Hamburger menu -->
@@ -221,7 +221,7 @@
         <div id="aboutMe" class="section">
             <span class="section-title">Qui suis-je ?</span>
             <div class="section-content flex flex-column md:flex-row gap-block align-center">
-                <div class="flex flex-2 flex-column gap-comp">
+                <div class="flex flex-column gap-comp">
                     <p>
                         <span class="bold uppercase">Julie Fontaine, certifiée pour le reiki et la
                             numérologie</span>
@@ -245,7 +245,7 @@
                         m’accordez !
                     </p>
                 </div>
-                <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo flex-1"
+                <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo"
                     alt="logo no title">
             </div>
         </div>

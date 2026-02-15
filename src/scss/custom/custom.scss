@@ -15,8 +15,8 @@ $section-padding-horizontal: 200px !default;
 $small-section-padding-vertical: map.get(variables.$spacing, "6") !default;
 $small-section-padding-horizontal: 100px !default;
 
-$xs-section-padding-vertical: map.get(variables.$spacing, "5") !default;
-$xs-section-padding-horizontal: 20px !default;
+$xs-section-padding-vertical: map.get(variables.$spacing, "6") !default;
+$xs-section-padding-horizontal: 30px !default;
 
 
 $topbar-bg: variables.$white !default;
@@ -91,7 +91,21 @@ p {
         position: relative;
         align-items: center;
     }
+
+    .logo-text {
+        width: 220px;
+    }
 }
+
+
+@media (min-width: 1200px) {
+    #topBarWrapper {
+        .logo-text {
+            width: 250px;
+        }
+    }
+}
+
 
 .menu-toggle {
     display: none;
@@ -115,7 +129,7 @@ p {
     .menu-link {
         color: variables.$primary-color;
         text-transform: uppercase;
-        padding: variables.$small-btn-padding-vertical 2rem;
+        padding: variables.$small-btn-padding-vertical 1.2rem;
 
         &.selected {
             border-bottom: 2px solid variables.$primary-color;
@@ -127,7 +141,15 @@ p {
     }
 }
 
-@media (max-width: map.get(variables.$breakpoints, "lg")) {
+@media (min-width: 1600px) {
+    #menu {
+        .menu-link {
+            padding: variables.$small-btn-padding-vertical 2rem;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
     .menu-toggle {
         display: block;
         transition: background-color 0.2s ease;
@@ -184,7 +206,7 @@ p {
         max-width: $section-max-width;
 
         #profilePicture {
-            max-width: clamp(300px, 480px, 100%);
+            max-width: clamp(300px, 480px, 90%);
             max-height: 550px;
             height: 100%;
             border-radius: 500px 500px 0px 0px;
@@ -218,6 +240,7 @@ p {
             align-items: center;
             gap: 1rem;
             --cards-visible: 1;
+            width: 90%;
             max-width: 500px;
         }
 
@@ -275,12 +298,19 @@ p {
         }
 
         .prestation-arrow-icon {
-            width: 1.35rem;
-            height: 2.5rem;
+            width: 1rem;
+            height: 2.3rem;
             stroke: variables.$primary-color;
             stroke-width: 4;
             stroke-linejoin: round;
             stroke-linecap: round;
+        }
+
+        @media (min-width: 380px) {
+            .prestation-arrow-icon {
+                width: 1.35rem;
+                height: 2.5rem;
+            }
         }
 
         .prestation-card {
@@ -325,6 +355,10 @@ p {
 #aboutMeWrapper {
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
     background-color: $about-bg;
+
+    .inverted-logo {
+        width: clamp(200px, 240px, 40%);
+    }
 }
 
 #makeAppointmentWrapper {
@@ -387,7 +421,7 @@ p {
     background-color: $last-section-bg;
 
     .logo-text-vertical {
-        max-width: 300px;
+        width: clamp(220px, 260px, 35%);
     }
 }
 
@@ -409,10 +443,6 @@ p {
     &:hover {
         color: color.adjust(variables.$white, $lightness: 10%);
     }
-}
-
-.inverted-logo {
-    max-width: 300px;
 }
 
 .modal-overlay {
