@@ -92,14 +92,22 @@ p {
         align-items: center;
     }
 
+    .logo-image {
+        width: 90px;
+    }
+
     .logo-text {
-        width: 220px;
+        width: 160px;
     }
 }
 
 
 @media (min-width: 1200px) {
     #topBarWrapper {
+        .logo-image {
+            width: 116px;
+        }
+
         .logo-text {
             width: 250px;
         }
@@ -113,12 +121,24 @@ p {
 }
 
 .menu-icon {
-    height: 2.5rem;
+    height: 2rem;
     stroke: variables.$primary-color;
     stroke-width: 4;
     stroke-linejoin: round;
     stroke-linecap: round;
     fill: variables.$primary-color;
+}
+
+@media (min-width: 500px) {
+    #topBarWrapper {
+        .logo-text {
+            width: 200px;
+        }
+    }
+
+    .menu-icon {
+        height: 2.5rem
+    }
 }
 
 #menu {
