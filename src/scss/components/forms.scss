@@ -66,12 +66,23 @@ input[type="submit"] {
     textarea:valid,
     textarea:focus {
         &~label {
-            top: -0.7rem;
-            left: variables.$input-padding-x - 0.3rem;
+            top: -0.35rem;
+            left: variables.$input-padding-x - 0.4rem;
             font-size: 0.9rem;
             color: variables.$primary-color;
         }
     }
 
+    @media (min-width: 1600px) {
+
+        input:valid,
+        input:focus,
+        textarea:valid,
+        textarea:focus {
+            &~label {
+                top: -0.6rem;
+            }
+        }
+    }
 
 }

@@ -92,6 +92,10 @@ p {
         align-items: center;
     }
 
+    #logoTextRight {
+        gap: map.get(variables.$spacing, "3");
+    }
+
     .logo-image {
         width: 90px;
     }
@@ -104,6 +108,11 @@ p {
 
 @media (min-width: 1200px) {
     #topBarWrapper {
+
+        #logoTextRight {
+            gap: variables.$gap-comp;
+        }
+
         .logo-image {
             width: 116px;
         }
