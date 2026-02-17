@@ -6,7 +6,12 @@ module.exports = {
         extensions: ['.ts', '.js']
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './src/index.html' })
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            minify: {
+                removeRedundantAttributes: false
+            }
+        })
     ],
     module: {
         rules: [
