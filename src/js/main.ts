@@ -5,16 +5,11 @@ import { Carousel } from './carousels';
 import { initCookieBanner } from './cookies';
 
 let menu: Menu;
-let prestationCarousel: Carousel;
 
 document.addEventListener('DOMContentLoaded', () => {
     menu = new Menu();
-    prestationCarousel = new Carousel(document.getElementById("prestationsCarousel")!);
+    new Carousel(document.getElementById("prestationsCarousel")!);
     setupAppointmentForm();
     setupGiftCardForm();
     initCookieBanner();
-})
-
-window.addEventListener('resize', () => {
-    prestationCarousel.onResize();
 })

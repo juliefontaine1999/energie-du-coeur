@@ -6,13 +6,14 @@ export class Carousel {
     private dotsContainer: HTMLElement
     private dots: HTMLButtonElement[] = []
     private index = 0
+    private previousCardsVisible = 1
 
     // Touch handling
     private startX = 0
     private startY = 0
     private isSwiping = false
     private readonly swipeThreshold = 50
-    private readonly horizontalSwipeThreshold = 20
+    private readonly horizontalSwipeThreshold = 30
 
 
     constructor(private root: HTMLElement) {
@@ -22,6 +23,7 @@ export class Carousel {
         this.nav = root.querySelector('.carousel-nav')!
         this.dotsContainer = root.querySelector('.carousel-dots')!
 
+        this.previousCardsVisible = this.cardsVisible
         this.bindEvents()
         this.createDots()
         this.update()
@@ -55,12 +57,25 @@ export class Carousel {
         })
 
         window.addEventListener('resize', () => {
-            this.createDots()
-            this.update()
+            this.handleResize()
         })
 
         this.track.addEventListener('touchstart', this.onTouchStart, { passive: true })
         this.track.addEventListener('touchend', this.onTouchEnd)
+    }
+
+    private handleResize(): void {
+        const currentCardsVisible = this.cardsVisible
+
+        // Only reset if breakpoint actually changed (cardsVisible changed)
+        if (currentCardsVisible !== this.previousCardsVisible) {
+            this.previousCardsVisible = currentCardsVisible
+            this.index = 0
+            this.track.style.transform = 'translateX(0px)'
+            this.createDots()
+        }
+
+        this.update()
     }
 
     private createDots(): void {
@@ -149,13 +164,6 @@ export class Carousel {
         })
     }
 
-    public onResize(): void {
-        this.index = 0
-        this.track.style.transform = 'translateX(0px)'
-        this.createDots()
-        this.updateNavigation()
-    }
-
     private onTouchStart = (e: TouchEvent): void => {
         const touch = e.touches[0]
         this.startX = touch.clientX
@@ -173,6 +181,8 @@ export class Carousel {
         const deltaX = touch.clientX - this.startX
         const deltaY = touch.clientY - this.startY
 
+        // Only trigger swipe if horizontal movement is dominant
+        // and significant enough
         if (Math.abs(deltaY) + this.horizontalSwipeThreshold > Math.abs(deltaX)) {
             return
         }
