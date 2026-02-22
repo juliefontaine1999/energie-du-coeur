@@ -2,9 +2,10 @@ export class Carousel {
     private track: HTMLElement
     private prevBtn: HTMLButtonElement
     private nextBtn: HTMLButtonElement
+    private dots: NodeListOf<HTMLButtonElement>
     private index = 0
 
-    // Tactile
+    // Touch handling
     private startX = 0
     private startY = 0
     private isSwiping = false
@@ -14,8 +15,9 @@ export class Carousel {
 
     constructor(private root: HTMLElement) {
         this.track = root.querySelector('.carousel-track')!
-        this.prevBtn = root.querySelector('.prev-button')!
-        this.nextBtn = root.querySelector('.next-button')!
+        this.prevBtn = root.querySelector('.carousel-prev')!
+        this.nextBtn = root.querySelector('.carousel-next')!
+        this.dots = root.querySelectorAll('.carousel-dot')
 
         this.bindEvents()
         this.update()
@@ -47,6 +49,13 @@ export class Carousel {
 
         this.track.addEventListener('touchstart', this.onTouchStart, { passive: true })
         this.track.addEventListener('touchend', this.onTouchEnd)
+
+        // Dot navigation
+        this.dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                this.goTo(i)
+            })
+        })
     }
 
     private update() {
@@ -60,7 +69,7 @@ export class Carousel {
         const offset = this.index * (cardWidth + gap)
 
         this.track.style.transform = `translateX(-${offset}px)`
-        this.updateArrows();
+        this.updateNavigation()
     }
 
     private next(): void {
@@ -73,28 +82,41 @@ export class Carousel {
         this.update()
     }
 
-    private updateArrows(): void {
-        const isScrollable = this.cardsVisible < 4;
+    private goTo(index: number): void {
+        this.index = Math.max(0, Math.min(index, this.maxIndex))
+        this.update()
+    }
 
-        if (!isScrollable) {
-            this.prevBtn.classList.add('hidden');
-            this.nextBtn.classList.add('hidden');
+    private updateNavigation(): void {
+        // Update arrow visibility
+        if (this.index === 0) {
+            this.prevBtn.classList.add('hidden')
         } else {
-            this.prevBtn.classList.remove('hidden');
-            this.nextBtn.classList.remove('hidden');
-
-            if (this.index === 0) {
-                this.prevBtn.classList.add('hidden');
-            } else if (this.index === this.maxIndex) {
-                this.nextBtn.classList.add('hidden');
-            }
+            this.prevBtn.classList.remove('hidden')
         }
+
+        if (this.index >= this.maxIndex) {
+            this.nextBtn.classList.add('hidden')
+        } else {
+            this.nextBtn.classList.remove('hidden')
+        }
+
+        // Update dots
+        this.dots.forEach((dot, i) => {
+            if (i === this.index) {
+                dot.classList.add('active')
+                dot.setAttribute('aria-selected', 'true')
+            } else {
+                dot.classList.remove('active')
+                dot.setAttribute('aria-selected', 'false')
+            }
+        })
     }
 
     public onResize(): void {
         this.index = 0
         this.track.style.transform = 'translateX(0px)'
-        this.updateArrows()
+        this.updateNavigation()
     }
 
     private onTouchStart = (e: TouchEvent): void => {
@@ -114,7 +136,7 @@ export class Carousel {
         const deltaX = touch.clientX - this.startX
         const deltaY = touch.clientY - this.startY
 
-        // We ignore if the vertical scroll is bigger than the horizontal one
+        // Ignore if vertical scroll is bigger than horizontal
         if (Math.abs(deltaY) + this.horizontalSwipeThreshold > Math.abs(deltaX)) {
             return
         }
@@ -129,5 +151,4 @@ export class Carousel {
             this.previous()
         }
     }
-
 }

@@ -177,13 +177,6 @@
                 <h2 id="prestations-title" class="section-title">Prestations</h2>
                 <div class="section-content flex flex-column gap-block align-center">
                     <div id="prestationsCarousel" class="carousel" role="region" aria-label="Carrousel des prestations">
-                        <button class="btn-icon-only prev-button" aria-label="Prestation précédente">
-                            <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true">
-                                <path d="M33 2L2 33L33 64" />
-                            </svg>
-                        </button>
-
                         <div class="carousel-cards-wrapper">
                             <div class="carousel-track">
                                 <article class="prestation-card gap-4">
@@ -298,12 +291,24 @@
                             </div>
                         </div>
 
-                        <button class="btn-icon-only next-button" aria-label="Prestation suivante">
-                            <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true">
-                                <path d="M2 2L33 33L2 64" />
-                            </svg>
-                        </button>
+                        <nav class="carousel-nav" aria-label="Navigation du carrousel">
+                            <button class="carousel-nav-btn carousel-prev" aria-label="Prestation précédente">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="carousel-dots" role="tablist">
+                                <button class="carousel-dot active" role="tab" aria-label="Carte 1" aria-selected="true"></button>
+                                <button class="carousel-dot" role="tab" aria-label="Carte 2" aria-selected="false"></button>
+                                <button class="carousel-dot" role="tab" aria-label="Carte 3" aria-selected="false"></button>
+                                <button class="carousel-dot" role="tab" aria-label="Carte 4" aria-selected="false"></button>
+                            </div>
+                            <button class="carousel-nav-btn carousel-next" aria-label="Prestation suivante">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </button>
+                        </nav>
                     </div>
                     <div class="divider horizontal-divider"></div>
                     <div class="flex flex-column md:flex-row gap-comp">

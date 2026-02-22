@@ -302,23 +302,12 @@ p {
     #prestations {
         .carousel {
             position: relative;
-            display: grid;
-            grid-template-columns: 1fr;
-            align-items: center;
-            gap: map.get(variables.$spacing, "3");
-            --cards-visible: 1;
+            display: flex;
+            flex-direction: column;
+            gap: map.get(variables.$spacing, "4");
             width: 100%;
             max-width: 500px;
-        }
-
-        .prev-button {
-            left: -8%;
-            position: absolute;
-        }
-
-        .next-button {
-            position: absolute;
-            right: -8%;
+            --cards-visible: 1;
         }
 
         .carousel-cards-wrapper {
@@ -333,15 +322,6 @@ p {
             gap: map.get(variables.$spacing, "4");
             transition: transform 0.35s ease;
             will-change: transform;
-        }
-
-        .prestation-arrow-icon {
-            width: 0.85rem;
-            height: 1.7rem;
-            stroke: var(--color-primary);
-            stroke-width: 4;
-            stroke-linejoin: round;
-            stroke-linecap: round;
         }
 
         .prestation-card {
@@ -395,18 +375,104 @@ p {
                 font-size: var(--card-price-size);
             }
         }
+
+        // Carousel navigation
+        .carousel-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: map.get(variables.$spacing, "3");
+            padding: map.get(variables.$spacing, "2") map.get(variables.$spacing, "3");
+            background-color: var(--bg-secondary);
+            border-radius: 50px;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .carousel-nav-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            color: var(--color-primary);
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            &:hover {
+                background-color: var(--bg-primary);
+            }
+
+            &:focus {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+
+            &.hidden {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: map.get(variables.$spacing, "2");
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--color-secondary);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+
+            &:hover {
+                background-color: color.adjust(variables.$secondary-color, $lightness: -15%);
+            }
+
+            &.active {
+                background-color: var(--color-primary);
+                transform: scale(1.2);
+            }
+
+            &:focus {
+                outline: 2px solid var(--color-primary);
+                outline-offset: 2px;
+            }
+        }
     }
 }
 
 @include mixins.respond-to(sm) {
     #prestationsWrapper #prestations {
-        .prestation-arrow-icon {
-            width: 1rem;
-            height: 2rem;
-        }
-
         .carousel {
             max-width: 450px;
+        }
+
+        .carousel-nav-btn {
+            width: 36px;
+            height: 36px;
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
         }
     }
 }
@@ -426,11 +492,6 @@ p {
             --cards-visible: 2;
             max-width: 800px;
         }
-
-        .prestation-arrow-icon {
-            width: 1.1rem;
-            height: 2.1rem;
-        }
     }
 }
 
@@ -439,14 +500,6 @@ p {
         .carousel {
             max-width: 1400px;
             --cards-visible: 3;
-        }
-
-        .prev-button {
-            left: -5%;
-        }
-
-        .next-button {
-            right: -5%;
         }
     }
 }
