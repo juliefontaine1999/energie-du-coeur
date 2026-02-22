@@ -234,7 +234,7 @@ p {
         transform: translateY(-10px);
         transition: opacity 0.25s ease, transform 0.25s ease;
 
-        > a {
+        >a {
             transition: background-color 0.2s ease;
         }
 
@@ -242,14 +242,14 @@ p {
             visibility: visible;
             transform: translateY(0);
 
-            > a:hover {
+            >a:hover {
                 background-color: color.adjust(variables.$beige, $lightness: -10%);
             }
         }
     }
 
     @include mixins.dark-mode {
-        #menu.is-open > a:hover {
+        #menu.is-open>a:hover {
             background-color: color.adjust(variables.$dark-bg-secondary, $lightness: 5%);
         }
     }
@@ -257,10 +257,10 @@ p {
 
 #welcomeWrapper {
     background: linear-gradient(to bottom,
-        var(--bg-primary) 0%,
-        var(--bg-primary) 30%,
-        var(--bg-secondary) 30%,
-        var(--bg-secondary) 100%);
+            var(--bg-primary) 0%,
+            var(--bg-primary) 30%,
+            var(--bg-secondary) 30%,
+            var(--bg-secondary) 100%);
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
 
     #welcome {
@@ -276,7 +276,6 @@ p {
         }
 
         #welcomeText {
-            font-family: variables.$heading-font-family;
             border: 1px solid var(--color-secondary);
             background-color: var(--bg-primary);
             padding: map.get(variables.$spacing, "5");
@@ -511,6 +510,11 @@ p {
     background-color: var(--bg-primary);
 
     #makeAppointment {
+
+        .checkboxes-main-label {
+            margin-bottom: 16px;
+        }
+
         .book-with-email-title {
             font-family: variables.$heading-font-family;
             font-size: var(--card-title-size);
@@ -665,5 +669,61 @@ p {
 
     &.error h2 {
         color: var(--color-error-title);
+    }
+}
+
+// =============================================================================
+// COOKIE BANNER
+// =============================================================================
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--color-secondary);
+    padding: map.get(variables.$spacing, "3") var(--section-padding-horizontal);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+
+    &.is-visible {
+        transform: translateY(0);
+    }
+
+    .cookie-content {
+        max-width: variables.$section-max-width;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: map.get(variables.$spacing, "3");
+        align-items: center;
+        text-align: center;
+
+        p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: map.get(variables.$spacing, "3");
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+}
+
+@include mixins.respond-to(md) {
+    .cookie-banner .cookie-content {
+        flex-direction: row;
+        text-align: left;
+
+        p {
+            flex: 1;
+        }
     }
 }

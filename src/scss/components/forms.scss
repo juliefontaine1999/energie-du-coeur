@@ -99,8 +99,20 @@ input[type="submit"] {
             left: calc(map.get(variables.$spacing, "3") - 0.4rem);
             font-size: 0.85rem;
             color: var(--color-primary);
-            background-color: var(--input-bg);
             padding: 0 0.25rem;
+        }
+    }
+}
+
+@include mixins.dark-mode {
+    .input-float-label {
+        input:valid,
+        input:focus,
+        textarea:valid,
+        textarea:focus {
+            & ~ label {
+                background-color: var(--input-bg);
+            }
         }
     }
 }

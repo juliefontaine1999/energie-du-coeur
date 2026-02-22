@@ -22,7 +22,8 @@
     <meta property="og:title" content="Énergie du Cœur | Soins énergétiques, Numérologie & Tirages de cartes">
     <meta property="og:description"
         content="Soins énergétiques, numérologie et tirages de cartes à Romont. Julie Fontaine vous accompagne avec douceur pour retrouver équilibre, clarté et sérénité.">
-    <meta property="og:image" content="https://www.energie-du-coeur.ch/profile_picture.jpg">
+    <meta property="og:image"
+        content="https://www.energie-du-coeur.ch/<%= require('./assets/images/energie-du-coeur-logo.jpg') %>">
     <meta property="og:locale" content="fr_CH">
     <meta property="og:site_name" content="Énergie du Cœur">
 
@@ -31,7 +32,8 @@
     <meta name="twitter:title" content="Énergie du Cœur | Soins énergétiques, Numérologie & Tirages de cartes">
     <meta name="twitter:description"
         content="Soins énergétiques, numérologie et tirages de cartes à Romont. Julie Fontaine vous accompagne avec douceur pour retrouver équilibre, clarté et sérénité.">
-    <meta name="twitter:image" content="https://www.energie-du-coeur.ch/profile_picture.jpg">
+    <meta name="twitter:image"
+        content="https://www.energie-du-coeur.ch/<%= require('./assets/images/energie-du-coeur-logo.jpg') %>">
 
     <meta name="theme-color" content="#516450">
     <meta name="msapplication-TileColor" content="#516450">
@@ -57,7 +59,7 @@
         },
         "openingHours": "Mo-Fr 09:00-18:00",
         "priceRange": "$$",
-        "image": "https://www.energie-du-coeur.ch/profile_picture.jpg",
+        "image": "https://www.energie-du-coeur.ch/<%= require('./assets/images/energie-du-coeur-logo.jpg') %>",
         "sameAs": [
             "https://www.instagram.com/energie.du.coeur/",
             "https://www.facebook.com/share/1GJrcVZLW2/"
@@ -83,7 +85,7 @@
                         "name": "Numérologie",
                         "description": "À partir de votre date de naissance, la numérologie révèle vos talents, forces et grands cycles de vie."
                     },
-                    "price": "50",
+                    "price": "60",
                     "priceCurrency": "CHF"
                 },
                 {
@@ -237,7 +239,7 @@
                                         class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
                                         <div class="prices flex align-center gap-2">
                                             <div class="original-price line-through">80.-</div>
-                                            <div class="actual-price">50.-/30min</div>
+                                            <div class="actual-price">60.-/30min</div>
                                         </div>
                                         <div class="sale-end-date">Jusqu'à fin juin !</div>
                                     </div>
@@ -324,20 +326,13 @@
                         <p>
                             Empathique et à l'écoute, j'ai découvert les soins énergétiques après un grand
                             bouleversement personnel. Cette expérience a été le point de départ d'un véritable
-                            cheminement
-                            intérieur.
-                        </p>
-                        <p>
+                            cheminement intérieur.<br>
                             J'ai alors suivi différentes formations et ateliers afin de comprendre, d'apprendre et
                             de développer mes compétences dans le domaine des soins énergétiques. Ce chemin est devenu
-                            une véritable passion, qui m'a menée à créer Énergie du Cœur.
-                        </p>
-                        <p>
+                            une véritable passion, qui m'a menée à créer Énergie du Cœur.<br>
                             Animée par une curiosité constante et le désir d'offrir un accompagnement de qualité, je
                             continue à me former régulièrement afin de vous proposer des soins toujours plus adaptés
-                            à vos besoins.
-                        </p>
-                        <p>
+                            à vos besoins.<br>
                             Je me réjouis de vous accueillir et je vous remercie de tout cœur pour la confiance que
                             vous m'accordez !
                         </p>
@@ -368,8 +363,8 @@
                                 <label for="lastname" class="float-label">Nom</label>
                             </div>
 
-                            <fieldset class="col-12 grid gap-3" style="border: none; padding: 0;">
-                                <legend class="sr-only">Types de prestations souhaitées</legend>
+                            <fieldset class="col-12 grid gap-3 mt-3" style="border: none; padding: 0;">
+                                <legend class="sr-only checkboxes-main-label">Types de prestations souhaitées</legend>
                                 <div class="col-12 lg:col-6 flex align-center gap-2">
                                     <input type="checkbox" id="energeticCareChbx" name="energeticCareChbx"
                                         class="checkbox-input" value="energeticCare">
@@ -524,6 +519,20 @@
                 <button id="modalCloseBtn" class="btn btn-primary w-fit">
                     Fermer
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle"
+        aria-describedby="cookieDesc">
+        <div class="cookie-content">
+            <p id="cookieDesc">
+                Ce site utilise des cookies pour mesurer l'audience et améliorer votre expérience.
+                En continuant à naviguer, vous acceptez leur utilisation.
+            </p>
+            <div class="cookie-buttons">
+                <button id="cookieAccept" class="btn btn-primary btn-small">Accepter</button>
+                <button id="cookieDecline" class="btn btn-secondary btn-small">Refuser</button>
             </div>
         </div>
     </div>

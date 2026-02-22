@@ -4,9 +4,9 @@
 @use "../mixins.scss";
 
 :root {
-    --btn-font-size: #{variables.$font-size-sm};
-    --btn-padding-v: #{map.get(variables.$spacing, "2")};
-    --btn-padding-h: #{map.get(variables.$spacing, "3")};
+    --btn-font-size: 1.1rem;
+    --btn-padding-v: #{map.get(variables.$spacing, "3")};
+    --btn-padding-h: #{map.get(variables.$spacing, "4")};
     --btn-bg-primary: #{variables.$primary-color};
     --btn-bg-primary-hover: #{color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust)};
     --btn-bg-primary-focus: #{color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust)};
@@ -15,6 +15,14 @@
     --btn-bg-secondary-hover: #{color.adjust(variables.$white, $lightness: variables.$btn-secondary-hover-bg-lightness-adjust)};
     --btn-bg-secondary-focus: #{color.adjust(variables.$white, $lightness: variables.$btn-secondary-focus-bg-lightness-adjust)};
     --btn-border-secondary: #{variables.$primary-color};
+}
+
+@include mixins.respond-to(md) {
+    :root {
+        --btn-font-size: #{variables.$font-size-md};
+        --btn-padding-v: #{map.get(variables.$spacing, "3")};
+        --btn-padding-h: #{map.get(variables.$spacing, "5")};
+    }
 }
 
 @include mixins.respond-to(lg) {

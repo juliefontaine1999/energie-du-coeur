@@ -1,6 +1,13 @@
 @use "sass:map";
 @use "variables.scss";
 
+// =============================================================================
+// RESPONSIVE BREAKPOINT MIXINS
+// =============================================================================
+
+// Generate responsive utility classes for all breakpoints
+// Usage: @include make-responsive(display-none) { display: none !important; }
+// Output: .xs\:display-none, .sm\:display-none, .md\:display-none, etc.
 @mixin make-responsive($class-name) {
     @each $name, $min in variables.$breakpoints {
         @media (width >= $min) {
@@ -11,6 +18,9 @@
     }
 }
 
+// Apply styles when viewport width is >= breakpoint
+// Usage: @include respond-to(md) { ...styles... }
+// Output: @media (width >= 768px) { ...styles... }
 @mixin respond-to($breakpoint) {
     $min: map.get(variables.$breakpoints, $breakpoint);
     @if $min != null {
@@ -22,6 +32,9 @@
     }
 }
 
+// Apply styles when viewport width is < breakpoint
+// Usage: @include respond-to-max(lg) { ...styles... }
+// Output: @media (width < 992px) { ...styles... }
 @mixin respond-to-max($breakpoint) {
     $min: map.get(variables.$breakpoints, $breakpoint);
     @if $min != null {
@@ -33,6 +46,10 @@
     }
 }
 
+// =============================================================================
+// SPACING UTILITIES MIXIN
+// =============================================================================
+
 $directions: (
     t: top,
     r: right,
@@ -40,6 +57,9 @@ $directions: (
     l: left
 ) !default;
 
+// Generate spacing utility classes for padding and margin
+// Usage: @include create-for-directions("p", "padding", "3", 1rem);
+// Output: .pt-3, .pr-3, .pb-3, .pl-3, .p-3, .px-3, .py-3
 @mixin create-for-directions($class-name, $property, $spacing-name, $spacing-value) {
     @each $abbr, $dir in $directions {
         .#{$class-name}#{$abbr}-#{$spacing-name} {
@@ -62,6 +82,13 @@ $directions: (
     }
 }
 
+// =============================================================================
+// DARK MODE MIXIN
+// =============================================================================
+
+// Apply styles when user prefers dark color scheme
+// Usage: @include dark-mode { ...styles... }
+// Output: @media (prefers-color-scheme: dark) { ...styles... }
 @mixin dark-mode {
     @media (prefers-color-scheme: dark) {
         @content;
