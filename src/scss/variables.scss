@@ -21,7 +21,7 @@ $spacing: (
     "8": 4rem,
 ) !default;
 
-// Light mode colors
+// Colors
 $white: #F7F5F2 !default;
 $beige: #EFE8DE !default;
 $light-green: #D6D4C8 !default;
@@ -30,16 +30,6 @@ $secondary-color: #BCBB8E !default;
 $text-color: $primary-color !default;
 $inverted-text-color: $white !default;
 $error-title-color: #515c66 !default;
-
-// Dark mode colors
-$dark-bg-primary: #1a1d1a !default;
-$dark-bg-secondary: #252825 !default;
-$dark-bg-tertiary: #1e2120 !default;
-$dark-primary-color: #7a9e77 !default;
-$dark-secondary-color: #a8a76e !default;
-$dark-text-color: #d4d8d3 !default;
-$dark-inverted-text-color: $dark-bg-primary !default;
-$dark-error-title-color: #8fa5b3 !default;
 
 // Fonts
 $root-font-size: 13px !default;
@@ -99,27 +89,20 @@ $icon-only-btn-padding: $icon-only-btn-padding-vertical $icon-only-btn-padding-h
 // Inputs
 $input-font-size: $font-size-base !default;
 $input-color: #1C1E21 !default;
-$dark-input-color: #e8e8e8 !default;
 $input-padding-x: map.get($spacing, "3") !default;
 $input-padding-y: map.get($spacing, "2") !default;
 $input-padding: $input-padding-y $input-padding-x !default;
 $input-bg: #FFFFFF !default;
-$dark-input-bg: #2a2d2a !default;
 $input-placeholder-color: #ADB5BD !default;
-$dark-input-placeholder-color: #7a7d7a !default;
 $input-border: 1px solid #DEE2E6 !default;
-$dark-input-border: 1px solid #4a4d4a !default;
 $input-border-radius: 6px !default;
 $input-chbx-border: 1px solid #ABB5BE !default;
-$dark-input-chbx-border: 1px solid #5a5d5a !default;
 $input-chbx-border-radius: 3px !default;
 $input-chbx-size: 1.2rem !default;
 
 // Shadows
 $shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08) !default;
 $shadow-md: 0 12px 30px rgba(0, 0, 0, 0.2) !default;
-$dark-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3) !default;
-$dark-shadow-md: 0 12px 30px rgba(0, 0, 0, 0.4) !default;
 
 // Modal
 $modal-max-width: 420px !default;

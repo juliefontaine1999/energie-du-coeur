@@ -81,16 +81,3 @@ $directions: (
         #{$property}-bottom: $spacing-value;
     }
 }
-
-// =============================================================================
-// DARK MODE MIXIN
-// =============================================================================
-
-// Apply styles when user prefers dark color scheme
-// Usage: @include dark-mode { ...styles... }
-// Output: @media (prefers-color-scheme: dark) { ...styles... }
-@mixin dark-mode {
-    @media (prefers-color-scheme: dark) {
-        @content;
-    }
-}

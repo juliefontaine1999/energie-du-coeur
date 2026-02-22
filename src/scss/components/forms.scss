@@ -21,16 +21,6 @@
     }
 }
 
-@include mixins.dark-mode {
-    :root {
-        --input-bg: #{variables.$dark-input-bg};
-        --input-color: #{variables.$dark-input-color};
-        --input-placeholder-color: #{variables.$dark-input-placeholder-color};
-        --input-border: #{variables.$dark-input-border};
-        --input-chbx-border: #{variables.$dark-input-chbx-border};
-    }
-}
-
 input[type="text"],
 input[type="email"],
 textarea {
@@ -100,19 +90,6 @@ input[type="submit"] {
             font-size: 0.85rem;
             color: var(--color-primary);
             padding: 0 0.25rem;
-        }
-    }
-}
-
-@include mixins.dark-mode {
-    .input-float-label {
-        input:valid,
-        input:focus,
-        textarea:valid,
-        textarea:focus {
-            & ~ label {
-                background-color: var(--input-bg);
-            }
         }
     }
 }

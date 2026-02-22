@@ -33,18 +33,6 @@
     }
 }
 
-@include mixins.dark-mode {
-    :root {
-        --btn-bg-primary: #{variables.$dark-primary-color};
-        --btn-bg-primary-hover: #{color.adjust(variables.$dark-primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust)};
-        --btn-bg-primary-focus: #{color.adjust(variables.$dark-primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust)};
-        --btn-text-primary: #{variables.$dark-bg-primary};
-        --btn-bg-secondary-hover: #{color.adjust(variables.$dark-bg-primary, $lightness: 5%)};
-        --btn-bg-secondary-focus: #{color.adjust(variables.$dark-bg-primary, $lightness: 8%)};
-        --btn-border-secondary: #{variables.$dark-primary-color};
-    }
-}
-
 .btn {
     padding: var(--btn-padding-v) var(--btn-padding-h);
     border: none;

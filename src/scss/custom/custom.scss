@@ -25,26 +25,6 @@
     --location-text-size: #{variables.$font-size-md};
 }
 
-@include mixins.dark-mode {
-    :root {
-        --color-primary: #{variables.$dark-primary-color};
-        --color-secondary: #{variables.$dark-secondary-color};
-        --color-text: #{variables.$dark-text-color};
-        --color-text-inverted: #{variables.$dark-inverted-text-color};
-        --color-error-title: #{variables.$dark-error-title-color};
-        --bg-primary: #{variables.$dark-bg-primary};
-        --bg-secondary: #{variables.$dark-bg-secondary};
-        --bg-tertiary: #{variables.$dark-bg-tertiary};
-        --bg-input: #{variables.$dark-input-bg};
-        --color-input: #{variables.$dark-input-color};
-        --color-input-placeholder: #{variables.$dark-input-placeholder-color};
-        --border-input: #{variables.$dark-input-border};
-        --border-input-chbx: #{variables.$dark-input-chbx-border};
-        --shadow-sm: #{variables.$dark-shadow-sm};
-        --shadow-md: #{variables.$dark-shadow-md};
-    }
-}
-
 @include mixins.respond-to(lg) {
     :root {
         --section-title-size: 2.2rem;
@@ -193,12 +173,6 @@ p {
     }
 }
 
-@include mixins.dark-mode {
-    #menu .menu-link:hover {
-        color: color.adjust(variables.$dark-primary-color, $lightness: 10%);
-    }
-}
-
 @include mixins.respond-to(xl) {
     #menu .menu-link {
         padding: variables.$small-btn-padding-vertical map.get(variables.$spacing, "5");
@@ -245,12 +219,6 @@ p {
             >a:hover {
                 background-color: color.adjust(variables.$beige, $lightness: -10%);
             }
-        }
-    }
-
-    @include mixins.dark-mode {
-        #menu.is-open>a:hover {
-            background-color: color.adjust(variables.$dark-bg-secondary, $lightness: 5%);
         }
     }
 }
@@ -368,8 +336,8 @@ p {
         }
 
         .prestation-arrow-icon {
-            width: 1rem;
-            height: 2rem;
+            width: 0.85rem;
+            height: 1.7rem;
             stroke: var(--color-primary);
             stroke-width: 4;
             stroke-linejoin: round;
@@ -433,8 +401,8 @@ p {
 @include mixins.respond-to(sm) {
     #prestationsWrapper #prestations {
         .prestation-arrow-icon {
-            width: 1.25rem;
-            height: 2.3rem;
+            width: 1rem;
+            height: 2rem;
         }
 
         .carousel {
@@ -460,8 +428,8 @@ p {
         }
 
         .prestation-arrow-icon {
-            width: 1.35rem;
-            height: 2.5rem;
+            width: 1.1rem;
+            height: 2.1rem;
         }
     }
 }
@@ -590,16 +558,6 @@ p {
     }
 }
 
-@include mixins.dark-mode {
-    #footerWrapper {
-        background-color: var(--bg-tertiary);
-
-        #footer {
-            color: var(--color-text);
-        }
-    }
-}
-
 @include mixins.respond-to(lg) {
     #footer {
         gap: map.get(variables.$spacing, "4");
@@ -612,16 +570,6 @@ p {
 
     &:hover {
         color: color.adjust(variables.$white, $lightness: 10%);
-    }
-}
-
-@include mixins.dark-mode {
-    .sara-link {
-        color: var(--color-primary);
-
-        &:hover {
-            color: color.adjust(variables.$dark-primary-color, $lightness: 10%);
-        }
     }
 }
 
