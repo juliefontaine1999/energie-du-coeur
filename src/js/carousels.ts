@@ -3,7 +3,8 @@ export class Carousel {
     private prevBtn: HTMLButtonElement
     private nextBtn: HTMLButtonElement
     private nav: HTMLElement
-    private dots: NodeListOf<HTMLButtonElement>
+    private dotsContainer: HTMLElement
+    private dots: HTMLButtonElement[] = []
     private index = 0
 
     // Touch handling
@@ -19,9 +20,10 @@ export class Carousel {
         this.prevBtn = root.querySelector('.carousel-prev')!
         this.nextBtn = root.querySelector('.carousel-next')!
         this.nav = root.querySelector('.carousel-nav')!
-        this.dots = root.querySelectorAll('.carousel-dot')
+        this.dotsContainer = root.querySelector('.carousel-dots')!
 
         this.bindEvents()
+        this.createDots()
         this.update()
     }
 
@@ -31,15 +33,16 @@ export class Carousel {
         return Number(value) || 1
     }
 
+    private get totalCards(): number {
+        return this.track.children.length
+    }
+
     private get maxIndex(): number {
-        return Math.max(
-            0,
-            this.track.children.length - this.cardsVisible
-        )
+        return Math.max(0, this.totalCards - this.cardsVisible)
     }
 
     private get allCardsVisible(): boolean {
-        return this.cardsVisible >= this.track.children.length
+        return this.cardsVisible >= this.totalCards
     }
 
     private bindEvents() {
@@ -51,17 +54,39 @@ export class Carousel {
             this.previous()
         })
 
-        window.addEventListener('resize', () => this.update())
+        window.addEventListener('resize', () => {
+            this.createDots()
+            this.update()
+        })
 
         this.track.addEventListener('touchstart', this.onTouchStart, { passive: true })
         this.track.addEventListener('touchend', this.onTouchEnd)
+    }
 
-        // Dot navigation
-        this.dots.forEach((dot, i) => {
+    private createDots(): void {
+        this.dotsContainer.innerHTML = ''
+        this.dots = []
+
+        const numDots = this.maxIndex + 1
+
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('button')
+            dot.className = 'carousel-dot'
+            dot.setAttribute('role', 'tab')
+            dot.setAttribute('aria-label', `Page ${i + 1}`)
+            dot.setAttribute('aria-selected', i === this.index ? 'true' : 'false')
+            
+            if (i === this.index) {
+                dot.classList.add('active')
+            }
+
             dot.addEventListener('click', () => {
                 this.goTo(i)
             })
-        })
+
+            this.dotsContainer.appendChild(dot)
+            this.dots.push(dot)
+        }
     }
 
     private update() {
@@ -94,7 +119,6 @@ export class Carousel {
     }
 
     private updateNavigation(): void {
-        // Hide nav entirely when all cards are visible
         if (this.allCardsVisible) {
             this.nav.style.display = 'none'
             return
@@ -102,7 +126,6 @@ export class Carousel {
 
         this.nav.style.display = ''
 
-        // Update arrow visibility
         if (this.index === 0) {
             this.prevBtn.classList.add('hidden')
         } else {
@@ -115,7 +138,6 @@ export class Carousel {
             this.nextBtn.classList.remove('hidden')
         }
 
-        // Update dots
         this.dots.forEach((dot, i) => {
             if (i === this.index) {
                 dot.classList.add('active')
@@ -130,6 +152,7 @@ export class Carousel {
     public onResize(): void {
         this.index = 0
         this.track.style.transform = 'translateX(0px)'
+        this.createDots()
         this.updateNavigation()
     }
 
@@ -150,7 +173,6 @@ export class Carousel {
         const deltaX = touch.clientX - this.startX
         const deltaY = touch.clientY - this.startY
 
-        // Ignore if vertical scroll is bigger than horizontal
         if (Math.abs(deltaY) + this.horizontalSwipeThreshold > Math.abs(deltaX)) {
             return
         }
