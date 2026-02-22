@@ -300,6 +300,8 @@ p {
     background-color: var(--bg-primary);
 
     #prestations {
+        width: 100%;
+
         .carousel {
             position: relative;
             display: flex;

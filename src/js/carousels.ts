@@ -2,6 +2,7 @@ export class Carousel {
     private track: HTMLElement
     private prevBtn: HTMLButtonElement
     private nextBtn: HTMLButtonElement
+    private nav: HTMLElement
     private dots: NodeListOf<HTMLButtonElement>
     private index = 0
 
@@ -17,6 +18,7 @@ export class Carousel {
         this.track = root.querySelector('.carousel-track')!
         this.prevBtn = root.querySelector('.carousel-prev')!
         this.nextBtn = root.querySelector('.carousel-next')!
+        this.nav = root.querySelector('.carousel-nav')!
         this.dots = root.querySelectorAll('.carousel-dot')
 
         this.bindEvents()
@@ -34,6 +36,10 @@ export class Carousel {
             0,
             this.track.children.length - this.cardsVisible
         )
+    }
+
+    private get allCardsVisible(): boolean {
+        return this.cardsVisible >= this.track.children.length
     }
 
     private bindEvents() {
@@ -88,6 +94,14 @@ export class Carousel {
     }
 
     private updateNavigation(): void {
+        // Hide nav entirely when all cards are visible
+        if (this.allCardsVisible) {
+            this.nav.style.display = 'none'
+            return
+        }
+
+        this.nav.style.display = ''
+
         // Update arrow visibility
         if (this.index === 0) {
             this.prevBtn.classList.add('hidden')
