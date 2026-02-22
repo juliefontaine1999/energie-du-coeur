@@ -1,38 +1,69 @@
+@use "sass:map";
 @use "../variables.scss";
+@use "../mixins.scss";
 
+:root {
+    --input-font-size: 1rem;
+    --input-padding: #{map.get(variables.$spacing, "2")} #{map.get(variables.$spacing, "3")};
+    --input-bg: #{variables.$input-bg};
+    --input-color: #{variables.$input-color};
+    --input-placeholder-color: #{variables.$input-placeholder-color};
+    --input-border: #{variables.$input-border};
+    --input-border-radius: #{variables.$input-border-radius};
+    --input-chbx-border: #{variables.$input-chbx-border};
+    --input-chbx-size: 1.2rem;
+}
+
+@include mixins.respond-to(md) {
+    :root {
+        --input-font-size: #{variables.$font-size-base};
+        --input-padding: #{map.get(variables.$spacing, "3")} #{map.get(variables.$spacing, "4")};
+    }
+}
+
+@include mixins.dark-mode {
+    :root {
+        --input-bg: #{variables.$dark-input-bg};
+        --input-color: #{variables.$dark-input-color};
+        --input-placeholder-color: #{variables.$dark-input-placeholder-color};
+        --input-border: #{variables.$dark-input-border};
+        --input-chbx-border: #{variables.$dark-input-chbx-border};
+    }
+}
 
 input[type="text"],
 input[type="email"],
 textarea {
     width: 100%;
-    padding: variables.$input-padding;
-    font-family: "Hanken Grotesk", system-ui, sans-serif;
-    font-size: variables.$input-font-size;
-    color: variables.$input-color;
-    background-color: variables.$input-bg;
-    border: variables.$input-border;
-    border-radius: variables.$input-border-radius;
+    padding: var(--input-padding);
+    font-family: variables.$body-font-family;
+    font-size: var(--input-font-size);
+    color: var(--input-color);
+    background-color: var(--input-bg);
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
 
     &::placeholder {
-        color: variables.$input-placeholder-color;
+        color: var(--input-placeholder-color);
     }
 }
 
 .checkbox-label {
-    font-size: 1.2rem;
-    color: variables.$primary-color;
+    font-size: var(--input-font-size);
+    color: var(--color-text);
 }
 
 input[type="checkbox"] {
-    width: variables.$input-chbx-size;
-    height: variables.$input-chbx-size;
-    background-color: variables.$input-bg;
-    border: variables.$input-chbx-border;
+    width: var(--input-chbx-size);
+    height: var(--input-chbx-size);
+    background-color: var(--input-bg);
+    border: var(--input-chbx-border);
     border-radius: variables.$input-chbx-border-radius;
+    flex-shrink: 0;
 }
 
 input[type="checkbox"]:checked {
-    background-color: variables.$primary-color;
+    background-color: var(--color-primary);
     border: none;
 }
 
@@ -44,45 +75,45 @@ input[type="submit"] {
 .input-float-label {
     position: relative;
 
-    >label {
+    > label {
         position: absolute;
         top: 50%;
-        margin-top: -0.65rem;
-        font-size: variables.$input-font-size;
-        left: variables.$input-padding-x;
-        color: variables.$input-placeholder-color;
+        margin-top: -0.6rem;
+        font-size: var(--input-font-size);
+        left: map.get(variables.$spacing, "3");
+        color: var(--input-placeholder-color);
         transition: 0.4s ease all;
         pointer-events: none;
     }
 
-    textarea {
-        ~label {
-            top: 1.8rem;
-        }
+    textarea ~ label {
+        top: 1.5rem;
     }
 
     input:valid,
     input:focus,
     textarea:valid,
     textarea:focus {
-        &~label {
+        & ~ label {
             top: -0.35rem;
-            left: variables.$input-padding-x - 0.4rem;
-            font-size: 0.9rem;
-            color: variables.$primary-color;
+            left: calc(map.get(variables.$spacing, "3") - 0.4rem);
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            background-color: var(--input-bg);
+            padding: 0 0.25rem;
         }
     }
+}
 
-    @media (min-width: 1600px) {
-
+@include mixins.respond-to(md) {
+    .input-float-label {
         input:valid,
         input:focus,
         textarea:valid,
         textarea:focus {
-            &~label {
-                top: -0.6rem;
+            & ~ label {
+                top: -0.5rem;
             }
         }
     }
-
 }

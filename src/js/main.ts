@@ -1,6 +1,6 @@
 import '../scss/all.scss'
 import { Menu } from './menu';
-import { setupAppointmentForm } from "./forms";
+import { setupAppointmentForm, setupGiftCardForm } from "./forms";
 import { Carousel } from './carousels';
 
 let menu: Menu;
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menu = new Menu();
     prestationCarousel = new Carousel(document.getElementById("prestationsCarousel")!);
     setupAppointmentForm();
+    setupGiftCardForm();
 })
 
 window.addEventListener('resize', () => {

@@ -5,7 +5,9 @@ $breakpoints: (
     "sm": 576px,
     "md": 768px,
     "lg": 992px,
-    "xl": 1200px) !default;
+    "xl": 1200px,
+    "xxl": 1400px,
+) !default;
 
 $spacing: (
     "0": 0,
@@ -15,46 +17,79 @@ $spacing: (
     "4": 1.5rem,
     "5": 2rem,
     "6": 2.5rem,
-    "7": 3rem) !default;
+    "7": 3rem,
+    "8": 4rem,
+) !default;
 
-// Colors
+// Light mode colors
 $white: #F7F5F2 !default;
 $beige: #EFE8DE !default;
 $light-green: #D6D4C8 !default;
-
 $primary-color: #516450 !default;
 $secondary-color: #BCBB8E !default;
 $text-color: $primary-color !default;
 $inverted-text-color: $white !default;
 $error-title-color: #515c66 !default;
 
+// Dark mode colors
+$dark-bg-primary: #1a1d1a !default;
+$dark-bg-secondary: #252825 !default;
+$dark-bg-tertiary: #1e2120 !default;
+$dark-primary-color: #7a9e77 !default;
+$dark-secondary-color: #a8a76e !default;
+$dark-text-color: #d4d8d3 !default;
+$dark-inverted-text-color: $dark-bg-primary !default;
+$dark-error-title-color: #8fa5b3 !default;
+
 // Fonts
 $root-font-size: 13px !default;
-$body-font-family: "Hanken Grotesk",
-    sans-serif !default;
+$body-font-family: "Hanken Grotesk", sans-serif !default;
+$heading-font-family: "RoslindaleDisplayNarrow", serif !default;
+
+// Line heights
+$line-height-xs: 1.5rem !default;
+$line-height-sm: 1.6rem !default;
+$line-height-md: 1.7rem !default;
+$line-height-lg: 1.8rem !default;
+
+// Font sizes
+$font-size-xs: 0.875rem !default;
+$font-size-sm: 1rem !default;
+$font-size-base: 1.2rem !default;
+$font-size-md: 1.5rem !default;
+$font-size-lg: 1.8rem !default;
+$font-size-xl: 2rem !default;
+$font-size-xxl: 2.1rem !default;
+
+// Section padding
+$section-padding: (
+    "xs": (vertical: map.get($spacing, "6"), horizontal: 20px),
+    "sm": (vertical: map.get($spacing, "6"), horizontal: 40px),
+    "md": (vertical: map.get($spacing, "7"), horizontal: 60px),
+    "lg": (vertical: map.get($spacing, "7"), horizontal: 100px),
+    "xl": (vertical: map.get($spacing, "7"), horizontal: 150px),
+    "xxl": (vertical: map.get($spacing, "7"), horizontal: 200px),
+) !default;
 
 // Gaps
-$xs-gap-comp: map.get($spacing, "4") !default;
 $gap-comp: map.get($spacing, "5") !default;
 $gap-block: map.get($spacing, "6") !default;
 
 // Buttons
 $btn-border-radius: 1px !default;
-
 $btn-padding-vertical: map.get($spacing, "3") !default;
 $btn-padding-horizontal: map.get($spacing, "3") !default;
 $btn-padding: $btn-padding-vertical $btn-padding-horizontal !default;
-$btn-font-size: 1.5rem !default;
+$btn-font-size: $font-size-md !default;
 $btn-primary-hover-bg-lightness-adjust: -10% !default;
 $btn-primary-focus-bg-lightness-adjust: -15% !default;
 $btn-secondary-hover-bg-lightness-adjust: -5% !default;
 $btn-secondary-focus-bg-lightness-adjust: -8% !default;
 
-$small-btn-padding-vertical: map.get($spacing, "3") !default;
+$small-btn-padding-vertical: map.get($spacing, "2") !default;
 $small-btn-padding-horizontal: map.get($spacing, "3") !default;
 $small-btn-padding: $small-btn-padding-vertical $small-btn-padding-horizontal !default;
-$small-btn-font-size: 1rem !default;
-
+$small-btn-font-size: $font-size-sm !default;
 
 // Icon only buttons
 $icon-only-btn-padding-vertical: map.get($spacing, "2") !default;
@@ -62,15 +97,32 @@ $icon-only-btn-padding-horizontal: map.get($spacing, "2") !default;
 $icon-only-btn-padding: $icon-only-btn-padding-vertical $icon-only-btn-padding-horizontal !default;
 
 // Inputs
-$input-font-size: 1.2rem !default;
+$input-font-size: $font-size-base !default;
 $input-color: #1C1E21 !default;
+$dark-input-color: #e8e8e8 !default;
 $input-padding-x: map.get($spacing, "3") !default;
 $input-padding-y: map.get($spacing, "2") !default;
 $input-padding: $input-padding-y $input-padding-x !default;
 $input-bg: #FFFFFF !default;
+$dark-input-bg: #2a2d2a !default;
 $input-placeholder-color: #ADB5BD !default;
+$dark-input-placeholder-color: #7a7d7a !default;
 $input-border: 1px solid #DEE2E6 !default;
+$dark-input-border: 1px solid #4a4d4a !default;
 $input-border-radius: 6px !default;
 $input-chbx-border: 1px solid #ABB5BE !default;
+$dark-input-chbx-border: 1px solid #5a5d5a !default;
 $input-chbx-border-radius: 3px !default;
 $input-chbx-size: 1.2rem !default;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08) !default;
+$shadow-md: 0 12px 30px rgba(0, 0, 0, 0.2) !default;
+$dark-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3) !default;
+$dark-shadow-md: 0 12px 30px rgba(0, 0, 0, 0.4) !default;
+
+// Modal
+$modal-max-width: 420px !default;
+
+// Section max width
+$section-max-width: 2160px !default;

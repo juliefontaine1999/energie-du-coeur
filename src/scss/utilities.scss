@@ -1,5 +1,49 @@
+@use "sass:map";
 @use "variables.scss";
 @use "mixins.scss";
+
+:root {
+    --gap-comp: #{map.get(variables.$spacing, "4")};
+    --paragraph-line-height: #{variables.$line-height-xs};
+    --section-padding-vertical: #{map.get(variables.$spacing, "6")};
+    --section-padding-horizontal: 20px;
+}
+
+@include mixins.respond-to(sm) {
+    :root {
+        --gap-comp: #{map.get(variables.$spacing, "4")};
+        --paragraph-line-height: #{variables.$line-height-sm};
+        --section-padding-horizontal: 40px;
+    }
+}
+
+@include mixins.respond-to(md) {
+    :root {
+        --gap-comp: #{variables.$gap-comp};
+        --paragraph-line-height: #{variables.$line-height-md};
+        --section-padding-vertical: #{map.get(variables.$spacing, "7")};
+        --section-padding-horizontal: 60px;
+    }
+}
+
+@include mixins.respond-to(lg) {
+    :root {
+        --section-padding-horizontal: 100px;
+    }
+}
+
+@include mixins.respond-to(xl) {
+    :root {
+        --paragraph-line-height: #{variables.$line-height-lg};
+        --section-padding-horizontal: 150px;
+    }
+}
+
+@include mixins.respond-to(xxl) {
+    :root {
+        --section-padding-horizontal: 200px;
+    }
+}
 
 .display-none {
     display: none !important;
@@ -24,16 +68,6 @@
 
     @include mixins.create-for-directions("p", "padding", $name, $value);
     @include mixins.create-for-directions("m", "margin", $name, $value);
-}
-
-:root {
-    --gap-comp: #{variables.$xs-gap-comp};
-}
-
-@media (min-width: 1600px) {
-    :root {
-        --gap-comp: #{variables.$gap-comp};
-    }
 }
 
 .gap-comp {

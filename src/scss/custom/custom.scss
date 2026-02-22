@@ -1,46 +1,59 @@
 @use "sass:map";
 @use "sass:color";
 @use "../variables.scss";
-@use "../components/buttons.scss";
-
-
-
-$xs-line-height: 1.6rem !default;
-$line-height: 1.8rem;
-
-$section-max-width: 2160px !default;
-$section-padding-vertical: map.get(variables.$spacing, "7") !default;
-$section-padding-horizontal: 200px !default;
-
-$small-section-padding-vertical: map.get(variables.$spacing, "6") !default;
-$small-section-padding-horizontal: 100px !default;
-
-$xs-section-padding-vertical: map.get(variables.$spacing, "6") !default;
-$xs-section-padding-horizontal: 30px !default;
-
-
-$topbar-bg: variables.$white !default;
-$welcome-bg: variables.$white !default;
-$prestations-bg: variables.$white !default;
-$about-bg: variables.$light-green !default;
-$appointment-bg: variables.$white !default;
-$gift-card-bg: variables.$light-green !default;
-$last-section-bg: variables.$white !default;
-$footer-bg: variables.$primary-color !default;
-$modal-bg: variables.$white !default;
+@use "../mixins.scss";
 
 :root {
-    --font-body: "Hanken Grotesk", system-ui, sans-serif;
-    --paragraph-line-height: #{$xs-line-height};
-    --section-padding-vertical: #{$xs-section-padding-vertical};
-    --section-padding-horizontal: #{$xs-section-padding-horizontal};
+    --color-primary: #{variables.$primary-color};
+    --color-secondary: #{variables.$secondary-color};
+    --color-text: #{variables.$text-color};
+    --color-text-inverted: #{variables.$inverted-text-color};
+    --color-error-title: #{variables.$error-title-color};
+    --bg-primary: #{variables.$white};
+    --bg-secondary: #{variables.$beige};
+    --bg-tertiary: #{variables.$light-green};
+    --bg-input: #{variables.$input-bg};
+    --color-input: #{variables.$input-color};
+    --color-input-placeholder: #{variables.$input-placeholder-color};
+    --border-input: #{variables.$input-border};
+    --border-input-chbx: #{variables.$input-chbx-border};
+    --shadow-sm: #{variables.$shadow-sm};
+    --shadow-md: #{variables.$shadow-md};
+    --section-title-size: #{variables.$font-size-xl};
+    --card-title-size: #{variables.$font-size-lg};
+    --card-price-size: #{variables.$font-size-xxl};
+    --location-text-size: #{variables.$font-size-md};
 }
 
-@media (min-width: 1600px) {
+@include mixins.dark-mode {
     :root {
-        --section-padding-vertical: #{$section-padding-vertical};
-        --section-padding-horizontal: #{$section-padding-horizontal};
-        --paragraph-line-height: #{$line-height};
+        --color-primary: #{variables.$dark-primary-color};
+        --color-secondary: #{variables.$dark-secondary-color};
+        --color-text: #{variables.$dark-text-color};
+        --color-text-inverted: #{variables.$dark-inverted-text-color};
+        --color-error-title: #{variables.$dark-error-title-color};
+        --bg-primary: #{variables.$dark-bg-primary};
+        --bg-secondary: #{variables.$dark-bg-secondary};
+        --bg-tertiary: #{variables.$dark-bg-tertiary};
+        --bg-input: #{variables.$dark-input-bg};
+        --color-input: #{variables.$dark-input-color};
+        --color-input-placeholder: #{variables.$dark-input-placeholder-color};
+        --border-input: #{variables.$dark-input-border};
+        --border-input-chbx: #{variables.$dark-input-chbx-border};
+        --shadow-sm: #{variables.$dark-shadow-sm};
+        --shadow-md: #{variables.$dark-shadow-md};
+    }
+}
+
+@include mixins.respond-to(lg) {
+    :root {
+        --section-title-size: 2.2rem;
+    }
+}
+
+@include mixins.respond-to(xxl) {
+    :root {
+        --section-title-size: 2.5rem;
     }
 }
 
@@ -50,31 +63,33 @@ html {
 
 body {
     font-family: variables.$body-font-family;
+    background-color: var(--bg-primary);
+    color: var(--color-text);
 }
 
 .section-title {
-    font-family: "RoslindaleDisplayNarrow", serif;
-    font-size: 2rem;
+    font-family: variables.$heading-font-family;
+    font-size: var(--section-title-size);
     display: block;
-    color: variables.$primary-color;
+    color: var(--color-primary);
 }
 
 .section {
     flex: 1;
-    max-width: $section-max-width;
+    max-width: variables.$section-max-width;
     display: flex;
     flex-direction: column;
     gap: variables.$gap-block;
 }
 
 p {
-    color: variables.$primary-color;
+    color: var(--color-text);
     text-align: justify;
     line-height: var(--paragraph-line-height);
 }
 
 .divider {
-    background-color: variables.$secondary-color;
+    background-color: var(--color-secondary);
 
     &.horizontal-divider {
         width: 100%;
@@ -83,32 +98,46 @@ p {
 }
 
 #topBarWrapper {
-    background-color: $topbar-bg;
+    background-color: var(--bg-primary);
     padding: 0 var(--section-padding-horizontal);
 
     #topBar {
-        max-width: $section-max-width;
+        max-width: variables.$section-max-width;
         position: relative;
         align-items: center;
     }
 
     #logoTextRight {
-        gap: map.get(variables.$spacing, "3");
+        gap: map.get(variables.$spacing, "2");
     }
 
     .logo-image {
-        width: 90px;
+        width: 70px;
     }
 
     .logo-text {
-        width: 160px;
+        width: 130px;
     }
 }
 
-
-@media (min-width: 1200px) {
+@include mixins.respond-to(sm) {
     #topBarWrapper {
+        #logoTextRight {
+            gap: map.get(variables.$spacing, "3");
+        }
 
+        .logo-image {
+            width: 80px;
+        }
+
+        .logo-text {
+            width: 160px;
+        }
+    }
+}
+
+@include mixins.respond-to(xl) {
+    #topBarWrapper {
         #logoTextRight {
             gap: variables.$gap-comp;
         }
@@ -123,30 +152,23 @@ p {
     }
 }
 
-
 .menu-toggle {
     display: none;
     height: fit-content;
 }
 
 .menu-icon {
-    height: 2rem;
-    stroke: variables.$primary-color;
+    height: 1.75rem;
+    stroke: var(--color-primary);
     stroke-width: 4;
     stroke-linejoin: round;
     stroke-linecap: round;
-    fill: variables.$primary-color;
+    fill: var(--color-primary);
 }
 
-@media (min-width: 500px) {
-    #topBarWrapper {
-        .logo-text {
-            width: 200px;
-        }
-    }
-
+@include mixins.respond-to(sm) {
     .menu-icon {
-        height: 2.5rem
+        height: 2.25rem;
     }
 }
 
@@ -156,12 +178,13 @@ p {
     }
 
     .menu-link {
-        color: variables.$primary-color;
+        color: var(--color-primary);
         text-transform: uppercase;
-        padding: variables.$small-btn-padding-vertical 1.2rem;
+        padding: variables.$small-btn-padding-vertical map.get(variables.$spacing, "3");
+        font-size: variables.$small-btn-font-size;
 
         &.selected {
-            border-bottom: 2px solid variables.$primary-color;
+            border-bottom: 2px solid var(--color-primary);
         }
 
         &:hover {
@@ -170,25 +193,29 @@ p {
     }
 }
 
-@media (min-width: 1600px) {
-    #menu {
-        .menu-link {
-            padding: variables.$small-btn-padding-vertical 2rem;
-        }
+@include mixins.dark-mode {
+    #menu .menu-link:hover {
+        color: color.adjust(variables.$dark-primary-color, $lightness: 10%);
     }
 }
 
-@media (max-width: 1100px) {
+@include mixins.respond-to(xl) {
+    #menu .menu-link {
+        padding: variables.$small-btn-padding-vertical map.get(variables.$spacing, "5");
+    }
+}
+
+@include mixins.respond-to-max(lg) {
     .menu-toggle {
         display: block;
         transition: background-color 0.2s ease;
 
         &:hover {
-            background-color: variables.$beige;
+            background-color: var(--bg-secondary);
         }
 
         &.is-open {
-            background-color: variables.$beige;
+            background-color: var(--bg-secondary);
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
     }
@@ -198,16 +225,16 @@ p {
         top: calc(76%);
         right: 0;
         flex-direction: column;
-        background-color: variables.$beige;
-        padding: 1rem 0.5rem;
-        gap: 1rem;
+        background-color: var(--bg-secondary);
+        padding: map.get(variables.$spacing, "3") map.get(variables.$spacing, "2");
+        gap: map.get(variables.$spacing, "3");
         border-radius: 2px;
 
         visibility: hidden;
         transform: translateY(-10px);
         transition: opacity 0.25s ease, transform 0.25s ease;
 
-        >a {
+        > a {
             transition: background-color 0.2s ease;
         }
 
@@ -215,101 +242,116 @@ p {
             visibility: visible;
             transform: translateY(0);
 
-            >a:hover {
+            > a:hover {
                 background-color: color.adjust(variables.$beige, $lightness: -10%);
             }
         }
     }
-}
 
+    @include mixins.dark-mode {
+        #menu.is-open > a:hover {
+            background-color: color.adjust(variables.$dark-bg-secondary, $lightness: 5%);
+        }
+    }
+}
 
 #welcomeWrapper {
     background: linear-gradient(to bottom,
-            variables.$white 0%,
-            variables.$white 30%,
-            variables.$beige 30%,
-            variables.$beige 100%);
+        var(--bg-primary) 0%,
+        var(--bg-primary) 30%,
+        var(--bg-secondary) 30%,
+        var(--bg-secondary) 100%);
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
 
     #welcome {
-        max-width: $section-max-width;
+        max-width: variables.$section-max-width;
 
         #profilePicture {
-            max-width: clamp(300px, 480px, 90%);
-            max-height: 550px;
+            max-width: clamp(280px, 400px, 90%);
+            max-height: 480px;
             height: 100%;
             border-radius: 500px 500px 0px 0px;
             object-fit: cover;
-            border: 1px solid variables.$secondary-color;
+            border: 1px solid var(--color-secondary);
         }
 
         #welcomeText {
-            font-family: "RoslindaleDisplayNarrow", serif;
-            border: 1px solid variables.$secondary-color;
-            background-color: variables.$white;
+            font-family: variables.$heading-font-family;
+            border: 1px solid var(--color-secondary);
+            background-color: var(--bg-primary);
+            padding: map.get(variables.$spacing, "5");
         }
 
         #locationText {
-            font-size: 1.5rem;
-            color: variables.$primary-color;
+            font-size: var(--location-text-size);
+            color: var(--color-primary);
+        }
+    }
+}
+
+@include mixins.respond-to(sm) {
+    #welcomeWrapper #welcome {
+        #profilePicture {
+            max-width: clamp(300px, 480px, 90%);
+            max-height: 520px;
+        }
+
+        #welcomeText {
+            padding: variables.$gap-block;
+        }
+
+        #locationText {
+            font-size: variables.$font-size-md;
+        }
+    }
+}
+
+@include mixins.respond-to(lg) {
+    #welcomeWrapper #welcome #locationText {
+        font-size: variables.$font-size-md;
+    }
+}
+
+@include mixins.respond-to(xxl) {
+    #welcomeWrapper #welcome {
+        #profilePicture {
+            max-height: 550px;
+        }
+
+        #welcomeText {
+            padding: map.get(variables.$spacing, "7");
+        }
+
+        #locationText {
+            font-size: variables.$font-size-md;
         }
     }
 }
 
 #prestationsWrapper {
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
-    background-color: $prestations-bg;
+    background-color: var(--bg-primary);
 
     #prestations {
-
         .carousel {
             position: relative;
             display: grid;
             grid-template-columns: 1fr;
             align-items: center;
-            gap: 1rem;
+            gap: map.get(variables.$spacing, "3");
             --cards-visible: 1;
-            width: 90%;
+            width: 100%;
             max-width: 500px;
         }
 
         .prev-button {
-            left: -10%;
+            left: -8%;
             position: absolute;
         }
 
         .next-button {
             position: absolute;
-            right: -10%;
-        }
-
-        @media (min-width: 1100px) {
-            .carousel {
-                --cards-visible: 2;
-                max-width: 900px;
-            }
-        }
-
-        @media (min-width: 1500px) {
-            .carousel {
-                max-width: 1500px;
-                --cards-visible: 3;
-            }
-
-            .prev-button {
-                left: -5%;
-            }
-
-            .next-button {
-                right: -5%;
-            }
-        }
-
-        @media (min-width: 2000px) {
-            .carousel {
-                max-width: 2000px;
-                --cards-visible: 4;
-            }
+            right: -8%;
         }
 
         .carousel-cards-wrapper {
@@ -319,34 +361,27 @@ p {
         .carousel-track {
             display: grid;
             grid-auto-flow: column;
-            grid-auto-columns: calc((100% - (1.5rem * (var(--cards-visible) - 1))) / var(--cards-visible));
+            grid-auto-columns: calc((100% - (map.get(variables.$spacing, "4") * (var(--cards-visible) - 1))) / var(--cards-visible));
             grid-template-rows: 1fr;
-            gap: 1.5rem;
+            gap: map.get(variables.$spacing, "4");
             transition: transform 0.35s ease;
             will-change: transform;
         }
 
         .prestation-arrow-icon {
             width: 1rem;
-            height: 2.3rem;
-            stroke: variables.$primary-color;
+            height: 2rem;
+            stroke: var(--color-primary);
             stroke-width: 4;
             stroke-linejoin: round;
             stroke-linecap: round;
-        }
-
-        @media (min-width: 380px) {
-            .prestation-arrow-icon {
-                width: 1.35rem;
-                height: 2.5rem;
-            }
         }
 
         .prestation-card {
             display: grid;
             grid-template-rows: subgrid;
             grid-template-rows: min-content min-content 1fr min-content min-content;
-            background-color: variables.$beige;
+            background-color: var(--bg-secondary);
         }
 
         .prestation-card-img {
@@ -355,69 +390,149 @@ p {
         }
 
         .prestation-card-title {
-            font-family: "RoslindaleDisplayNarrow", serif;
-            font-size: 1.8rem;
+            font-family: variables.$heading-font-family;
+            font-size: var(--card-title-size);
             display: block;
-            color: variables.$primary-color;
+            color: var(--color-primary);
             text-align: center;
+            padding-left: map.get(variables.$spacing, "4");
+            padding-right: map.get(variables.$spacing, "4");
+        }
+
+        .prestation-card-text {
+            padding-left: map.get(variables.$spacing, "4");
+            padding-right: map.get(variables.$spacing, "4");
         }
 
         .prestation-card-divider {
             height: 1px;
-            background-color: variables.$secondary-color;
+            background-color: var(--color-secondary);
+            margin-left: map.get(variables.$spacing, "4");
+            margin-right: map.get(variables.$spacing, "4");
         }
 
         .prestation-card-footer {
-            border: 1px solid variables.$secondary-color;
+            border: 1px solid var(--color-secondary);
             border-radius: 1px;
-            background-color: variables.$white;
-            color: variables.$primary-color;
-            font-size: 1.5rem;
+            background-color: var(--bg-primary);
+            color: var(--color-primary);
+            font-size: variables.$font-size-md;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: map.get(variables.$spacing, "3");
+            padding: map.get(variables.$spacing, "3");
+            margin: 0 map.get(variables.$spacing, "4") map.get(variables.$spacing, "4") map.get(variables.$spacing, "4");
 
             .actual-price {
-                font-size: 2.1rem;
+                font-size: var(--card-price-size);
             }
         }
     }
 }
 
+@include mixins.respond-to(sm) {
+    #prestationsWrapper #prestations {
+        .prestation-arrow-icon {
+            width: 1.25rem;
+            height: 2.3rem;
+        }
+
+        .carousel {
+            max-width: 450px;
+        }
+    }
+}
+
+@include mixins.respond-to(md) {
+    #prestationsWrapper #prestations {
+        .carousel {
+            --cards-visible: 1.5;
+            max-width: 600px;
+        }
+    }
+}
+
+@include mixins.respond-to(lg) {
+    #prestationsWrapper #prestations {
+        .carousel {
+            --cards-visible: 2;
+            max-width: 800px;
+        }
+
+        .prestation-arrow-icon {
+            width: 1.35rem;
+            height: 2.5rem;
+        }
+    }
+}
+
+@include mixins.respond-to(xxl) {
+    #prestationsWrapper #prestations {
+        .carousel {
+            max-width: 1400px;
+            --cards-visible: 3;
+        }
+
+        .prev-button {
+            left: -5%;
+        }
+
+        .next-button {
+            right: -5%;
+        }
+    }
+}
+
+@media (min-width: 2000px) {
+    #prestationsWrapper #prestations .carousel {
+        max-width: 2000px;
+        --cards-visible: 4;
+    }
+}
+
 #aboutMeWrapper {
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
-    background-color: $about-bg;
+    background-color: var(--bg-tertiary);
 
     .inverted-logo {
+        width: clamp(180px, 220px, 40%);
+    }
+}
+
+@include mixins.respond-to(sm) {
+    #aboutMeWrapper .inverted-logo {
         width: clamp(200px, 240px, 40%);
     }
 }
 
 #makeAppointmentWrapper {
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
-    background-color: $appointment-bg;
+    background-color: var(--bg-primary);
 
     #makeAppointment {
-
         .book-with-email-title {
-            font-family: "RoslindaleDisplayNarrow", serif;
-            font-size: 1.8rem;
-            color: variables.$primary-color;
+            font-family: variables.$heading-font-family;
+            font-size: var(--card-title-size);
+            color: var(--color-primary);
         }
 
         .vertical-divider {
             flex: 1;
             width: 1px;
-            background-color: variables.$secondary-color;
+            background-color: var(--color-secondary);
         }
 
         .horizontal-divider {
             flex: 1;
             height: 1px;
-            background-color: variables.$secondary-color;
+            background-color: var(--color-secondary);
         }
 
         .divider-text {
-            font-family: "RoslindaleDisplayNarrow", serif;
-            font-size: 1.8rem;
-            color: variables.$primary-color;
+            font-family: variables.$heading-font-family;
+            font-size: var(--card-title-size);
+            color: var(--color-primary);
             text-align: center;
         }
     }
@@ -425,52 +540,84 @@ p {
 
 #giftCardWrapper {
     padding: var(--section-padding-vertical) var(--section-padding-horizontal);
-    background-color: $gift-card-bg;
+    background-color: var(--bg-tertiary);
 
     #giftCard {
-
         .gift-card-text {
-            color: variables.$primary-color;
+            color: var(--color-text);
         }
 
         ul {
             list-style-type: disc;
-            color: variables.$primary-color;
-            padding-left: 1.5rem;
-            padding-top: 1rem;
+            color: var(--color-text);
+            padding-left: map.get(variables.$spacing, "4");
+            padding-top: map.get(variables.$spacing, "3");
 
             li:not(:last-child) {
-                margin-bottom: .5rem;
+                margin-bottom: map.get(variables.$spacing, "2");
             }
         }
     }
 }
 
 #lastSection {
-    background-color: $last-section-bg;
+    background-color: var(--bg-primary);
+    padding: map.get(variables.$spacing, "7") var(--section-padding-horizontal);
 
     .logo-text-vertical {
+        width: clamp(200px, 240px, 35%);
+    }
+}
+
+@include mixins.respond-to(sm) {
+    #lastSection .logo-text-vertical {
         width: clamp(220px, 260px, 35%);
     }
 }
 
 #footerWrapper {
-    background-color: $footer-bg;
-    padding: 1rem var(--section-padding-horizontal);
+    background-color: var(--color-primary);
+    padding: map.get(variables.$spacing, "3") var(--section-padding-horizontal);
 
     #footer {
-        max-width: $section-max-width;
-        gap: 1.5rem;
-        color: variables.$white;
+        max-width: variables.$section-max-width;
+        gap: map.get(variables.$spacing, "4");
+        color: var(--color-text-inverted);
+    }
+}
+
+@include mixins.dark-mode {
+    #footerWrapper {
+        background-color: var(--bg-tertiary);
+
+        #footer {
+            color: var(--color-text);
+        }
+    }
+}
+
+@include mixins.respond-to(lg) {
+    #footer {
+        gap: map.get(variables.$spacing, "4");
     }
 }
 
 .sara-link {
-    color: variables.$white;
+    color: var(--color-text-inverted);
     text-decoration: underline;
 
     &:hover {
         color: color.adjust(variables.$white, $lightness: 10%);
+    }
+}
+
+@include mixins.dark-mode {
+    .sara-link {
+        color: var(--color-primary);
+
+        &:hover {
+            color: color.adjust(variables.$dark-primary-color, $lightness: 10%);
+        }
     }
 }
 
@@ -481,44 +628,42 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.25s ease;
     z-index: 1000;
-}
 
-.modal-overlay.is-open {
-    opacity: 1;
-    visibility: visible;
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
 
-    .modal {
-        transform: translateY(0);
+        .modal {
+            transform: translateY(0);
+        }
     }
 }
 
 .modal {
-    padding: 2rem;
-    background: $modal-bg;
+    padding: map.get(variables.$spacing, "5");
+    background: var(--bg-primary);
     border-radius: 3px;
-    max-width: 420px;
-    width: calc(100% - 2rem);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-
+    max-width: variables.$modal-max-width;
+    width: calc(100% - map.get(variables.$spacing, "4"));
+    box-shadow: var(--shadow-md);
     transform: translateY(10px);
     transition: transform 0.25s ease;
 
     .modal-title {
-        font-size: 1.5rem;
+        font-size: variables.$font-size-md;
         display: block;
-        color: variables.$primary-color;
+        color: var(--color-primary);
     }
 
     &.success h2 {
-        color: variables.$primary-color;
+        color: var(--color-primary);
     }
 
     &.error h2 {
-        color: variables.$error-title-color;
+        color: var(--color-error-title);
     }
 }

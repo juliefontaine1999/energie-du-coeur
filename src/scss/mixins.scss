@@ -1,8 +1,9 @@
+@use "sass:map";
 @use "variables.scss";
 
 @mixin make-responsive($class-name) {
     @each $name, $min in variables.$breakpoints {
-        @media (width >=$min) {
+        @media (width >= $min) {
             .#{$name}\:#{$class-name} {
                 @content;
             }
@@ -10,11 +11,34 @@
     }
 }
 
+@mixin respond-to($breakpoint) {
+    $min: map.get(variables.$breakpoints, $breakpoint);
+    @if $min != null {
+        @media (width >= $min) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint `#{$breakpoint}` not found in $breakpoints map.";
+    }
+}
+
+@mixin respond-to-max($breakpoint) {
+    $min: map.get(variables.$breakpoints, $breakpoint);
+    @if $min != null {
+        @media (width < $min) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint `#{$breakpoint}` not found in $breakpoints map.";
+    }
+}
+
 $directions: (
     t: top,
     r: right,
     b: bottom,
-    l: left) !default;
+    l: left
+) !default;
 
 @mixin create-for-directions($class-name, $property, $spacing-name, $spacing-value) {
     @each $abbr, $dir in $directions {
@@ -35,5 +59,11 @@ $directions: (
     .#{$class-name}y-#{$spacing-name} {
         #{$property}-top: $spacing-value;
         #{$property}-bottom: $spacing-value;
+    }
+}
+
+@mixin dark-mode {
+    @media (prefers-color-scheme: dark) {
+        @content;
     }
 }

@@ -1,26 +1,127 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Soins énergétiques, numérologie et tirages de cartes à Romont. Julie Fontaine vous accompagne avec douceur pour retrouver équilibre, clarté et sérénité.">
+    <meta name="keywords"
+        content="Soins énergétiques, numérologie, tirage de cartes, Romont, thérapie, bien-être, reiki, magnétisme">
+    <meta name="author" content="Julie Fontaine">
+    <meta name="robots" content="index, follow">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Énergie du Cœur | Soins énergétiques, Numérologie & Tirages de cartes - Romont</title>
+
     <link rel="icon" type="image/x-icon" href="<%= require('./assets/images/favicon.ico') %>">
-    <title>Energie du Coeur</title>
+    <link rel="canonical" href="https://www.energie-du-coeur.ch">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.energie-du-coeur.ch">
+    <meta property="og:title" content="Énergie du Cœur | Soins énergétiques, Numérologie & Tirages de cartes">
+    <meta property="og:description"
+        content="Soins énergétiques, numérologie et tirages de cartes à Romont. Julie Fontaine vous accompagne avec douceur pour retrouver équilibre, clarté et sérénité.">
+    <meta property="og:image" content="https://www.energie-du-coeur.ch/profile_picture.jpg">
+    <meta property="og:locale" content="fr_CH">
+    <meta property="og:site_name" content="Énergie du Cœur">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.energie-du-coeur.ch">
+    <meta name="twitter:title" content="Énergie du Cœur | Soins énergétiques, Numérologie & Tirages de cartes">
+    <meta name="twitter:description"
+        content="Soins énergétiques, numérologie et tirages de cartes à Romont. Julie Fontaine vous accompagne avec douceur pour retrouver équilibre, clarté et sérénité.">
+    <meta name="twitter:image" content="https://www.energie-du-coeur.ch/profile_picture.jpg">
+
+    <meta name="theme-color" content="#516450">
+    <meta name="msapplication-TileColor" content="#516450">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Énergie du Cœur",
+        "description": "Soins énergétiques, numérologie et tirages de cartes à Romont. Julie Fontaine vous accompagne avec douceur pour retrouver équilibre, clarté et sérénité.",
+        "url": "https://www.energie-du-coeur.ch",
+        "telephone": "",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Romont",
+            "postalCode": "1680",
+            "addressCountry": "CH"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "46.6933",
+            "longitude": "6.9108"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "priceRange": "$$",
+        "image": "https://www.energie-du-coeur.ch/profile_picture.jpg",
+        "sameAs": [
+            "https://www.instagram.com/energie.du.coeur/",
+            "https://www.facebook.com/share/1GJrcVZLW2/"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Prestations",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Soins énergétiques",
+                        "description": "Un moment pour ralentir, relâcher les tensions et réharmoniser vos énergies."
+                    },
+                    "price": "80",
+                    "priceCurrency": "CHF"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Numérologie",
+                        "description": "À partir de votre date de naissance, la numérologie révèle vos talents, forces et grands cycles de vie."
+                    },
+                    "price": "50",
+                    "priceCurrency": "CHF"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Tirages de cartes",
+                        "description": "Un temps d'écoute et de réflexion guidée pour aborder une question ou une thématique de votre choix."
+                    },
+                    "price": "20",
+                    "priceCurrency": "CHF"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Soins à distance",
+                        "description": "Un flux d'énergie qui passe à travers le·la thérapeute afin d'activer les capacités naturelles de guérison."
+                    },
+                    "price": "20",
+                    "priceCurrency": "CHF"
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 
 <body>
-    <div id="topBarWrapper" class="flex justify-center">
+    <header id="topBarWrapper" class="flex justify-center">
         <div id="topBar" class="pt-4 flex-1 flex justify-space-between">
             <div id="logoTextRight" class="flex flex-row align-center">
-                <img src="<%= require('./assets/images/logo_no_text.svg') %>" alt="logo no title" class="logo-image">
-                <img src="<%= require('./assets/images/title.svg') %>" alt="title" class="logo-text">
+                <img src="<%= require('./assets/images/logo_no_text.svg') %>" alt="Logo Énergie du Cœur"
+                    class="logo-image">
+                <img src="<%= require('./assets/images/title.svg') %>" alt="Énergie du Cœur" class="logo-text">
             </div>
 
-            <!-- Hamburger menu -->
-            <button id="menuToggle" class="menu-toggle p-1" aria-label="Open menu" aria-expanded="false"
+            <button id="menuToggle" class="menu-toggle p-1" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="menu">
                 <svg class="menu-icon" viewBox="0 0 270 270" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M235.506 184.997H33.7598V210.276H235.506V184.997Z" />
@@ -29,382 +130,392 @@
                 </svg>
             </button>
 
-            <nav id="menu" class="flex align-center">
+            <nav id="menu" class="flex align-center" aria-label="Navigation principale">
                 <a href="#welcome" class="menu-link selected">Accueil</a>
                 <a href="#prestations" class="menu-link">Prestations</a>
-                <a href="#aboutMe" class="menu-link">A propos</a>
+                <a href="#aboutMe" class="menu-link">À propos</a>
                 <a href="#giftCard" class="menu-link">Bons cadeaux</a>
                 <a href="#makeAppointment" class="btn btn-primary btn-small uppercase ml-2">Rendez-vous</a>
             </nav>
         </div>
-    </div>
+    </header>
 
-    <div id="welcomeWrapper" class="flex justify-center">
-        <div id="welcome" class="flex flex-column lg:flex-row flex-1 justify-center align-center gap-block">
-            <img id="profilePicture" src="<%= require('./assets/images/profile_picture.jpg') %>"
-                alt="photo julie fontaine">
+    <main>
+        <section id="welcomeWrapper" class="flex justify-center" aria-labelledby="welcome-title">
+            <div id="welcome" class="flex flex-column lg:flex-row flex-1 justify-center align-center gap-block">
+                <img id="profilePicture" src="<%= require('./assets/images/profile_picture.jpg') %>"
+                    alt="Portrait de Julie Fontaine, praticienne en soins énergétiques à Romont">
 
-            <div id="welcomeText" class="flex flex-column align-center gap-block p-7">
-                <div class="section-title">
-                    Bienvenue
-                </div>
-                <div>
-                    <p>
-                        Un espace dédié au mieux-être, aux soins énergétiques, aux soins à distance, à la
-                        numérologie et
-                        aux
-                        tirages de cartes.</br>
-                        Je vous accompagne avec douceur et bienveillance pour retrouver équilibre, clarté et
-                        sérénité.
-                        </br>
-
-                        Je vous propose des accompagnements personnalisés pour vous aider à avancer plus
-                        sereinement,
-                        avec
-                        authenticité et respect.
-                    </p>
-                </div>
-                <div class="flex justify-center align-center gap-3 pt-3">
-                    <img src="<%= require('./assets/images/localisation icon.svg') %>" alt="localisation icon">
-                    <div id="locationText">1680 Romont</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="prestationsWrapper" class="flex justify-center">
-        <div id="prestations" class="section">
-            <span class="section-title">Prestations</span>
-            <div class="section-content flex flex-column gap-block align-center">
-                <!-- Carousel -->
-                <div id="prestationsCarousel" class="carousel">
-                    <button class="btn-icon-only prev-button" aria-label="Précédent">
-                        <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path d="M33 2L2 33L33 64" />
-                        </svg>
-                    </button>
-
-                    <div class="carousel-cards-wrapper">
-                        <div class="carousel-track">
-                            <!-- Soins énergetiques -->
-                            <div class="prestation-card gap-4">
-                                <img class="prestation-card-img"
-                                    src="<%= require('./assets/images/SoinsEnergetiques.jpg') %>"
-                                    alt="Soins énergétiques">
-
-                                <div class="prestation-card-title px-5">Soins énergétiques</div>
-                                <div class="prestation-card-text px-5">
-                                    <p>
-                                        Un moment pour ralentir, relâcher les tensions et réharmoniser
-                                        vos énergies.
-                                        Guidée par l’intuition, chaque séance est unique et s’adapte à vos besoins,
-                                        en
-                                        s’inspirant
-                                        notamment des méthodes de Luc Bodin, du Reiki et du magnétisme. Bienfaits :
-                                        réduction
-                                        du
-                                        stress, regain d’énergie, meilleure gestion des émotions, soutien lors de
-                                        périodes
-                                        de
-                                        transition.
-                                    </p>
-                                </div>
-                                <div class="prestation-card-divider mx-5"></div>
-                                <div class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
-                                    <div class="prices flex align-center gap-2">
-                                        <div class="original-price line-through">110.-</div>
-                                        <div class="actual-price">80.-/1h30</div>
-                                    </div>
-                                    <div class="sale-end-date">Jusqu'à fin juin !</div>
-                                </div>
-                            </div>
-
-                            <!-- Numérologie -->
-                            <div class="prestation-card gap-4">
-                                <img class="prestation-card-img" src="<%= require('./assets/images/numerologie.jpg') %>"
-                                    alt="Numérologie">
-
-                                <div class="prestation-card-title px-5">Numérologie</div>
-                                <div class="prestation-card-text px-5">
-                                    <p>
-                                        À partir de votre date de naissance, la numérologie révèle vos talents, forces
-                                        et grands cycles de vie. Langage symbolique des nombres, elle vous aide à vous
-                                        connaître, comprendre ce que vous traversez et faire des choix alignés. Lors de
-                                        la séance, vous découvrez une lecture personnalisée de vos nombres clés,
-                                        préparée en amont, avec des explications claires pour les appliquer au
-                                        quotidien.
-                                    </p>
-                                </div>
-                                <div class="prestation-card-divider mx-5"></div>
-                                <div class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
-                                    <div class="prices flex align-center gap-2">
-                                        <div class="original-price line-through">80.-</div>
-                                        <div class="actual-price">50.-/30min</div>
-                                    </div>
-                                    <div class="sale-end-date">Jusqu'à fin juin !</div>
-                                </div>
-                            </div>
-
-                            <!-- Tirage de cartes -->
-                            <div class="prestation-card gap-4">
-                                <img class="prestation-card-img"
-                                    src="<%= require('./assets/images/Tiragesdecartes.jpg') %>" alt="Tirage de cartes">
-
-                                <div class="prestation-card-title px-5">Tirages de cartes</div>
-                                <div class="prestation-card-text px-5">
-                                    <p>Un tirage de cartes est un temps d’écoute et de réflexion guidée. Vous pouvez
-                                        aborder une question ou une thématique de votre choix (relation,
-                                        orientation,
-                                        période de vie…), puis les cartes sont tirées et interprétées avec
-                                        sensibilité
-                                        et intuition.
-                                        Elles favorisent les prises de conscience et ouvrent de nouvelles
-                                        perspectives
-                                        pour avancer plus sereinement.</p>
-                                </div>
-                                <div class="prestation-card-divider mx-5"></div>
-                                <div class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
-                                    <div class="prices flex align-center gap-2">
-                                        <div class="original-price line-through">50.-</div>
-                                        <div class="actual-price">20.-/30min</div>
-                                    </div>
-                                    <div class="sale-end-date">Jusqu'à fin juin !</div>
-                                </div>
-                            </div>
-
-                            <!-- Soins à distance -->
-                            <div class="prestation-card gap-4">
-                                <img class="prestation-card-img"
-                                    src="<%= require('./assets/images/SoinsADistance.jpg') %>" alt="Soins à distance">
-
-                                <div class="prestation-card-title px-5">Soins à distance</div>
-                                <div class="prestation-card-text px-5">
-                                    <p>Le soin énergétique à distance est un flux d’énergie qui passe à travers
-                                        le·la
-                                        thérapeute afin d’activer les capacités naturelles de guérison. Sans
-                                        contrainte
-                                        de lieu, il offre un moment de recentrage et de rééquilibrage, en agissant
-                                        sur
-                                        les plans physique, émotionnel et énergétique.
-                                    </p>
-                                </div>
-                                <div class="prestation-card-divider mx-5"></div>
-                                <div class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
-                                    <div class="prices flex align-center gap-2">
-                                        <div class="original-price line-through">40.-</div>
-                                        <div class="actual-price">20.-</div>
-                                    </div>
-                                    <div class="sale-end-date">Jusqu'à fin juin !</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class=" btn-icon-only next-button" aria-label="Suivant">
-                        <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path d="M2 2L33 33L2 64" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="divider horizontal-divider"></div>
-                <div class="flex flex-column md:flex-row gap-comp">
-                    <a href="#makeAppointment" class="btn btn-primary">Prendre rendez-vous</a>
-                    <a href="#giftCard" class="btn btn-secondary">Bon cadeau</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="aboutMeWrapper" class="flex justify-center">
-        <div id="aboutMe" class="section">
-            <span class="section-title">Qui suis-je ?</span>
-            <div class="section-content flex flex-column md:flex-row gap-block align-center">
-                <div class="flex flex-column gap-comp">
-                    <p>
-                        <span class="bold uppercase">Julie Fontaine, certifiée pour le reiki et la
-                            numérologie</span>
-                    </p>
-                    <p>
-                        Empathique et à l’écoute, j’ai découvert les soins énergétiques après un grand
-                        bouleversement
-                        personnel. Cette expérience a été le point de départ d’un véritable cheminement
-                        intérieur.</br>
-                        J’ai alors suivi différentes formations et ateliers afin de comprendre, d’apprendre et
-                        de
-                        développer mes compétences dans le domaine des soins énergétiques. Ce chemin est devenu
-                        une
-                        véritable passion, qui m’a menée à créer Énergie du Cœur.</br>
-                        Animée par une curiosité constante et le désir d’offrir un accompagnement de qualité, je
-                        continue à me former régulièrement afin de vous proposer des soins toujours plus adaptés
-                        à vos
-                        besoins.</br>
-                        Je me réjouis de vous accueillir et je vous remercie de tout cœur pour la confiance que
-                        vous
-                        m’accordez !
-                    </p>
-                </div>
-                <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo"
-                    alt="logo no title">
-            </div>
-        </div>
-    </div>
-
-    <div id="makeAppointmentWrapper" class="flex justify-center">
-        <div id="makeAppointment" class="section">
-            <span class="section-title">Prendre rendez-vous</span>
-            <div class="section-content flex flex-column lg:flex-row gap-block">
-                <div class="book-with-email flex-1 flex flex-column gap-comp">
-                    <div class="book-with-email-title">
-                        Réserver par e-mail
-                    </div>
-
-                    <form id="appointmentForm" class="form-fields grid gap-comp">
-                        <div class="input-float-label col-12 lg:col-6">
-                            <input type="text" id="firstname" name="firstname" class="input-text" required>
-                            <label for="firstname" class="float-label">Prénom</label>
-                        </div>
-                        <div class="input-float-label col-12 lg:col-6">
-                            <input type="text" id="lastname" name="lastname" class="input-text" required>
-                            <label for="lastname" class="float-label">Nom</label>
-                        </div>
-
-                        <div class="col-12 grid gap-3">
-                            <div class="col-12 lg:col-6 flex align-center gap-2">
-                                <input type="checkbox" id="energeticCareChbx" name="energeticCareChbx"
-                                    class="checkbox-input" value="energeticCare">
-                                <label for="energeticCareChbx" class="checkbox-label">Soins énergétiques</label>
-                            </div>
-                            <div class="col-12 lg:col-6 flex align-center gap-2">
-                                <input type="checkbox" id="cardDrawingChbx" name="cardDrawingChbx"
-                                    class="checkbox-input" value="cardDrawing">
-                                <label for="cardDrawingChbx" class="checkbox-label">Tirage de cartes</label>
-                            </div>
-                            <div class="col-12 lg:col-6 flex align-center gap-2">
-                                <input type="checkbox" id="numerologyChbx" name="numerologyChbx" class="checkbox-input"
-                                    value="numerology">
-                                <label for="numerologyChbx" class="checkbox-label">Numérologie</label>
-                            </div>
-                            <div class="col-12 lg:col-6 flex align-center gap-2">
-                                <input type="checkbox" id="remoteCareChbx" name="remoteCareChbx" class="checkbox-input"
-                                    value="remoteCare">
-                                <label for="remoteCareChbx" class="checkbox-label">Soins à distance</label>
-                            </div>
-                        </div>
-
-                        <div class="input-float-label col-12">
-                            <input type="text" id="mail" name="mail" class="input-text" required>
-                            <label for="mail" class="float-label">Adresse e-mail</label>
-                        </div>
-
-                        <div class="input-float-label col-12">
-                            <textarea id="message" name="message" rows="10" class="input-textarea" required></textarea>
-                            <label for="message" class="float-label">Votre message</label>
-                        </div>
-
-                        <input type="text" name="energy" tabindex="-1" autocomplete="off" aria-hidden="true"
-                            style="position:absolute; left:-9999px" />
-
-                        <input type="submit" value="Envoyer" class="btn btn-primary col-12">
-                    </form>
-
-                </div>
-                <div class="flex flex-row lg:flex-column gap-comp align-center">
-                    <div class="vertical-divider display-none lg:display-block"></div>
-                    <div class="horizontal-divider lg:display-none"></div>
-                    <div class="divider-text uppercase">Ou</div>
-                    <div class="vertical-divider display-none lg:display-block"></div>
-                    <div class="horizontal-divider lg:display-none"></div>
-                </div>
-
-
-                <div class="book-with-online-form flex-1 flex align-center justify-center">
-                    <a href="https://www.youtube.com/" class="btn btn-primary" target="_blank">Réserver en ligne</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="giftCardWrapper" class="flex justify-center">
-        <div id="giftCard" class="section">
-            <span class="section-title">Commander un bon cadeau</span>
-            <div class="section-content flex flex-column md:flex-row gap-block">
-                <div class="flex flex-column gap-comp flex-1 gift-card-text">
-                    <p>
-                        <span class="bold uppercase">Envie de faire plaisir à un proche ?</span>
-                    </p>
-                    <p>
-                        Pour commander un bon cadeau, merci de remplir le formulaire ci-contre avec vos propres
-                        coordonnées (nom, prénom et adresse e-mail de la personne qui offre le bon).
-                    </p>
-
+                <div id="welcomeText" class="flex flex-column align-center gap-block">
+                    <h1 id="welcome-title" class="section-title">Bienvenue</h1>
                     <div>
-                        Dans le champ Message, vous pouvez préciser :
-                        <ul>
-                            <li>l’adresse de livraison du bon</li>
-                            <li>toute information utile pour la personnalisation du bon</li>
-                        </ul>
+                        <p>
+                            Un espace dédié au mieux-être, aux soins énergétiques, aux soins à distance, à la
+                            numérologie et aux tirages de cartes.
+                        </p>
+                        <p>
+                            Je vous accompagne avec douceur et bienveillance pour retrouver équilibre, clarté et
+                            sérénité.
+                        </p>
+                        <p>
+                            Je vous propose des accompagnements personnalisés pour vous aider à avancer plus
+                            sereinement, avec authenticité et respect.
+                        </p>
                     </div>
-                    Une fois votre demande reçue, vous serez recontacté·e rapidement pour finaliser la création du
-                    bon cadeau.
-
-                </div>
-                <div class="flex-1 flex flex-column gap-comp">
-                    <form class="form-fields grid gap-comp">
-                        <div class="input-float-label col-12 md:col-6">
-                            <input type="text" id="firstname" name="firstname" class="input-text" required>
-                            <label for="firstname" class="float-label">Prénom</label>
-                        </div>
-                        <div class="input-float-label col-12 md:col-6">
-                            <input type="text" id="lastname" name="lastname" class="input-text" required>
-                            <label for="lastname" class="float-label">Nom</label>
-                        </div>
-
-                        <div class="input-float-label col-12">
-                            <input type="text" id="amount" name="amount" class="input-text" required>
-                            <label for="amount" class="float-label">Montant du bon cadeau</label>
-                        </div>
-
-                        <div class="input-float-label col-12">
-                            <input type="text" id="mail" name="mail" class="input-text" required>
-                            <label for="mail" class="float-label">Adresse e-mail</label>
-                        </div>
-
-                        <div class="input-float-label col-12">
-                            <textarea id="message" name="message" rows="10" class="input-textarea" required></textarea>
-                            <label for="message" class="float-label">Votre message</label>
-                        </div>
-
-                        <input type="submit" value="Envoyer" class="btn btn-primary col-12">
-                    </form>
-
+                    <div class="flex justify-center align-center gap-3 pt-3">
+                        <img src="<%= require('./assets/images/localisation icon.svg') %>" alt="" aria-hidden="true">
+                        <div id="locationText">1680 Romont</div>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <section id="prestationsWrapper" class="flex justify-center" aria-labelledby="prestations-title">
+            <div id="prestations" class="section">
+                <h2 id="prestations-title" class="section-title">Prestations</h2>
+                <div class="section-content flex flex-column gap-block align-center">
+                    <div id="prestationsCarousel" class="carousel" role="region" aria-label="Carrousel des prestations">
+                        <button class="btn-icon-only prev-button" aria-label="Prestation précédente">
+                            <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+                                <path d="M33 2L2 33L33 64" />
+                            </svg>
+                        </button>
+
+                        <div class="carousel-cards-wrapper">
+                            <div class="carousel-track">
+                                <article class="prestation-card gap-4">
+                                    <img class="prestation-card-img"
+                                        src="<%= require('./assets/images/SoinsEnergetiques.jpg') %>"
+                                        alt="Séance de soins énergétiques">
+
+                                    <h3 class="prestation-card-title px-5">Soins énergétiques</h3>
+                                    <div class="prestation-card-text px-5">
+                                        <p>
+                                            Un moment pour ralentir, relâcher les tensions et réharmoniser
+                                            vos énergies. Guidée par l'intuition, chaque séance est unique et s'adapte à
+                                            vos besoins,
+                                            en s'inspirant notamment des méthodes de Luc Bodin, du Reiki et du
+                                            magnétisme. Bienfaits :
+                                            réduction du stress, regain d'énergie, meilleure gestion des émotions,
+                                            soutien lors de
+                                            périodes de transition.
+                                        </p>
+                                    </div>
+                                    <div class="prestation-card-divider mx-5"></div>
+                                    <div
+                                        class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
+                                        <div class="prices flex align-center gap-2">
+                                            <div class="original-price line-through">110.-</div>
+                                            <div class="actual-price">80.-/1h30</div>
+                                        </div>
+                                        <div class="sale-end-date">Jusqu'à fin juin !</div>
+                                    </div>
+                                </article>
+
+                                <article class="prestation-card gap-4">
+                                    <img class="prestation-card-img"
+                                        src="<%= require('./assets/images/numerologie.jpg') %>"
+                                        alt="Numérologie personnalisée">
+
+                                    <h3 class="prestation-card-title px-5">Numérologie</h3>
+                                    <div class="prestation-card-text px-5">
+                                        <p>
+                                            À partir de votre date de naissance, la numérologie révèle vos talents,
+                                            forces
+                                            et grands cycles de vie. Langage symbolique des nombres, elle vous aide à
+                                            vous
+                                            connaître, comprendre ce que vous traversez et faire des choix alignés. Lors
+                                            de
+                                            la séance, vous découvrez une lecture personnalisée de vos nombres clés,
+                                            préparée en amont, avec des explications claires pour les appliquer au
+                                            quotidien.
+                                        </p>
+                                    </div>
+                                    <div class="prestation-card-divider mx-5"></div>
+                                    <div
+                                        class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
+                                        <div class="prices flex align-center gap-2">
+                                            <div class="original-price line-through">80.-</div>
+                                            <div class="actual-price">50.-/30min</div>
+                                        </div>
+                                        <div class="sale-end-date">Jusqu'à fin juin !</div>
+                                    </div>
+                                </article>
+
+                                <article class="prestation-card gap-4">
+                                    <img class="prestation-card-img"
+                                        src="<%= require('./assets/images/Tiragesdecartes.jpg') %>"
+                                        alt="Tirage de cartes">
+
+                                    <h3 class="prestation-card-title px-5">Tirages de cartes</h3>
+                                    <div class="prestation-card-text px-5">
+                                        <p>Un tirage de cartes est un temps d'écoute et de réflexion guidée. Vous pouvez
+                                            aborder une question ou une thématique de votre choix (relation,
+                                            orientation, période de vie…), puis les cartes sont tirées et interprétées
+                                            avec
+                                            sensibilité et intuition.
+                                            Elles favorisent les prises de conscience et ouvrent de nouvelles
+                                            perspectives pour avancer plus sereinement.</p>
+                                    </div>
+                                    <div class="prestation-card-divider mx-5"></div>
+                                    <div
+                                        class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
+                                        <div class="prices flex align-center gap-2">
+                                            <div class="original-price line-through">50.-</div>
+                                            <div class="actual-price">20.-/30min</div>
+                                        </div>
+                                        <div class="sale-end-date">Jusqu'à fin juin !</div>
+                                    </div>
+                                </article>
+
+                                <article class="prestation-card gap-4">
+                                    <img class="prestation-card-img"
+                                        src="<%= require('./assets/images/SoinsADistance.jpg') %>"
+                                        alt="Soin énergétique à distance">
+
+                                    <h3 class="prestation-card-title px-5">Soins à distance</h3>
+                                    <div class="prestation-card-text px-5">
+                                        <p>Le soin énergétique à distance est un flux d'énergie qui passe à travers
+                                            le·la thérapeute afin d'activer les capacités naturelles de guérison. Sans
+                                            contrainte de lieu, il offre un moment de recentrage et de rééquilibrage, en
+                                            agissant
+                                            sur les plans physique, émotionnel et énergétique.
+                                        </p>
+                                    </div>
+                                    <div class="prestation-card-divider mx-5"></div>
+                                    <div
+                                        class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
+                                        <div class="prices flex align-center gap-2">
+                                            <div class="original-price line-through">40.-</div>
+                                            <div class="actual-price">20.-</div>
+                                        </div>
+                                        <div class="sale-end-date">Jusqu'à fin juin !</div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                        <button class="btn-icon-only next-button" aria-label="Prestation suivante">
+                            <svg class="prestation-arrow-icon" viewBox="0 0 35 66" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+                                <path d="M2 2L33 33L2 64" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="divider horizontal-divider"></div>
+                    <div class="flex flex-column md:flex-row gap-comp">
+                        <a href="#makeAppointment" class="btn btn-primary">Prendre rendez-vous</a>
+                        <a href="#giftCard" class="btn btn-secondary">Bon cadeau</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aboutMeWrapper" class="flex justify-center" aria-labelledby="about-title">
+            <div id="aboutMe" class="section">
+                <h2 id="about-title" class="section-title">Qui suis-je ?</h2>
+                <div class="section-content flex flex-column md:flex-row gap-block align-center">
+                    <div class="flex flex-column gap-comp">
+                        <p>
+                            <span class="bold uppercase">Julie Fontaine, certifiée pour le reiki et la
+                                numérologie</span>
+                        </p>
+                        <p>
+                            Empathique et à l'écoute, j'ai découvert les soins énergétiques après un grand
+                            bouleversement personnel. Cette expérience a été le point de départ d'un véritable
+                            cheminement
+                            intérieur.
+                        </p>
+                        <p>
+                            J'ai alors suivi différentes formations et ateliers afin de comprendre, d'apprendre et
+                            de développer mes compétences dans le domaine des soins énergétiques. Ce chemin est devenu
+                            une véritable passion, qui m'a menée à créer Énergie du Cœur.
+                        </p>
+                        <p>
+                            Animée par une curiosité constante et le désir d'offrir un accompagnement de qualité, je
+                            continue à me former régulièrement afin de vous proposer des soins toujours plus adaptés
+                            à vos besoins.
+                        </p>
+                        <p>
+                            Je me réjouis de vous accueillir et je vous remercie de tout cœur pour la confiance que
+                            vous m'accordez !
+                        </p>
+                    </div>
+                    <img src="<%= require('./assets/images/logo_no_text_white.svg') %>" class="inverted-logo"
+                        alt="Logo Énergie du Cœur">
+                </div>
+            </div>
+        </section>
+
+        <section id="makeAppointmentWrapper" class="flex justify-center" aria-labelledby="appointment-title">
+            <div id="makeAppointment" class="section">
+                <h2 id="appointment-title" class="section-title">Prendre rendez-vous</h2>
+                <div class="section-content flex flex-column lg:flex-row gap-block">
+                    <div class="book-with-email flex-1 flex flex-column gap-comp">
+                        <h3 class="book-with-email-title">
+                            Réserver par e-mail
+                        </h3>
+
+                        <form id="appointmentForm" class="form-fields grid gap-comp"
+                            aria-label="Formulaire de réservation par e-mail">
+                            <div class="input-float-label col-12 lg:col-6">
+                                <input type="text" id="firstname" name="firstname" class="input-text" required>
+                                <label for="firstname" class="float-label">Prénom</label>
+                            </div>
+                            <div class="input-float-label col-12 lg:col-6">
+                                <input type="text" id="lastname" name="lastname" class="input-text" required>
+                                <label for="lastname" class="float-label">Nom</label>
+                            </div>
+
+                            <fieldset class="col-12 grid gap-3" style="border: none; padding: 0;">
+                                <legend class="sr-only">Types de prestations souhaitées</legend>
+                                <div class="col-12 lg:col-6 flex align-center gap-2">
+                                    <input type="checkbox" id="energeticCareChbx" name="energeticCareChbx"
+                                        class="checkbox-input" value="energeticCare">
+                                    <label for="energeticCareChbx" class="checkbox-label">Soins énergétiques</label>
+                                </div>
+                                <div class="col-12 lg:col-6 flex align-center gap-2">
+                                    <input type="checkbox" id="cardDrawingChbx" name="cardDrawingChbx"
+                                        class="checkbox-input" value="cardDrawing">
+                                    <label for="cardDrawingChbx" class="checkbox-label">Tirage de cartes</label>
+                                </div>
+                                <div class="col-12 lg:col-6 flex align-center gap-2">
+                                    <input type="checkbox" id="numerologyChbx" name="numerologyChbx"
+                                        class="checkbox-input" value="numerology">
+                                    <label for="numerologyChbx" class="checkbox-label">Numérologie</label>
+                                </div>
+                                <div class="col-12 lg:col-6 flex align-center gap-2">
+                                    <input type="checkbox" id="remoteCareChbx" name="remoteCareChbx"
+                                        class="checkbox-input" value="remoteCare">
+                                    <label for="remoteCareChbx" class="checkbox-label">Soins à distance</label>
+                                </div>
+                            </fieldset>
+
+                            <div class="input-float-label col-12">
+                                <input type="email" id="mail" name="mail" class="input-text" required>
+                                <label for="mail" class="float-label">Adresse e-mail</label>
+                            </div>
+
+                            <div class="input-float-label col-12">
+                                <textarea id="message" name="message" rows="10" class="input-textarea"
+                                    required></textarea>
+                                <label for="message" class="float-label">Votre message</label>
+                            </div>
+
+                            <input type="text" name="energy" tabindex="-1" autocomplete="off" aria-hidden="true"
+                                style="position:absolute; left:-9999px" />
+
+                            <input type="submit" value="Envoyer" class="btn btn-primary col-12">
+                        </form>
+
+                    </div>
+                    <div class="flex flex-row lg:flex-column gap-comp align-center">
+                        <div class="vertical-divider display-none lg:display-block"></div>
+                        <div class="horizontal-divider lg:display-none"></div>
+                        <div class="divider-text uppercase">Ou</div>
+                        <div class="vertical-divider display-none lg:display-block"></div>
+                        <div class="horizontal-divider lg:display-none"></div>
+                    </div>
+
+
+                    <div class="book-with-online-form flex-1 flex align-center justify-center">
+                        <a href="https://www.youtube.com/" class="btn btn-primary" target="_blank"
+                            rel="noopener noreferrer">Réserver en ligne</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="giftCardWrapper" class="flex justify-center" aria-labelledby="giftcard-title">
+            <div id="giftCard" class="section">
+                <h2 id="giftcard-title" class="section-title">Commander un bon cadeau</h2>
+                <div class="section-content flex flex-column md:flex-row gap-block">
+                    <div class="flex flex-column gap-comp flex-1 gift-card-text">
+                        <p>
+                            <span class="bold uppercase">Envie de faire plaisir à un proche ?</span>
+                        </p>
+                        <p>
+                            Pour commander un bon cadeau, merci de remplir le formulaire ci-contre avec vos propres
+                            coordonnées (nom, prénom et adresse e-mail de la personne qui offre le bon).
+                        </p>
+
+                        <div>
+                            Dans le champ Message, vous pouvez préciser :
+                            <ul>
+                                <li>l'adresse de livraison du bon</li>
+                                <li>toute information utile pour la personnalisation du bon</li>
+                            </ul>
+                        </div>
+                        <p>
+                            Une fois votre demande reçue, vous serez recontacté·e rapidement pour finaliser la création
+                            du
+                            bon cadeau.
+                        </p>
+                    </div>
+                    <div class="flex-1 flex flex-column gap-comp">
+                        <form id="giftCardForm" class="form-fields grid gap-comp"
+                            aria-label="Formulaire de commande de bon cadeau">
+                            <div class="input-float-label col-12 md:col-6">
+                                <input type="text" id="gc-firstname" name="firstname" class="input-text" required>
+                                <label for="gc-firstname" class="float-label">Prénom</label>
+                            </div>
+                            <div class="input-float-label col-12 md:col-6">
+                                <input type="text" id="gc-lastname" name="lastname" class="input-text" required>
+                                <label for="gc-lastname" class="float-label">Nom</label>
+                            </div>
+
+                            <div class="input-float-label col-12">
+                                <input type="text" id="amount" name="amount" class="input-text" required>
+                                <label for="amount" class="float-label">Montant du bon cadeau</label>
+                            </div>
+
+                            <div class="input-float-label col-12">
+                                <input type="email" id="gc-mail" name="mail" class="input-text" required>
+                                <label for="gc-mail" class="float-label">Adresse e-mail</label>
+                            </div>
+
+                            <div class="input-float-label col-12">
+                                <textarea id="gc-message" name="message" rows="10" class="input-textarea"
+                                    required></textarea>
+                                <label for="gc-message" class="float-label">Votre message</label>
+                            </div>
+
+                            <input type="text" name="energy" tabindex="-1" autocomplete="off" aria-hidden="true"
+                                style="position:absolute; left:-9999px" />
+
+                            <input type="submit" value="Envoyer" class="btn btn-primary col-12">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="lastSection" class="py-7 flex justify-center">
+            <img src="<%= require('./assets/images/logo_title_bottom.svg') %>" class="logo-text-vertical"
+                alt="Énergie du Cœur - Soins énergétiques à Romont">
         </div>
-    </div>
+    </main>
 
-    <div id="lastSection" class="py-7 flex justify-center">
-        <img src="<%= require('./assets/images/logo_title_bottom.svg') %>" class="logo-text-vertical"
-            alt="logo with title">
-    </div>
-
-    <div id="footerWrapper" class="flex justify-center align-center">
+    <footer id="footerWrapper" class="flex justify-center align-center">
         <div id="footer" class="flex flex-column lg:flex-row flex-1 justify-space-between align-center">
-            <div class="flex-1">© 2026 - Tous droits réservés</div>
+            <div class="flex-1">&copy; 2026 - Tous droits réservés</div>
             <div class="flex-1 text-align-center">Site web par Vincent Brodard - Photos par <a
-                    href="https://www.instagram.com/sarah.brandini.photographie" target="_blank" class="sara-link">Sarah
+                    href="https://www.instagram.com/sarah.brandini.photographie" target="_blank"
+                    rel="noopener noreferrer" class="sara-link">Sarah
                     Brandini</a></div>
             <div class="flex gap-comp flex-1 justify-content-end">
-                <a href="https://www.facebook.com/share/1GJrcVZLW2/" target="_blank"><img
-                        src="<%= require('./assets/images/Facebook.svg') %>" alt="facebook icon"></a>
-                <a href="https://www.instagram.com/energie.du.coeur/" target="_blank"><img
-                        src="<%= require('./assets/images/instagram.svg') %>" alt="instagram icon"></a>
+                <a href="https://www.facebook.com/share/1GJrcVZLW2/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Page Facebook d'Énergie du Cœur"><img
+                        src="<%= require('./assets/images/Facebook.svg') %>" alt="" aria-hidden="true"></a>
+                <a href="https://www.instagram.com/energie.du.coeur/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Compte Instagram d'Énergie du Cœur"><img
+                        src="<%= require('./assets/images/instagram.svg') %>" alt="" aria-hidden="true"></a>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Confirmation popup -->
     <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
         <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <div class="flex flex-column gap-block align-center">

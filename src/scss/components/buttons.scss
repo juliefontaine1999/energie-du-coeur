@@ -1,41 +1,76 @@
 @use "sass:map";
 @use "sass:color";
 @use "../variables.scss";
+@use "../mixins.scss";
 
+:root {
+    --btn-font-size: #{variables.$font-size-sm};
+    --btn-padding-v: #{map.get(variables.$spacing, "2")};
+    --btn-padding-h: #{map.get(variables.$spacing, "3")};
+    --btn-bg-primary: #{variables.$primary-color};
+    --btn-bg-primary-hover: #{color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust)};
+    --btn-bg-primary-focus: #{color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust)};
+    --btn-text-primary: #{variables.$white};
+    --btn-bg-secondary: transparent;
+    --btn-bg-secondary-hover: #{color.adjust(variables.$white, $lightness: variables.$btn-secondary-hover-bg-lightness-adjust)};
+    --btn-bg-secondary-focus: #{color.adjust(variables.$white, $lightness: variables.$btn-secondary-focus-bg-lightness-adjust)};
+    --btn-border-secondary: #{variables.$primary-color};
+}
+
+@include mixins.respond-to(lg) {
+    :root {
+        --btn-font-size: #{variables.$font-size-md};
+        --btn-padding-v: #{map.get(variables.$spacing, "3")};
+        --btn-padding-h: #{map.get(variables.$spacing, "4")};
+    }
+}
+
+@include mixins.dark-mode {
+    :root {
+        --btn-bg-primary: #{variables.$dark-primary-color};
+        --btn-bg-primary-hover: #{color.adjust(variables.$dark-primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust)};
+        --btn-bg-primary-focus: #{color.adjust(variables.$dark-primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust)};
+        --btn-text-primary: #{variables.$dark-bg-primary};
+        --btn-bg-secondary-hover: #{color.adjust(variables.$dark-bg-primary, $lightness: 5%)};
+        --btn-bg-secondary-focus: #{color.adjust(variables.$dark-bg-primary, $lightness: 8%)};
+        --btn-border-secondary: #{variables.$dark-primary-color};
+    }
+}
 
 .btn {
-    padding: variables.$btn-padding;
+    padding: var(--btn-padding-v) var(--btn-padding-h);
     border: none;
     border-radius: variables.$btn-border-radius;
-    font-family: "RoslindaleDisplayNarrow", serif;
-    font-size: variables.$btn-font-size;
+    font-family: variables.$heading-font-family;
+    font-size: var(--btn-font-size);
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &.btn-primary {
-        background-color: variables.$primary-color;
-        color: variables.$white;
+        background-color: var(--btn-bg-primary);
+        color: var(--btn-text-primary);
 
         &:hover {
-            background-color: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust);
+            background-color: var(--btn-bg-primary-hover);
         }
 
         &:focus {
-            background-color: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust);
+            background-color: var(--btn-bg-primary-focus);
         }
     }
 
     &.btn-secondary {
-        border: 1px solid variables.$primary-color;
-        color: variables.$primary-color;
+        border: 1px solid var(--btn-border-secondary);
+        color: var(--btn-border-secondary);
+        background-color: var(--btn-bg-secondary);
 
         &:hover {
-            background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-hover-bg-lightness-adjust);
+            background-color: var(--btn-bg-secondary-hover);
         }
 
         &:focus {
-            background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-focus-bg-lightness-adjust);
+            background-color: var(--btn-bg-secondary-focus);
         }
     }
 
@@ -52,22 +87,22 @@
 
     svg {
         fill: none;
-        stroke: variables.$primary-color;
+        stroke: var(--color-primary);
     }
 
     &:hover {
-        background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-hover-bg-lightness-adjust);
+        background-color: var(--btn-bg-secondary-hover);
 
         svg {
-            stroke: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-hover-bg-lightness-adjust);
+            stroke: var(--btn-bg-primary-hover);
         }
     }
 
     &:focus {
-        background-color: color.adjust(variables.$white, $lightness: variables.$btn-secondary-focus-bg-lightness-adjust);
+        background-color: var(--btn-bg-secondary-focus);
 
         svg {
-            stroke: color.adjust(variables.$primary-color, $lightness: variables.$btn-primary-focus-bg-lightness-adjust);
+            stroke: var(--btn-bg-primary-focus);
         }
     }
 }
