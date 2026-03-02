@@ -29,7 +29,7 @@ async function submitAppointmentRequestForm(
         energy: String(formData.get('energy') ?? '')
     }
 
-    const response = await fetch('http://localhost:8081/contact', {
+    const response = await fetch('http://raspberry.energie-du-coeur.ch/contact', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -89,7 +89,7 @@ async function submitGiftCardRequestForm(
         energy: String(formData.get('energy') ?? '')
     }
 
-    const response = await fetch('http://localhost:8081/giftCard', {
+    const response = await fetch('http://raspberry.energie-du-coeur.ch/giftCard', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
