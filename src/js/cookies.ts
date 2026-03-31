@@ -28,7 +28,7 @@ export function initCookieBanner(): void {
 }
 
 function loadGoogleAnalytics(): void {
-    const gaId = 'G-V65PEN17GG';
+    const gaId = 'G-ZEXNQ57BGP';
 
     const script1 = document.createElement('script');
     script1.async = true;
