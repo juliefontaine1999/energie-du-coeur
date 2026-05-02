@@ -65,9 +65,9 @@ input[type="submit"] {
 .input-float-label {
     position: relative;
 
-    > label {
+    >label {
         position: absolute;
-        top: 50%;
+        top: 29.5px;
         margin-top: -0.6rem;
         font-size: var(--input-font-size);
         left: map.get(variables.$spacing, "3");
@@ -76,7 +76,7 @@ input[type="submit"] {
         pointer-events: none;
     }
 
-    textarea ~ label {
+    textarea~label {
         top: 1.5rem;
     }
 
@@ -84,7 +84,7 @@ input[type="submit"] {
     input:focus,
     textarea:valid,
     textarea:focus {
-        & ~ label {
+        &~label {
             top: -0.35rem;
             left: calc(map.get(variables.$spacing, "3") - 0.4rem);
             font-size: 0.85rem;
@@ -96,13 +96,26 @@ input[type="submit"] {
 
 @include mixins.respond-to(md) {
     .input-float-label {
+
         input:valid,
         input:focus,
         textarea:valid,
         textarea:focus {
-            & ~ label {
+            &~label {
                 top: -0.5rem;
             }
         }
     }
+}
+
+.field-error {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: #dc3545;
 }

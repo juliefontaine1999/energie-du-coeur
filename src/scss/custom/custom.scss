@@ -619,7 +619,7 @@ p {
     }
 }
 
-.sara-link {
+.inverted-link {
     color: var(--color-text-inverted);
     text-decoration: underline;
 
@@ -627,6 +627,7 @@ p {
         color: color.adjust(variables.$white, $lightness: 10%);
     }
 }
+
 
 .modal-overlay {
     position: fixed;
@@ -728,5 +729,105 @@ p {
         p {
             flex: 1;
         }
+    }
+}
+
+// =============================================================================
+// PRIVACY MODAL
+// =============================================================================
+
+.privacy-modal {
+    max-width: 700px;
+    max-height: 85vh;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.privacy-modal .modal-close-btn {
+    position: absolute;
+    top: map.get(variables.$spacing, "3");
+    right: map.get(variables.$spacing, "3");
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: variables.$text-color;
+    line-height: 1;
+    padding: map.get(variables.$spacing, "2");
+    z-index: 1;
+
+    &:hover {
+        color: variables.$primary-color;
+    }
+}
+
+.privacy-modal-content {
+    overflow-y: auto;
+    padding: map.get(variables.$spacing, "6");
+    padding-top: map.get(variables.$spacing, "7");
+
+    h2 {
+        color: variables.$primary-color;
+        font-size: 1.75rem;
+        margin-bottom: map.get(variables.$spacing, "3");
+    }
+
+    h3 {
+        color: variables.$primary-color;
+        font-size: 1.25rem;
+        margin-top: map.get(variables.$spacing, "5");
+        margin-bottom: map.get(variables.$spacing, "3");
+    }
+
+    h4 {
+        font-size: 1.1rem;
+        margin-top: map.get(variables.$spacing, "4");
+        margin-bottom: map.get(variables.$spacing, "2");
+    }
+
+    p {
+        margin-bottom: map.get(variables.$spacing, "3");
+        text-align: justify;
+    }
+
+    ul {
+        padding-left: 1.25rem;
+        margin-bottom: map.get(variables.$spacing, "3");
+
+        li {
+            margin-bottom: 0.35rem;
+        }
+    }
+
+    a {
+        color: variables.$primary-color;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    address {
+        font-style: normal;
+        background-color: rgba(variables.$primary-color, 0.08);
+        padding: map.get(variables.$spacing, "4");
+        border-radius: 6px;
+    }
+
+    .last-update {
+        color: rgba(variables.$text-color, 0.65);
+        font-style: italic;
+        font-size: 0.9rem;
+        margin-bottom: map.get(variables.$spacing, "5");
+    }
+
+    section {
+        margin-bottom: map.get(variables.$spacing, "4");
+    }
+
+    strong {
+        font-weight: 600;
     }
 }

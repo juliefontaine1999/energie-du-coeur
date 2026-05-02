@@ -41,6 +41,10 @@ function loadGoogleAnalytics(): void {
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', '${gaId}');
+        gtag('event', 'page_view', {
+            page_title: document.title,
+            page_location: window.location.href
+        });
     `;
     document.head.appendChild(script2);
 }
