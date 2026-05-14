@@ -17,16 +17,16 @@ export async function initCsrfToken(): Promise<void> {
     }
 }
 
-function validateEmail(email: string): boolean {
+export function validateEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-function validateRequired(value: string): boolean {
+export function validateRequired(value: string): boolean {
     return value.trim().length > 0;
 }
 
-function validateLength(value: string, min: number | undefined, max: number | undefined): boolean {
+export function validateLength(value: string, min: number | undefined, max: number | undefined): boolean {
     const trimmed = value.trim();
     let isValid: boolean = true;
     if (min !== undefined) {
@@ -112,7 +112,7 @@ function validateField(input: HTMLInputElement | HTMLTextAreaElement, rules: {
     return true;
 }
 
-function validateCheckboxRequired(checkboxes: HTMLInputElement[]): boolean {
+export function validateCheckboxRequired(checkboxes: HTMLInputElement[]): boolean {
     return checkboxes.some(checkbox => checkbox.checked);
 }
 
@@ -138,10 +138,10 @@ type AppointmentFormPayload = {
     lastname: string
     mail: string
     message: string
-    energeticCare: string
-    cardDrawing: string
-    numerology: string
-    remoteCare: string
+    energeticCare?: boolean
+    cardDrawing?: boolean
+    numerology?: boolean
+    remoteCare?: boolean
     energy: string
 }
 
@@ -150,15 +150,20 @@ async function submitAppointmentRequestForm(
 ): Promise<void> {
     const formData = new FormData(form)
 
+    const energeticCareChbx = form.querySelector<HTMLInputElement>('#energeticCareChbx')
+    const cardDrawingChbx = form.querySelector<HTMLInputElement>('#cardDrawingChbx')
+    const numerologyChbx = form.querySelector<HTMLInputElement>('#numerologyChbx')
+    const remoteCareChbx = form.querySelector<HTMLInputElement>('#remoteCareChbx')
+
     const payload: AppointmentFormPayload = {
         firstname: String(formData.get('firstname') ?? ''),
         lastname: String(formData.get('lastname') ?? ''),
         mail: String(formData.get('mail') ?? ''),
         message: String(formData.get('message') ?? ''),
-        energeticCare: String(formData.get('energeticCareChbx') ?? ''),
-        cardDrawing: String(formData.get('cardDrawingChbx') ?? ''),
-        numerology: String(formData.get('numerologyChbx') ?? ''),
-        remoteCare: String(formData.get('remoteCareChbx') ?? ''),
+        energeticCare: energeticCareChbx?.checked ?? false,
+        cardDrawing: cardDrawingChbx?.checked ?? false,
+        numerology: numerologyChbx?.checked ?? false,
+        remoteCare: remoteCareChbx?.checked ?? false,
         energy: String(formData.get('energy') ?? '')
     }
 
