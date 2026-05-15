@@ -10,7 +10,7 @@
     "test:unit": "vitest run",
     "css-lint": "stylelint src/scss/",
     "css": "npm-run-all css-compile css-prefix",
-    "css-compile": "sass --quiet --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules scss/:css/",
+    "css-compile": "sass --quiet --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules src/scss/:dist/css/",
     "css-prefix": "postcss --replace css/styles.css --use autoprefixer --map"
   },
   "repository": {
