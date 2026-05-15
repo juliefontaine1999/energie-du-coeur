@@ -144,6 +144,11 @@
     visibility: hidden;
 }
 
+.unreachable {
+    position: absolute;
+    left: -9999px;
+}
+
 .w-fit {
     width: fit-content;
 }

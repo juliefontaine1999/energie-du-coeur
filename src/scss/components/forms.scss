@@ -67,7 +67,7 @@ input[type="submit"] {
 
     >label {
         position: absolute;
-        top: 29.5px;
+        top: 21px;
         margin-top: -0.6rem;
         font-size: var(--input-font-size);
         left: map.get(variables.$spacing, "3");
@@ -96,6 +96,13 @@ input[type="submit"] {
 
 @include mixins.respond-to(md) {
     .input-float-label {
+
+        >label {
+            top: 29.5px;
+            margin-top: -0.6rem;
+            font-size: var(--input-font-size);
+        }
+
 
         input:valid,
         input:focus,
