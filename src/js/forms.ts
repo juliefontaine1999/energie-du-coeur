@@ -139,6 +139,7 @@ type AppointmentFormPayload = {
     mail: string
     message: string
     energeticCare?: boolean
+    energeticCareWithFollowUp?: boolean
     cardDrawing?: boolean
     numerology?: boolean
     remoteCare?: boolean
@@ -151,6 +152,7 @@ async function submitAppointmentRequestForm(
     const formData = new FormData(form)
 
     const energeticCareChbx = form.querySelector<HTMLInputElement>('#energeticCareChbx')
+    const energeticCareWithFollowUpChbx = form.querySelector<HTMLInputElement>('#energeticCareWithFollowUpChbx')
     const cardDrawingChbx = form.querySelector<HTMLInputElement>('#cardDrawingChbx')
     const numerologyChbx = form.querySelector<HTMLInputElement>('#numerologyChbx')
     const remoteCareChbx = form.querySelector<HTMLInputElement>('#remoteCareChbx')
@@ -161,6 +163,7 @@ async function submitAppointmentRequestForm(
         mail: String(formData.get('mail') ?? ''),
         message: String(formData.get('message') ?? ''),
         energeticCare: energeticCareChbx?.checked ?? false,
+        energeticCareWithFollowUp: energeticCareWithFollowUpChbx?.checked ?? false,
         cardDrawing: cardDrawingChbx?.checked ?? false,
         numerology: numerologyChbx?.checked ?? false,
         remoteCare: remoteCareChbx?.checked ?? false,

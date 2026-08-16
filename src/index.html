@@ -77,17 +77,17 @@
                         "name": "Soins énergétiques",
                         "description": "Un moment pour ralentir, relâcher les tensions et réharmoniser vos énergies."
                     },
-                    "price": "120",
+                    "price": "100",
                     "priceCurrency": "CHF"
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Numérologie",
-                        "description": "À partir de votre date de naissance, la numérologie révèle vos talents, forces et grands cycles de vie."
+                        "name": "Soins énergétiques et accompagnement",
+                        "description": "Un moment pour prendre pleinement soin de vous, avec un temps d’échange avant et après le soin et un tirage de cartes."
                     },
-                    "price": "120",
+                    "price": "150",
                     "priceCurrency": "CHF"
                 },
                 {
@@ -98,6 +98,16 @@
                         "description": "Un temps d'écoute et de réflexion guidée pour aborder une question ou une thématique de votre choix."
                     },
                     "price": "70",
+                    "priceCurrency": "CHF"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Numérologie",
+                        "description": "À partir de votre date de naissance, la numérologie révèle vos talents, forces et grands cycles de vie."
+                    },
+                    "price": "120",
                     "priceCurrency": "CHF"
                 },
                 {
@@ -190,21 +200,75 @@
                                     <h3 class="prestation-card-title px-5">Soins énergétiques</h3>
                                     <div class="prestation-card-text px-5">
                                         <p>
-                                            Un moment pour ralentir, relâcher les tensions et réharmoniser
-                                            vos énergies. Guidée par l'intuition, chaque séance est unique et s'adapte à
-                                            vos besoins,
-                                            en s'inspirant notamment des méthodes de Luc Bodin, du Reiki et du
-                                            magnétisme. Bienfaits :
-                                            réduction du stress, regain d'énergie, meilleure gestion des émotions,
-                                            soutien lors de
-                                            périodes de transition.
+                                            Un moment pour ralentir, relâcher les tensions et réharmoniser vos énergies.
+                                            Guidée par
+                                            l’intuition, la séance est entièrement consacrée au soin énergétique et
+                                            s’adapte à vos
+                                            besoins du moment, en s’inspirant notamment des méthodes de Luc Bodin, du
+                                            Reiki et du
+                                            magnétisme.
+                                            Bienfaits : réduction du stress, regain d’énergie, apaisement émotionnel,
+                                            recentrage et
+                                            soutien lors de périodes de transition.
                                         </p>
                                     </div>
                                     <div class="prestation-card-divider mx-5"></div>
                                     <div
                                         class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
                                         <div class="prices flex align-center gap-2">
-                                            <div class="original-price">CHF 120.-/1h45</div>
+                                            <div class="original-price">CHF 100.-/1h00</div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="prestation-card gap-4">
+                                    <img class="prestation-card-img"
+                                        src="<%= require('./assets/images/SoinsEnergetiquesAccompagnement.jpg') %>"
+                                        alt="Séance de soins énergétiques avec accompagnement">
+
+                                    <h3 class="prestation-card-title px-5">Soins énergétiques & accompagnement</h3>
+                                    <div class="prestation-card-text px-5">
+                                        <p>
+                                            Un moment pour prendre pleinement soin de vous, avec un temps d’échange
+                                            avant et après
+                                            le soin. Guidée par l’intuition, la séance associe soin énergétique, partage
+                                            de mes ressentis
+                                            et selon vos besoins, un tirage de cartes pour approfondir certains
+                                            messages.
+                                            Bienfaits : réduction du stress, regain d’énergie, apaisement émotionnel,
+                                            prise de recul et
+                                            accompagnement lors de périodes de transition.
+                                        </p>
+                                    </div>
+                                    <div class="prestation-card-divider mx-5"></div>
+                                    <div
+                                        class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
+                                        <div class="prices flex align-center gap-2">
+                                            <div class="original-price">CHF 150.-/1h45</div>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="prestation-card gap-4">
+                                    <img class="prestation-card-img"
+                                        src="<%= require('./assets/images/Tiragesdecartes.jpg') %>"
+                                        alt="Tirage de cartes">
+
+                                    <h3 class="prestation-card-title px-5">Tirages de cartes</h3>
+                                    <div class="prestation-card-text px-5">
+                                        <p>Un tirage de cartes est un temps d'écoute et de réflexion guidée. Vous pouvez
+                                            aborder une question ou une thématique de votre choix (relation,
+                                            orientation, période de vie…), puis les cartes sont tirées et interprétées
+                                            avec
+                                            sensibilité et intuition.
+                                            Elles favorisent les prises de conscience et ouvrent de nouvelles
+                                            perspectives pour avancer plus sereinement.</p>
+                                    </div>
+                                    <div class="prestation-card-divider mx-5"></div>
+                                    <div
+                                        class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
+                                        <div class="prices flex align-center gap-2">
+                                            <div class="original-price">CHF 70.-/1h00</div>
                                         </div>
                                     </div>
                                 </article>
@@ -239,41 +303,20 @@
 
                                 <article class="prestation-card gap-4">
                                     <img class="prestation-card-img"
-                                        src="<%= require('./assets/images/Tiragesdecartes.jpg') %>"
-                                        alt="Tirage de cartes">
-
-                                    <h3 class="prestation-card-title px-5">Tirages de cartes</h3>
-                                    <div class="prestation-card-text px-5">
-                                        <p>Un tirage de cartes est un temps d'écoute et de réflexion guidée. Vous pouvez
-                                            aborder une question ou une thématique de votre choix (relation,
-                                            orientation, période de vie…), puis les cartes sont tirées et interprétées
-                                            avec
-                                            sensibilité et intuition.
-                                            Elles favorisent les prises de conscience et ouvrent de nouvelles
-                                            perspectives pour avancer plus sereinement.</p>
-                                    </div>
-                                    <div class="prestation-card-divider mx-5"></div>
-                                    <div
-                                        class="prestation-card-footer flex flex-column align-center gap-3 py-3 mx-5 mb-5">
-                                        <div class="prices flex align-center gap-2">
-                                            <div class="original-price">CHF 70.-/1h00</div>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <article class="prestation-card gap-4">
-                                    <img class="prestation-card-img"
                                         src="<%= require('./assets/images/SoinsADistance.jpg') %>"
                                         alt="Soin énergétique à distance">
 
                                     <h3 class="prestation-card-title px-5">Soins à distance</h3>
                                     <div class="prestation-card-text px-5">
-                                        <p>Le soin énergétique à distance est un flux d'énergie qui passe à travers
-                                            le·la thérapeute afin d'activer les capacités naturelles de guérison. Sans
-                                            contrainte de lieu, il offre un moment de recentrage et de rééquilibrage, en
-                                            agissant
-                                            sur les plans physique, émotionnel et énergétique.
-                                        </p>
+                                        <p>Le soin énergétique à distance est un flux d’énergie qui passe à travers
+                                            le·la thérapeute afin
+                                            d’activer les capacités naturelles de guérison. Sans contrainte de lieu ni
+                                            de temps, il vous
+                                            offre un moment de recentrage et de rééquilibrage, où que vous soyez et sans
+                                            avoir besoin
+                                            d’être disponible au moment du soin. Il agit sur les plans physique,
+                                            émotionnel et
+                                            énergétique.</p>
                                     </div>
                                     <div class="prestation-card-divider mx-5"></div>
                                     <div
@@ -377,6 +420,13 @@
                                     <input type="checkbox" id="energeticCareChbx" name="energeticCareChbx"
                                         class="checkbox-input" value="energeticCare">
                                     <label for="energeticCareChbx" class="checkbox-label">Soins énergétiques</label>
+                                </div>
+                                <div class="col-12 lg:col-6 flex align-center gap-2">
+                                    <input type="checkbox" id="energeticCareWithFollowUpChbx"
+                                        name="energeticCareWithFollowUpChbx" class="checkbox-input"
+                                        value="energeticCareWithFollowUp">
+                                    <label for="energeticCareWithFollowUpChbx" class="checkbox-label">Soins énergétiques
+                                        & accompagnement</label>
                                 </div>
                                 <div class="col-12 lg:col-6 flex align-center gap-2">
                                     <input type="checkbox" id="cardDrawingChbx" name="cardDrawingChbx"
@@ -499,7 +549,10 @@
             <div class="flex-1 text-align-center">Site web par Vincent Brodard - Photos par <a
                     href="https://www.instagram.com/sarah.brandini.photographie" target="_blank"
                     rel="noopener noreferrer" class="inverted-link">Sarah
-                    Brandini</a></div>
+                    Brandini</a> et <a
+                    href="https://www.instagram.com/camillesimonbrunet?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank" rel="noopener noreferrer" class="inverted-link">Camille Simon Brunet</a>
+            </div>
             <div class="flex gap-comp flex-1 justify-content-end">
                 <a href="https://www.facebook.com/share/1GJrcVZLW2/" target="_blank" rel="noopener noreferrer"
                     aria-label="Page Facebook d'Énergie du Cœur"><img

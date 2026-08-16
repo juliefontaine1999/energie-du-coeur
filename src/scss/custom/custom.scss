@@ -482,7 +482,7 @@ p {
 @include mixins.respond-to(md) {
     #prestationsWrapper #prestations {
         .carousel {
-            --cards-visible: 1.5;
+            --cards-visible: 1;
             max-width: 600px;
         }
     }
